@@ -7,7 +7,7 @@ Feel free to use this as a source of inspiration, it is by no means production c
 # built-in imports
 import re
 from json import dump
-from tqdm import tqdm
+from tqdm import tqdm # this can provide progress bars- super cool
 
 from collections import defaultdict
 import urllib.request
