@@ -1,22 +1,21 @@
 # JUST TESTING SOME SCRAPING OF DOMAIN.COM CURRENTLY FIGURING OUT HOW TO GET MORE ELEMENTS. 
 
-# built-in imports
+# IMPORT LIBRARIES
 import re
 from json import dump
 from tqdm import tqdm
-
 from collections import defaultdict
 import urllib.request
-
-# user packages
 from bs4 import BeautifulSoup
 from urllib.request import urlopen, Request
+import numpy as np
+from urllib.parse import urlparse, parse_qs
 
-# constants
+# CONSTANTS
 BASE_URL = "https://www.domain.com.au"
-N_PAGES = range(1, 5) # update this to your liking
+N_PAGES = range(1, 3) # update this to your liking
 
-# begin code
+# BEGIN SCRAPING:
 url_links = []
 property_metadata = defaultdict(dict)
 
@@ -45,52 +44,124 @@ for page in N_PAGES:
 
 
 
-
-
-# # for each url, scrape some basic metadata
-# pbar = tqdm(url_links[1:])
-# success_count, total_count = 0, 0
-# for property_url in pbar:
-#     bs_object = BeautifulSoup(urlopen(Request(property_url, headers={'User-Agent':"PostmanRuntime/7.6.0"})), "lxml")
-#     total_count += 1
+# for each url, scrape some basic metadata
+pbar = tqdm(url_links[1:])
+success_count, total_count = 0, 0
+for property_url in pbar:
+    bs_object = BeautifulSoup(urlopen(Request(property_url, headers={'User-Agent':"PostmanRuntime/7.6.0"})), "lxml")
+    total_count += 1
     
-#     try: 
-#         # looks for the header class to get property name
-#         property_metadata[property_url]['name'] = bs_object \
-#             .find("h1", {"class": "css-164r41r"}) \
-#             .text
+    try: 
+        # EDDITED WHAT THEY GAVE US TO MAKE IT SHORTER AND NEATER
+        # looks for the header class to get property name
+        property_metadata[property_url]['name'] = bs_object.find("h1", {"class": "css-164r41r"}).text
 
-#         # looks for the div containing a summary title for cost
-#         property_metadata[property_url]['cost_text'] = bs_object \
-#             .find("div", {"data-testid": "listing-details__summary-title"}) \
-#             .text
+        # looks for the div containing a summary title for cost
+        property_metadata[property_url]['cost_text'] = bs_object.find(
+            "div", {"data-testid": "listing-details__summary-title"}).text
 
-#         # get rooms and parking
-#         rooms = bs_object \
-#                 .find("div", {"data-testid": "property-features"}) \
-#                 .findAll("span", {"data-testid": "property-features-text-container"})
+        # get rooms and parking
+        rooms = bs_object.find("div", {"data-testid": "property-features"}).findAll(
+            "span", {"data-testid": "property-features-text-container"})
 
-#         # rooms
-#         property_metadata[property_url]['rooms'] = [
-#             re.findall(r'\d+\s[A-Za-z]+', feature.text)[0] for feature in rooms
-#             if 'Bed' in feature.text or 'Bath' in feature.text
-#         ]
-#         # parking
-#         property_metadata[property_url]['parking'] = [
-#             re.findall(r'\S+\s[A-Za-z]+', feature.text)[0] for feature in rooms
-#             if 'Parking' in feature.text
-#         ]
+        property_metadata[property_url]['rooms'] = [
+            re.findall(r'\d+\s[A-Za-z]+', feature.text)[0] for feature in rooms if 'Bed' in feature.text or 'Bath' in feature.text
+        ]
 
-#         property_metadata[property_url]['desc'] = re \
-#             .sub(r'<br\/>', '\n', str(bs_object.find("p"))) \
-#             .strip('</p>')
-#         success_count += 1
+        property_metadata[property_url]['parking'] = [
+            re.findall(r'\S+\s[A-Za-z]+', feature.text)[0] for feature in rooms if 'Parking' in feature.text
+        ]
+
+        # Get the  description
+        property_metadata[property_url]['desc'] = bs_object.find("p").get_text(separator='\n').strip()
+
+      
+        # ADDITIONAL SCRAPING (OTHER THAN WHAT THEYVE GIVEN US):
+
+        # Property type
+        property_metadata[property_url]['property_type'] = bs_object.find(
+            "div", {"data-testid": "listing-summary-property-type"}).find("span", {"class": "css-in3yi3"}).text
+
+        # DATE AVAILABLE AND BOND
+        ul_element = bs_object.find("div", {"data-testid": "strip-content-list"}).find("ul", {"data-testid": "listing-summary-strip"})
+        li_elements = ul_element.find_all("li")
+
+        # Initialize variables for data
+        date_available = np.nan
+        bond = np.nan
+
+        # Iterate over each li element
+        for li in li_elements:
+            strong_tag = li.find("strong")
+            if strong_tag:
+                text = strong_tag.get_text(strip=True)  # Extract text from the strong tag
+                li_text = li.get_text(strip=True)  # Extract text from the li element for descriptive context
+                if "Date Available:" in li_text:
+                    date_available = text
+                elif "Bond" in li_text:
+                    bond = text
+
+        # Assign values to the dictionary
+        property_metadata[property_url]['date_available'] = date_available
+        property_metadata[property_url]['bond'] = bond
+
+
+        # PROPERTY FEATURES:
+        # Locate the top-level div
+        listing_details_div = bs_object.find("div", {"data-testid": "listing-details__additional-features"})
+
+        # Extract property features with checks for each level (not all properties have features)
+        property_features = []
+        if listing_details_div:
+            expander_wrapper = listing_details_div.find("div", {"data-testid": "expander-wrapper"})
+            if expander_wrapper:
+                content_div = expander_wrapper.find("div", {"class": "noscript-expander-content css-1mnayj9"})
+                if content_div:
+                    ul_element = content_div.find("ul", {"class": "css-4ewd2m"})
+                    if ul_element:
+                        li_elements = ul_element.find_all("li", {"class": "css-vajaaq"})
+                        property_features = [li.get_text(strip=True) for li in li_elements]
+
+        # Add the list to the property_metadata dictionary
+        property_metadata[property_url]['property_features'] = property_features
+
+
+        # # EXTRACTING THE COORDINATES: 
         
-#     except AttributeError:
-#         print(f"Issue with {property_url}")
+        # Extract coordinates from the map div
+        map_div = bs_object.find("div", {"data-testid": "listing-details__map"}) \
+            .find("div", {"class": "css-yjd8ae"}) \
+            .find("div", {"class": "listing-details__location-map--default css-79elbk"}) \
+            .find("ul", {"class": "css-1vlxv67"}) \
+            .find_all("li", {"class": "css-1g3iwis"})[1] \
+            .find("a", {"class": "css-1aszeu9"})
 
-#     pbar.set_description(f"{(success_count/total_count * 100):.0f}% successful")
+        # Initialize latitude and longitude
+        latitude, longitude = None, None
 
-# # output to example json in data/raw/
-# with open('../data/raw/testing_scraping.json', 'w') as f:
-#     dump(property_metadata, f)
+        # Extract and parse the href if available
+        if map_div and 'href' in map_div.attrs:
+            href = map_div['href']
+            destination = parse_qs(urlparse(href).query).get('destination', [None])[0]
+            if destination:
+                coordinates = destination.split(',')
+                if len(coordinates) == 2:
+                    latitude, longitude = coordinates
+
+        # Update metadata
+        property_metadata[property_url]['coordinates'] = [latitude, longitude]
+
+
+
+        # Add one to the success to track
+        success_count += 1
+
+        
+    except AttributeError:
+        print(f"Issue with {property_url}")
+
+    pbar.set_description(f"{(success_count/total_count * 100):.0f}% successful")
+
+# output to example json in data/raw/
+with open('../data/raw/testing_scraping.json', 'w') as f:
+    dump(property_metadata, f)
