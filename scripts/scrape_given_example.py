@@ -7,7 +7,7 @@ Feel free to use this as a source of inspiration, it is by no means production c
 # built-in imports
 import re
 from json import dump
-from tqdm import tqdm
+from tqdm import tqdm # this can provide progress bars- super cool
 
 from collections import defaultdict
 import urllib.request
@@ -18,7 +18,7 @@ from urllib.request import urlopen, Request
 
 # constants
 BASE_URL = "https://www.domain.com.au"
-N_PAGES = range(1, 5) # update this to your liking
+N_PAGES = range(1, 5) 
 
 # begin code
 url_links = []
