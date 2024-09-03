@@ -13,7 +13,8 @@ from urllib.parse import urlparse, parse_qs
 
 # CONSTANTS
 BASE_URL = "https://www.domain.com.au"
-N_PAGES = range(1, 3) # update this to your liking
+N_PAGES = range(1, 3) # RIGHT NOW THIS ONLY LOOKS AT THE FIRST 3 PAGES FOR QUICK RUN TIME THIS NEEDS TO BE UPDATED TO
+# SEARCH ALL THE PAGES!
 
 # BEGIN SCRAPING:
 url_links = []
