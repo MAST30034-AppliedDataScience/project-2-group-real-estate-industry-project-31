@@ -163,6 +163,18 @@ for property_url in pbar:
 
     pbar.set_description(f"{(success_count/total_count * 100):.0f}% successful")
 
-# output to example json in data/raw/
-with open('../data/raw/testing_scraping.json', 'w') as f:
+import os
+
+# from the current `scripts` directory, go back one levels to the `project` directory
+output_relative_dir = '../data/'
+
+# check if it exists as it makedir will raise an error if it does exist
+if not os.path.exists(output_relative_dir):
+    os.makedirs(output_relative_dir)
+    
+if not os.path.exists(output_relative_dir + 'landing'):
+        os.makedirs(output_relative_dir + 'landing')
+
+# output to example json in data/landing/
+with open(output_relative_dir + 'landing/testing_scraping.json', 'w') as f:
     dump(property_metadata, f)
