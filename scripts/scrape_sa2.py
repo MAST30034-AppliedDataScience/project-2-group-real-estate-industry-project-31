@@ -1,14 +1,19 @@
-def get_shapefile():
-    """Gets the taxi zones shapefile from the TLC website
+import os
+import zipfile
+from urllib.request import urlretrieve
+
+
+def get_shapefile(url, output_dir):
     """
-    url = "https://d37ci6vzurychx.cloudfront.net/misc/taxi_zones.zip"
-    output_dir = '../data/landing/map/'
+    Gets the SA2 shapefile from the ABS website
+    """
+
     if not os.path.exists(output_dir):
             os.makedirs(output_dir)
-    zip_path = f"{output_dir}taxi_zones.zip"
+    zip_path = f"{output_dir}SA2.zip"
     urlretrieve(url, zip_path)
     
-    extract_dir = f"{output_dir}extracted_taxi_zones"  # Specify where you want to extract the files
+    extract_dir = f"{output_dir}extracted_SA2"  # Specify where you want to extract the files
     with zipfile.ZipFile(zip_path, 'r') as zip_ref:
         zip_ref.extractall(extract_dir)
     return
