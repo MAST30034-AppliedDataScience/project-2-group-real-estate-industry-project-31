@@ -181,5 +181,5 @@ def fetch_rental_data(url_links):
 
         pbar.set_description(f"{(success_count/total_count * 100):.0f}% successful")
 
-        return property_metadata
+    return property_metadata
     
