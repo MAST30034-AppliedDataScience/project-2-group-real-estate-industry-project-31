@@ -7,9 +7,9 @@
 * Group Members:
     - Nasser Mostafa (1172895)
     - Oscar Li       (1356343)
-    - Laura Grant    ()
+    - Laura Grant    (1353155)
     - Charlie Amad   (1356239)
-    - Uma Barnes     ()
+    - Uma Barnes     (1277919)
 
 
 **Research Goal:** This project aims to ...
