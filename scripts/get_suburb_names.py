@@ -61,4 +61,4 @@ def get_suburb_names():
 
 # Call the function
 suburb_names = get_suburb_names()
-print(suburb_names)
+suburb_names
