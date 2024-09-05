@@ -10,10 +10,9 @@ def get_sa2_names():
     list: A list of unique SA2 names.
     """
 
-    # Hardcoded shapefile path
-    shapefile_path = "../data/shapefile/SA2/SA2_2021_AUST_GDA2020.shp"
-    
     # Load shapefile
+    shapefile_path = "../data/SA2/extracted_SA2/SA2_2021_AUST_GDA2020.shp"
+    
     gdf = gpd.read_file(shapefile_path)
     
     # Filter for Victoria
