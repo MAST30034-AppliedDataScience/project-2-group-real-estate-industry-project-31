@@ -8,44 +8,106 @@ from urllib.request import urlopen, Request
 import numpy as np
 from urllib.parse import urlparse, parse_qs
 
-
-def generate_url_list(npages, baseurl):
+def generate_url_list(baseurl):
     '''
-    Returns a list of domain.com urls for the given number of pages
+    Returns a list of domain.com.au URLs for rent listings within a price range.
+    The function starts from 150 and increments by 50 until 3000, then uses "3000-any".
+    If a price range has more than 1000 listings, it breaks the range into $5 increments.
+    For each price range, it fetches up to 50 pages, or stops if no listings are found.
     '''
-    # Printing a message for the terminal
     print("\nGenerating the list of links...\n")
 
-    # Initialising the url list
+    # Initializing the URL list
     url_links = []
-
-    # Looping through each page 
-    for page in range(npages):
-
-        # Forming the url for that page
-        url = f"{baseurl}/rent/VIC/?sort=price-desc&page={page+1}" # change this to just VIC, not melbourne-region-vic
+    
+    # Starting price range
+    min_price = 150
+    max_price = 3000
+    
+    # Looping through price ranges (150 to 3000 in steps of 50)
+    while min_price <= max_price:
+        # Handle the final "3000-any" case
+        if min_price >= 3000:
+            price_range = "3000-any"
+            price_increment = 50  # No need for further sub-range checks
+        else:
+            price_range = f"{min_price}-{min_price + 50}"
+            price_increment = 50  # Default increment
         
-        print(f"Visiting {url}")
+        print(f"\nFetching listings for price range: {price_range}\n")
         
-        bs_object = BeautifulSoup(urlopen(Request(url, headers={'User-Agent':"PostmanRuntime/7.6.0"})), "lxml")
-
-        # find the unordered list (ul) elements which are the results, then
-        # find all href (a) tags that are from the base_url website.
-        index_links = bs_object \
-            .find(
-                "ul",
-                {"data-testid": "results"}
-            ) \
-            .findAll(
-                "a",
-                href=re.compile(f"{baseurl}/*") # the `*` denotes wildcard any
-            )
-
-        for link in index_links:
-            # if its a property address, add it to the list
-            if 'address' in link['class']:
-                url_links.append(link['href'])
-
+        # URL to check how many properties are available for the price range
+        check_url = f"{baseurl}/rent/?price={price_range}&excludedeposittaken=1&sort=price-asc&state=vic"
+        
+        try:
+            response = urlopen(Request(check_url, headers={'User-Agent':"PostmanRuntime/7.6.0"}))
+            bs_object = BeautifulSoup(response, "lxml")
+        except Exception as e:
+            print(f"Error fetching page {check_url}: {e}")
+            min_price += 50
+            continue
+        
+        # Find the total number of listings for the current price range
+        try:
+            properties_div = bs_object.find("div", {"class": "css-9ny10o"})
+            properties_count_str = properties_div.find("h1", {"class": "css-ekkwk0"}).find("strong").text
+            total_listings = int(re.sub(r'[^\d]', '', properties_count_str))  # Extract the number of listings
+            print(f"Found {total_listings} listings for price range {price_range}")
+        except AttributeError:
+            print(f"Could not find listing count for {price_range}, assuming no listings.")
+            total_listings = 0
+        
+        # If more than 1000 listings, break the range into $5 intervals
+        if total_listings > 1000:
+            print(f"Breaking price range {price_range} into $5 intervals due to more than 1000 listings.")
+            price_increment = 5
+        else:
+            price_increment = 50
+        
+        # Adjust the price range increment accordingly (could be $50 or $5)
+        current_min_price = min_price
+        
+        while current_min_price < min_price + 50:
+            if current_min_price >= 3000:
+                price_range = "3000-any"
+            else:
+                price_range = f"{current_min_price}-{current_min_price + price_increment}"
+                
+            print(f"\nFetching listings for sub-range: {price_range}\n")
+            
+            # Fetch up to 50 pages for the current sub-range
+            for page in range(1, 51):  # Page numbers start from 1 to 50 (max)
+                url = f"{baseurl}/rent/?price={price_range}&excludedeposittaken=1&sort=price-asc&state=vic&page={page}"
+                print(f"Visiting {url}")
+                
+                # Request the page content
+                try:
+                    response = urlopen(Request(url, headers={'User-Agent':"PostmanRuntime/7.6.0"}))
+                    bs_object = BeautifulSoup(response, "lxml")
+                except Exception as e:
+                    print(f"Error fetching page {page}: {e}")
+                    break
+                
+                # Find the listings (ul element with specific data-testid attribute)
+                results = bs_object.find("ul", {"data-testid": "results"})
+                if not results:
+                    print(f"No listings found on page {page} for price range {price_range}.")
+                    break  # Exit the page loop if no results found
+                
+                # Find all href (a) tags that are from the base_url website
+                index_links = results.findAll("a", href=re.compile(f"{baseurl}/*"))
+                
+                # Filter for links with class 'address'
+                for link in index_links:
+                    if 'address' in link.get('class', []):
+                        url_links.append(link['href'])
+            
+            current_min_price += price_increment
+        
+        # Move to the next $50 price range
+        min_price += 50
+    
+    url_links = list(set(url_links))
     return url_links
 
 
