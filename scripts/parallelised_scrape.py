@@ -1,8 +1,17 @@
+############################# IMPORT NECCESSARY LIBRARIES #############################
+
 import re
 from tqdm import tqdm
 from bs4 import BeautifulSoup
 from urllib.request import urlopen, Request
 from concurrent.futures import ThreadPoolExecutor, as_completed
+import requests
+from collections import defaultdict
+import numpy as np
+from urllib.parse import urlparse, parse_qs
+
+
+############################# FINDING ALL THE RENTAL URLS #############################
 
 def fetch_links_for_price_range(baseurl, price_range, page):
     '''
@@ -32,9 +41,10 @@ def fetch_links_for_price_range(baseurl, price_range, page):
     
     return links
 
-def generate_url_list_2(baseurl):
+def generate_url_list(baseurl):
     '''
-    Optimized version that uses threading to fetch multiple pages concurrently for each price range.
+    Generating a list of VIC property urls that uses threading to fetch multiple pages 
+    concurrently for each price range.
     '''
     print("\nGenerating the list of links...\n")
     url_links = []
@@ -107,133 +117,120 @@ def generate_url_list_2(baseurl):
 
 
 
+############################# FETCHING THE DATA FOR EACH RENTAL #############################
 
-############################# EXPERIMENTING WITH  ASYNC FUNCTIONS #############################
 
-
-import aiohttp
-import asyncio
-from bs4 import BeautifulSoup
-from collections import defaultdict
-from tqdm import tqdm
-import re
-import numpy as np
-from urllib.parse import urlparse, parse_qs
-
-async def fetch_rental_data_async(session, property_url, property_metadata):
+def fetch_rental_data(property_url, property_metadata):
     '''
-    Asynchronous function to fetch data from a single rental property URL
+    Fetch the rental data of interest for a particular property
     '''
-    headers = {'User-Agent': "PostmanRuntime/7.6.0"}
-    
+    headers = {'User-Agent': "PostmanRuntime/7.6.0"} # Define headers to mimic a browser request
     try:
-        async with session.get(property_url, headers=headers) as response:
-            html = await response.text()
-            bs_object = BeautifulSoup(html, "lxml")
+        # Send a GET request to the property URL
+        response = requests.get(property_url, headers=headers)
+        html = response.text
 
-            # Property name
-            property_metadata[property_url]['name'] = bs_object.find("h1", {"class": "css-164r41r"}).text
+        # Parse the HTML content using BeautifulSoup 
+        bs_object = BeautifulSoup(html, "lxml")
 
-            # Cost
-            property_metadata[property_url]['cost_text'] = bs_object.find(
-                "div", {"data-testid": "listing-details__summary-title"}).text
+        # Scrape and store the property name
+        property_metadata[property_url]['name'] = bs_object.find("h1", {"class": "css-164r41r"}).text
 
-            # Rooms and parking
-            rooms = bs_object.find("div", {"data-testid": "property-features"}).findAll(
-                "span", {"data-testid": "property-features-text-container"})
+        # Scrape and store the property cost
+        property_metadata[property_url]['cost_text'] = bs_object.find("div", {"data-testid": "listing-details__summary-title"}).text
 
-            property_metadata[property_url]['rooms'] = [
-                re.findall(r'\d+\s[A-Za-z]+', feature.text)[0] for feature in rooms if 'Bed' in feature.text or 'Bath' in feature.text
-            ]
+        # Extract room and parking details using regex
+        rooms = bs_object.find("div", {"data-testid": "property-features"}).findAll("span", {"data-testid": "property-features-text-container"})
+        property_metadata[property_url]['rooms'] = [
+            re.findall(r'\d+\s[A-Za-z]+', feature.text)[0] for feature in rooms if 'Bed' in feature.text or 'Bath' in feature.text
+        ]
+        property_metadata[property_url]['parking'] = [
+            re.findall(r'\S+\s[A-Za-z]+', feature.text)[0] for feature in rooms if 'Parking' in feature.text
+        ]
 
-            property_metadata[property_url]['parking'] = [
-                re.findall(r'\S+\s[A-Za-z]+', feature.text)[0] for feature in rooms if 'Parking' in feature.text
-            ]
+        # Scrape and store property description
+        property_metadata[property_url]['desc'] = bs_object.find("p").get_text(separator='\n').strip()
 
-            # Description
-            property_metadata[property_url]['desc'] = bs_object.find("p").get_text(separator='\n').strip()
 
-            # Property type
-            property_metadata[property_url]['property_type'] = bs_object.find(
-                "div", {"data-testid": "listing-summary-property-type"}).find("span", {"class": "css-in3yi3"}).text
+        # Scrape and store the property type (e.g., house, apartment)
+        property_metadata[property_url]['property_type'] = bs_object.find(
+            "div", {"data-testid": "listing-summary-property-type"}).find("span", {"class": "css-in3yi3"}).text
 
-            # Date available and bond
-            ul_element = bs_object.find("div", {"data-testid": "strip-content-list"}).find("ul", {"data-testid": "listing-summary-strip"})
-            li_elements = ul_element.find_all("li")
+        # Extract additional details such as date available and bond using list items
+        ul_element = bs_object.find("div", {"data-testid": "strip-content-list"}).find("ul", {"data-testid": "listing-summary-strip"})
+        li_elements = ul_element.find_all("li")
 
-            date_available = np.nan
-            bond = np.nan
+        date_available = np.nan
+        bond = np.nan
 
-            for li in li_elements:
-                strong_tag = li.find("strong")
-                if strong_tag:
-                    text = strong_tag.get_text(strip=True)
-                    li_text = li.get_text(strip=True)
-                    if "Date Available:" in li_text:
-                        date_available = text
-                    elif "Bond" in li_text:
-                        bond = text
+        for li in li_elements:
+            strong_tag = li.find("strong")
+            if strong_tag:
+                text = strong_tag.get_text(strip=True)
+                li_text = li.get_text(strip=True)
+                if "Date Available:" in li_text:
+                    date_available = text
+                elif "Bond" in li_text:
+                    bond = text
 
-            property_metadata[property_url]['date_available'] = date_available
-            property_metadata[property_url]['bond'] = bond
+        # Store the date available and bond information
+        property_metadata[property_url]['date_available'] = date_available
+        property_metadata[property_url]['bond'] = bond
 
-            # Property features
-            listing_details_div = bs_object.find("div", {"data-testid": "listing-details__additional-features"})
-            property_features = []
-            if listing_details_div:
-                expander_wrapper = listing_details_div.find("div", {"data-testid": "expander-wrapper"})
-                if expander_wrapper:
-                    content_div = expander_wrapper.find("div", {"class": "noscript-expander-content css-1mnayj9"})
-                    if content_div:
-                        ul_element = content_div.find("ul", {"class": "css-4ewd2m"})
-                        if ul_element:
-                            li_elements = ul_element.find_all("li", {"class": "css-vajaaq"})
-                            property_features = [li.get_text(strip=True) for li in li_elements]
+        # Scrape additional property features if available
+        listing_details_div = bs_object.find("div", {"data-testid": "listing-details__additional-features"})
+        property_features = []
+        if listing_details_div:
+            expander_wrapper = listing_details_div.find("div", {"data-testid": "expander-wrapper"})
+            if expander_wrapper:
+                content_div = expander_wrapper.find("div", {"class": "noscript-expander-content css-1mnayj9"})
+                if content_div:
+                    ul_element = content_div.find("ul", {"class": "css-4ewd2m"})
+                    if ul_element:
+                        li_elements = ul_element.find_all("li", {"class": "css-vajaaq"})
+                        property_features = [li.get_text(strip=True) for li in li_elements]
 
-            property_metadata[property_url]['property_features'] = property_features
+        property_metadata[property_url]['property_features'] = property_features
 
-            # Coordinates
-            map_div = bs_object.find("div", {"data-testid": "listing-details__map"}) \
-                .find("div", {"class": "css-yjd8ae"}) \
-                .find("div", {"class": "listing-details__location-map--default css-79elbk"}) \
-                .find("ul", {"class": "css-1vlxv67"}) \
-                .find_all("li", {"class": "css-1g3iwis"})[1] \
-                .find("a", {"class": "css-1aszeu9"})
+        # Scrape latitude and longitude for the property from the map link
+        map_div = bs_object.find("div", {"data-testid": "listing-details__map"}) \
+            .find("div", {"class": "css-yjd8ae"}) \
+            .find("div", {"class": "listing-details__location-map--default css-79elbk"}) \
+            .find("ul", {"class": "css-1vlxv67"}) \
+            .find_all("li", {"class": "css-1g3iwis"})[1] \
+            .find("a", {"class": "css-1aszeu9"})
 
-            latitude, longitude = None, None
-            if map_div and 'href' in map_div.attrs:
-                href = map_div['href']
-                destination = parse_qs(urlparse(href).query).get('destination', [None])[0]
-                if destination:
-                    coordinates = destination.split(',')
-                    if len(coordinates) == 2:
-                        latitude, longitude = coordinates
+        latitude, longitude = None, None
 
-            property_metadata[property_url]['coordinates'] = [latitude, longitude]
+        # Extract coordinates from the map URL if available
+        if map_div and 'href' in map_div.attrs:
+            href = map_div['href']
+            destination = parse_qs(urlparse(href).query).get('destination', [None])[0]
+            if destination:
+                coordinates = destination.split(',')
+                if len(coordinates) == 2:
+                    latitude, longitude = coordinates
 
-    except AttributeError:
-        print(f"Issue with {property_url}")
+        property_metadata[property_url]['coordinates'] = [latitude, longitude]
 
-async def fetch_all_rental_data_async(url_links):
+    except Exception as e:
+        print(f"Issue with {property_url}: {e}")
+
+
+def fetch_all_rental_data(url_links):
     '''
-    Asynchronously fetches data for all rental property URLs
+    Fetch all the data for rentals in VIC using parallelisation
     '''
-    print("\nFetching the rental data asynchronously...\n")
-    property_metadata = defaultdict(dict)
-    tasks = []
-    
-    async with aiohttp.ClientSession() as session:
-        for property_url in tqdm(url_links):
-            tasks.append(fetch_rental_data_async(session, property_url, property_metadata))
-        
-        await asyncio.gather(*tasks)  # Run all tasks concurrently
-    
-    return property_metadata
+    property_metadata = defaultdict(dict) # Initialise a dictionary
 
+    # Use ThreadPoolExecutor to fetch property data concurrently
+    with ThreadPoolExecutor(max_workers=10) as executor:
+        futures = {executor.submit(fetch_rental_data, url, property_metadata): url for url in url_links}
 
+        # Display a progress bar as tasks complete
+        for future in tqdm(as_completed(futures), total=len(futures)):
+            future.result()  # To raise exceptions if any occurred and retrieve results
 
-
-
-
+    return property_metadata # Return all the data 
 
 
