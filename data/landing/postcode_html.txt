@@ -1,0 +1,4189 @@
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="https://schema.org/WebPage">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Melbourne & Victorian Postcodes</title>
+    <meta name="description" content="List of postcodes in Melbourne and Victoria from Wikipedia, the free encyclopediaPostcodes are used by Australia Post to identify postal districts.3067 Abbotsfo">
+    <meta name="keywords" content="melbourne & victorian postcodes,, Melbourne">
+    <meta name="robots" content="index,follow">
+
+    <link rel="canonical" href="https://www.onlymelbourne.com.au/melbourne-postcodes">
+<meta property="og:url" content="https://www.onlymelbourne.com.au/melbourne-postcodes">
+<meta property="og:image" content="/image/ico-postcodes.jpg"> 
+<meta property="og:image:width" content="750">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Melbourne & Victorian Postcodes">
+<meta property="og:description" content="List of postcodes in Melbourne and Victoria from Wikipedia, the free encyclopediaPostcodes are used by Australia Post to identify postal districts.3067 Abbotsfo">
+<meta property="fb:app_id" content="1013957036875889">
+
+    <meta name="unavailable_after" content="2088-08-28">
+    <meta name="geo.placename" content="Melbourne">
+
+    <meta name="author" content="Ripefruit Media">
+    <meta name="copyright" content="Ripefruit Media">
+    <meta name="language" content="en-au">
+    <link rel="icon" type="image/ico" href="/favicon.ico">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/search-ajax.css">
+    <link href="/css/font-awesome.min.css" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+
+    <!-- Custom styles -->
+    <link href="/css/globalrn.css" rel="stylesheet">
+
+    <!-- Include files -->
+    	<!-- GA4 tracking - 15/06/2024 -->
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZMF5JSR60T"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZMF5JSR60T');
+</script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="/js/search-ajax.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row"> <!-- Navigation -->
+            <nav class="navbar fixed-top navbar-expand-lg navbar-dark csttom_bg_4nav">
+<img alt="OnlyMelbourne" class="navbar-letter" src="https://www.onlymelbourne.com.au/image/icon-ico-web.png"> <a title="OnlyMelbourne" class="navbar-brand" href="https://www.onlymelbourne.com.au/">Only<span class="hdataCity">Melbourne</span></a>
+
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+	  <a class="nav-link" href="/melbourne-food-drink.php">Eat & Drink</a>
+      </li>
+
+      <li class="nav-item dropdown">
+  
+        <a class="nav-link dropdown-toggle" href="/whats-on-melbourne-calendar.php" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Entertainment
+        </a>
+		
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+		          <a class="dropdown-item" href="/melbourne-comedy.php">Comedy</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/melbourne-exhibitions.php">Exhibitions</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/experiences.php">Experiences</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/melbourne-kids-family.php">Family Friendly</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/melbourne-festivals.php">Festivals</a>
+          <div class="dropdown-divider"></div> 
+          <a class="dropdown-item" href="/melbourne-movie-guide-films-now-showing.php">Film</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/melbourne-concerts.php">Music</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/melbourne-sport-recreation.php">Sport</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/tv-melbourne.php">Television</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/theatre-show-melbourne.php">Theatre</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/melbourne-trivia.php">Trivia & Quiz</a>
+
+        </div>
+      </li>
+
+     <li class="nav-item">
+	 <a class="nav-link" href="/things-to-do-in-melbourne.php">See & Go</a>
+      </li>
+
+	        <li class="nav-item dropdown">
+
+        <a class="nav-link dropdown-toggle" href="/whats-on-melbourne-calendar.php" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">What's On</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+				  <a class="dropdown-item" href="/sitemap.php">Around | SiteMap</a>          
+          <div class="dropdown-divider"></div>
+		  <a class="dropdown-item" href="/whatsonmelbourne.php">Events Calendar</a>          
+          <div class="dropdown-divider"></div>
+		  <a class="dropdown-item" href="/melbourne-markets.php">Markets Calendar</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/c-6040/sales-special-offers">Sales & Promotions</a>
+          <div class="dropdown-divider"></div>
+         <a class="dropdown-item" href="/melbourne-today.php">What's on Today</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/whats-on-this-weekend.php">What's on This Weekend</a>
+
+		</div>
+      </li>
+
+    </ul>
+<!-- search form - top right -->
+
+<div class="visible-xs-block">
+<!-- phone -->
+    <form class="form-inline my-2 my-lg-0" action="/search-google.php" id="cse-search-box" style="margin-bottom:0;">
+    <input type="hidden" name="cx" value="partner-pub-6768268379511823:8583446746">
+    <input type="hidden" name="cof" value="FORID:10">
+    <input type="hidden" name="ie" value="utf-8">
+    <input class="form-control  mr-sm-2" type="text" name="q" size="20" placeholder="Search (by Google)">
+    <button class="btn btn-oa" type="submit">GO</button>
+    </form>
+<script src="https://www.google.com.au/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
+</div>
+
+<div class="visible-sm-block">
+<!-- tablet vertical -->
+    <form class="form-inline my-2 my-lg-0" action="/search-google.php" id="cse-search-box" style="margin-bottom:0;">
+    <input type="hidden" name="cx" value="partner-pub-6768268379511823:8583446746">
+    <input type="hidden" name="cof" value="FORID:10">
+    <input type="hidden" name="ie" value="utf-8">
+    <input class="form-control  mr-sm-2" type="text" name="q" size="20" placeholder="Search (by Google)">
+    <button class="btn btn-oa" type="submit">GO</button>
+    </form>
+<script src="https://www.google.com.au/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
+</div>
+
+<div class="visible-md-block">
+<!-- tablet horizontal 992 -->
+    <form class="form-inline my-2 my-lg-0" action="/search-google.php" id="cse-search-box" style="margin-bottom:0;">
+    <input type="hidden" name="cx" value="partner-pub-6768268379511823:8583446746">
+    <input type="hidden" name="cof" value="FORID:10">
+    <input type="hidden" name="ie" value="utf-8">
+    <input class="form-control  mr-sm-2" type="text" name="q" size="20" placeholder="Search (by Google)">
+    <button class="btn btn-oa" type="submit">GO</button>
+    </form>
+<script src="https://www.google.com.au/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
+</div>
+
+<div class="visible-lg-block">
+<!-- Desktop > 1200 -->
+    <form class="form-inline my-2 my-lg-0" action="/search-google.php" id="cse-search-box" style="margin-bottom:0;">
+    <input type="hidden" name="cx" value="partner-pub-6768268379511823:8583446746">
+    <input type="hidden" name="cof" value="FORID:10">
+    <input type="hidden" name="ie" value="utf-8">
+    <input class="form-control  mr-sm-2" type="text" name="q" size="20" placeholder="Search (by Google)">
+    <button class="btn btn-oa" type="submit">GO</button>
+    </form>
+<script src="https://www.google.com.au/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
+</div>
+
+  </div>
+</nav>        </div> <!-- End navigation -->
+
+        <div class="row"> <!-- Advertising Row -->
+            <div class="visible-xs-block">
+<!-- phone -->
+<br><br>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- OM 300x250 Mobile Top 17/12/2018 -->
+<ins class="adsbygoogle"
+     style="margin-left:30px;width:300px;height:250px;"
+     data-ad-client="ca-pub-6768268379511823"
+     data-ad-slot="2946829441"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br>
+</div>
+
+<div class="visible-sm-block">
+<!-- ipad vertical -->
+<br><br>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:70px"
+     data-ad-client="ca-pub-6768268379511823"
+     data-ad-slot="7044929448"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script><br>
+</div>
+
+<div class="visible-md-block">
+<!-- ipad horizontal -->
+<br><br>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:70px"
+     data-ad-client="ca-pub-6768268379511823"
+     data-ad-slot="7044929448"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script><br>
+</div>
+
+<div class="visible-lg-block">
+<!-- pc -->
+<br><br>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:70px"
+     data-ad-client="ca-pub-6768268379511823"
+     data-ad-slot="7044929448"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script><br>
+</div>
+<br><br>            <!-- Breadcrumb -->
+            <br>
+
+
+<div class="breadcrumb small"> &#8594;&nbsp;<a class="melbournebreadcrumb" title="View Around Melbourne" href="/c-7/guide">Around Melbourne</a>&nbsp; &#8594;&nbsp;<a class="melbournebreadcrumb" title="View Government" href="/c-54/government">Government</a>&nbsp; &#8594;&nbsp;<a class="melbournebreadcrumb" title="View Municipal Councils | Melbourne" href="/c-2040/melbourne-municipal-councils">Municipal Councils | Melbourne</a>&nbsp;</div>            <!-- Breadcrumb -->
+        </div> <!-- end Advertising Row -->
+
+        <div class="row"> <!-- Page Content Row -->
+            <div class="col-lg-8 main-content"> <!-- Page Content(left) -->
+                <div class="event-wrapper" itemscope itemtype="https://schema.org/Place"><TABLE class="tablecss"><TR><TD></td></tr><tr><TD><h1 class="summary">Melbourne & Victorian Postcodes</h1><div style="display:none" class="name" itemprop="name">Melbourne & Victorian Postcodes</div></td><tr><TD>	</td></TR></table><a title="Melbourne & Victorian Postcodes" rel="nofollow noopener" href=https://en.wikipedia.org/wiki/List_of_postcodes_in_Victoria target="_blank"><IMG alt="Melbourne & Victorian Postcodes" SRC="/image/ico-postcodes.jpg" width="750" class="img-fluid"></a><BR><BR>List of postcodes in Melbourne and Victoria from Wikipedia, the free encyclopedia<br>
+<br>
+Postcodes are used by Australia Post to identify postal districts.<br>
+<br>
+3067 Abbotsford <br>
+3040 Aberfeldie <br>
+3825 Aberfeldy <br>
+3714 Acheron <br>
+3352 Addington <br>
+3962 Agnes <br>
+3231 Aireys Inlet <br>
+3042 Airport West <br>
+3021 Albanvale <br>
+3206 Albert Park <br>
+3971 Alberton <br>
+3020 Albion <br>
+3714 Alexandra <br>
+3350 Alfredton <br>
+3691 Allans Flat <br>
+3277 Allansford <br>
+3364 Allendale <br>
+3305 Allestree <br>
+3465 Alma <br>
+3979 Almurta <br>
+3078 Alphington <br>
+3018 Altona <br>
+3028 Altona Meadows <br>
+3025 Altona North <br>
+3249 Alvie <br>
+3377 Amphitheatre <br>
+3221 Anakie <br>
+3715 Ancona <br>
+3230 Anglesea <br>
+3414 Antwerp <br>
+3615607 Apollo Bay <br>
+3677 Appin Park <br>
+3319 Apsley <br>
+3377 Ararat <br>
+3631 Arcadia <br>
+3995 Archies Creek <br>
+3022 Ardeer <br>
+3629 Ardmona <br>
+3480 Areegra <br>
+3143 Armadale <br>
+3143 Armadale North <br>
+3551 Arnold <br>
+3099 Arthurs Creek <br>
+3936 Arthurs Seat <br>
+3364 Ascot <br>
+3032 Ascot Vale <br>
+3442 Ashbourne <br>
+3147 Ashburton <br>
+3147 Ashwood <br>
+3195 Aspendale <br>
+3195 Aspendale Gardens <br>
+3818 Athlone <br>
+3049 Attwood <br>
+3664 Avenel <br>
+3467 Avoca <br>
+3034 Avondale Heights <br>
+3782 Avonsleigh <br>
+3551 Axedale <br>
+<br>
+B<br>
+3747 Baarmutha <br>
+3340 Bacchus Marsh <br>
+3670 Baddaginnie <br>
+3608 Bailieston <br>
+3875 Bairnsdale <br>
+3354 Bakery Hill <br>
+3183 Balaclava <br>
+3342 Ballan <br>
+3350 Ballarat <br>
+3353 Ballarat <br>
+3354 Ballarat Mc <br>
+3350 Ballarat North <br>
+3350 Ballarat West <br>
+3340 Balliang <br>
+3666 Balmattum <br>
+3407 Balmoral <br>
+3926 Balnarring <br>
+3971 Balook <br>
+3103 Balwyn <br>
+3104 Balwyn North <br>
+3561 Bamawm <br>
+3241 Bambra <br>
+3694 Bandiana Milpo <br>
+3175 Bangholme <br>
+3331 Bannockburn <br>
+3388 Banyena <br>
+3084 Banyule <br>
+3691 Baranduda <br>
+3463 Baringhup <br>
+3451 Barkers Creek <br>
+3381 Barkly <br>
+3352 Barkstead <br>
+3639 Barmah <br>
+3557 Barnadown <br>
+3688 Barnawartha <br>
+3249 Barongarook <br>
+3221 Barrabool <br>
+3249 Barramunga <br>
+3329 Barunah Park <br>
+3243 Barwon Downs <br>
+3227 Barwon Heads <br>
+3991 Bass <br>
+3221 Batesford <br>
+3911 Baxter <br>
+3375 Bayindeen <br>
+3981 Bayles <br>
+3153 Bayswater <br>
+3153 Bayswater North <br>
+3807 Beaconsfield <br>
+3808 Beaconsfield Upper <br>
+3475 Bealiba <br>
+3373 Beaufort <br>
+3193 Beaumaris <br>
+3135 Bedford Road <br>
+3251 Beeac <br>
+3237 Beech Forest <br>
+3747 Beechworth <br>
+3160 Belgrave <br>
+3215 Bell Park <br>
+3215 Bell Post Hill <br>
+3221 Bellarine <br>
+3228 Bellbrae <br>
+3691 Bellbridge <br>
+3216 Belmont <br>
+3198 Belvedere Park <br>
+3889 Bemm River <br>
+3946 Bena <br>
+3671 Benalla <br>
+3672 Benalla <br>
+3673 Benalla <br>
+3900 Benambra <br>
+3630 Benarch <br>
+3319 Benayeo <br>
+3097 Bend Of Islands <br>
+3550 Bendigo <br>
+3552 Bendigo <br>
+3554 Bendigo Dc <br>
+3888 Bendoc <br>
+3875 Bengworden <br>
+3125 Bennettswood <br>
+3960 Bennison <br>
+3204 Bentleigh <br>
+3165 Bentleigh East <br>
+3342 Beremboke <br>
+3518 Berrimal <br>
+3351 Berringa <br>
+3691 Berringama <br>
+3531 Berriwillock <br>
+3323 Berrybank <br>
+3953 Berrys Creek <br>
+3806 Berwick <br>
+3472 Bet Bet <br>
+3691 Bethanga <br>
+3472 Betley <br>
+3395 Beulah <br>
+3590 Beverford <br>
+3753 Beveridge <br>
+3707 Biggara <br>
+3966 Binginwarri <br>
+3483 Birchip <br>
+3242 Birregurra <br>
+3918 Bittern <br>
+3350 Black Hill <br>
+3193 Black Rock <br>
+3130 Blackburn <br>
+3130 Blackburn North <br>
+3130 Blackburn South <br>
+3458 Blackwood <br>
+3942 Blairgowrie <br>
+3342 Blakeville <br>
+3364 Blampied <br>
+3980 Blind Bight <br>
+3352 Blowhard <br>
+3699 Bogong <br>
+3669 Boho South <br>
+3860 Boisdale <br>
+3432 Bolinda <br>
+3546 Bolton <br>
+3305 Bolwarra <br>
+3352 Bolwarrah <br>
+3888 Bonang <br>
+3196 Bonbeach <br>
+3691 Bonegilla <br>
+3720 Bonnie Doon <br>
+3870 Boolarra <br>
+3265 Boorcan <br>
+3678 Boorhaman <br>
+3685 Boorhaman North <br>
+3537 Boort <br>
+3155 Boronia <br>
+3518 Borung <br>
+3977 Botanic Ridge<br>
+3599 Boundary Bend <br>
+3735 Bowmans Forest <br>
+3128 Box Hill <br>
+3129 Box Hill North <br>
+3128 Box Hill South <br>
+3725 Boxwood <br>
+3195 Braeside <br>
+3630 Branditt <br>
+3302 Branxholme <br>
+3019 Braybrook <br>
+3219 Breakwater <br>
+3227 Breamlea <br>
+3131 Brentford Square <br>
+3860 Briagolong <br>
+3088 Briar Hill <br>
+3516 Bridgewater On Loddon <br>
+3741 Bright <br>
+3186 Brighton <br>
+3187 Brighton East <br>
+3184 Brighton Road <br>
+3391 Brim <br>
+3658 Broadford <br>
+3047 Broadmeadows <br>
+3301 Broadwater <br>
+3338 Brookfield <br>
+3012 Brooklyn <br>
+3364 Broomfield <br>
+3350 Brown Hill <br>
+3685 Browns Plains <br>
+3056 Brunswick <br>
+3057 Brunswick East <br>
+3055 Brunswick West <br>
+3885 Bruthen <br>
+3375 Buangor <br>
+3885 Buchan <br>
+3240 Buckley <br>
+3958 Buffalo <br>
+3737 Buffalo River <br>
+3428 Bulla <br>
+3352 Bullarook <br>
+3461 Bullarto <br>
+3105 Bulleen <br>
+3437 Bullengarook <br>
+3821 Buln Buln <br>
+3634 Bunbartha <br>
+3851 Bundalaguah <br>
+3730 Bundalong <br>
+3083 Bundoora <br>
+3260 Bungador <br>
+3352 Bungaree <br>
+3726 Bungeet <br>
+3357 Buninyong <br>
+3815 Bunyip <br>
+3121 Burnley <br>
+3023 Burnside <br>
+3709 Burrowye <br>
+3352 Burrumbeet <br>
+3125 Burwood <br>
+3151 Burwood East <br>
+3151 Burwood Heights <br>
+3281 Bushfield <br>
+3885 Butchers Ridge <br>
+3711 Buxton <br>
+3301 Byaduk <br>
+3762 Bylands <br>
+3617 Byrneside <br>
+<br>
+C<br>
+3505 Cabarita <br>
+3889 Cabbage Tree Creek <br>
+3023 Cairnlea <br>
+3984 Caldermeade <br>
+3556 California Gully <br>
+3573 Calivil <br>
+3844 Callignee <br>
+3875 Calulu <br>
+3124 Camberwell <br>
+3126 Camberwell East <br>
+3124 Camberwell North <br>
+3124 Camberwell South <br>
+3124 Camberwell West <br>
+3352 Cambrian Hill <br>
+3061 Campbellfield <br>
+3381 Campbells Bridge <br>
+3451 Campbells Creek <br>
+3556 Campbells Forest <br>
+3364 Campbelltown <br>
+3260 Camperdown <br>
+3350 Canadian <br>
+3630 Caniambo <br>
+3890 Cann River <br>
+3540 Cannie <br>
+3977 Cannons Creek <br>
+3126 Canterbury <br>
+3351 Cape Clear <br>
+3995 Cape Paterson <br>
+3925 Cape Woolamai <br>
+3274 Caramut <br>
+3312 Carapook <br>
+3352 Cardigan <br>
+3978 Cardinia <br>
+3496 Cardross <br>
+3464 Carisbrook <br>
+3239 Carlisle River <br>
+3442 Carlsruhe <br>
+3053 Carlton <br>
+3054 Carlton North <br>
+3053 Carlton South <br>
+3163 Carnegie <br>
+3351 Carngham <br>
+3023 Caroline Springs <br>
+3844 Carrajung <br>
+3874 Carrajung South <br>
+3361 Carranballac <br>
+3197 Carrum <br>
+3201 Carrum Downs <br>
+3494 Carwarp <br>
+3311 Casterton <br>
+3450 Castlemaine <br>
+3981 Catani <br>
+3714 Cathkin <br>
+3162 Caulfield <br>
+3145 Caulfield East <br>
+3161 Caulfield Junction <br>
+3161 Caulfield North <br>
+3162 Caulfield South <br>
+3314 Cavendish <br>
+3145 Central Park <br>
+3221 Ceres <br>
+3148 Chadstone <br>
+3239 Chapple Vale <br>
+3695 Charleroi <br>
+3525 Charlton <br>
+3379 Chatsworth <br>
+3196 Chelsea <br>
+3196 Chelsea Heights <br>
+3192 Cheltenham <br>
+3192 Cheltenham East <br>
+3351 Chepstowe <br>
+3678 Cheshunt <br>
+3312 Chetwynd <br>
+3451 Chewton <br>
+3824 Childers <br>
+3683 Chiltern <br>
+3546 Chinkapook <br>
+3116 Chirnside Park <br>
+3775 Christmas Hills <br>
+3842 Churchill <br>
+3352 Clarendon <br>
+3169 Clarinda <br>
+3430 Clarkefield <br>
+3352 Clarkes Hill <br>
+3168 Clayton <br>
+3169 Clayton South <br>
+3782 Clematis <br>
+3068 Clifton Hill <br>
+3222 Clifton Springs <br>
+3658 Clonbinane <br>
+3889 Club Terrace <br>
+3370 Clunes <br>
+3978 Clyde <br>
+3825 Coalville <br>
+3165 Coatesville <br>
+3266 Cobden <br>
+3643 Cobram <br>
+3644 Cobram <br>
+3058 Coburg <br>
+3058 Coburg North <br>
+3781 Cockatoo <br>
+3364 Coghills Creek <br>
+3568 Cohuna <br>
+3340 Coimadai <br>
+3250 Colac <br>
+3707 Colac Colac <br>
+3559 Colbinabbin <br>
+3770 Coldstream <br>
+3315 Coleraine <br>
+3494 Colignan <br>
+3066 Collingwood <br>
+8003 Collins Street East <br>
+8007 Collins Street West <br>
+3630 Colliver <br>
+3889 Combienbar <br>
+3556 Comet Hill <br>
+3303 Condah <br>
+3633 Congupna <br>
+3227 Connewarre <br>
+3318 Connewirricoo <br>
+3048 Coolaroo <br>
+3616 Cooma <br>
+3629 Coomboona <br>
+3814 Cora Lynn <br>
+3480 Corack <br>
+3249 Coragulac <br>
+3352 Corindhap <br>
+3984 Corinella <br>
+3214 Corio <br>
+3984 Coronet Bay <br>
+3559 Corop <br>
+3254 Cororooke <br>
+3707 Corryong <br>
+3249 Corunnun <br>
+3631 Cosgrove <br>
+3523 Costerfield <br>
+3099 Cottles Bridge <br>
+3506 Cowangie <br>
+3922 Cowes <br>
+3857 Cowwarr <br>
+3465 Craigie <br>
+3064 Craigieburn <br>
+3977 Cranbourne <br>
+3977 Cranbourne North <br>
+3977 Cranbourne South <br>
+3669 Creek Junction <br>
+3666 Creighton <br>
+3121 Cremorne <br>
+3322 Cressy <br>
+3363 Creswick <br>
+3919 Crib Point <br>
+3193 Cromer <br>
+3377 Crowlands <br>
+3136 Croydon <br>
+3136 Croydon Hills <br>
+3136 Croydon North <br>
+3136 Croydon South <br>
+3265 Cudgee <br>
+3705 Cudgewa <br>
+3530 Culgoa <br>
+3496 Cullulleraine <br>
+3251 Cundare North <br>
+3268 Curdie Vale <br>
+3268 Curdies River <br>
+3222 Curlewis <br>
+<br>
+D<br>
+3385 Dadswells Bridge <br>
+3465 Daisy Hill <br>
+3047 Dallas <br>
+3981 Dalmore <br>
+3992 Dalyston <br>
+3175 Dandenong <br>
+3164 Dandenong South <br>
+3175 Dandenong South <br>
+3737 Dandongadale <br>
+3862 Dargo <br>
+3871 Darlimurla <br>
+3145 Darling <br>
+3271 Darlington <br>
+3822 Darnum <br>
+3756 Darraweit Guim <br>
+3851 Darriman <br>
+3304 Dartmoor <br>
+3701 Dartmouth <br>
+3460 Daylesford <br>
+3217 Deakin University <br>
+3352 Dean <br>
+3235 Deans Marsh <br>
+3691 Dederang <br>
+3023 Deer Park <br>
+3022 Deer Park East <br>
+3356 Delacombe <br>
+3037 Delahey <br>
+3186 Dendy <br>
+3280 Dennington <br>
+3516 Derby <br>
+3352 Dereel <br>
+3312 Dergholm <br>
+3030 Derrimut <br>
+3325 Derrinallum <br>
+3726 Devenish <br>
+3977 Devon Meadows <br>
+3971 Devon North <br>
+3610 Dhurringile <br>
+3089 Diamond Creek <br>
+3309 Digby <br>
+3427 Diggers Rest <br>
+3414 Dimboola <br>
+3571 Dingee <br>
+3172 Dingley Village <br>
+3898 Dinner Plain <br>
+3775 Dixons Creek <br>
+3008 Docklands <br>
+3480 Donald <br>
+3108 Doncaster <br>
+3109 Doncaster East <br>
+3109 Doncaster Heights <br>
+3064 Donnybrook <br>
+3111 Donvale <br>
+3401 Dooen <br>
+3646 Dookie <br>
+3647 Dookie College <br>
+3754 Doreen <br>
+3401 Douglas <br>
+3177 Doveton <br>
+3249 Dreeite <br>
+3936 Dromana <br>
+3818 Drouin <br>
+3461 Drummond <br>
+3446 Drummond North <br>
+3222 Drysdale <br>
+3956 Dumbalk <br>
+3271 Dundonnell <br>
+3294 Dunkeld <br>
+3630 Dunkirk <br>
+3352 Dunnstown <br>
+3472 Dunolly <br>
+3352 Durham Lead <br>
+3576 Durham Ox <br>
+3323 Duverney <br>
+<br>
+E<br>
+3878 Eagle Point <br>
+3556 Eaglehawk <br>
+3084 Eaglemont <br>
+3219 East Geelong <br>
+3002 East Melbourne <br>
+8002 East Melbourne <br>
+3852 East Sale Raaf <br>
+3231 Eastern View <br>
+3691 Ebden <br>
+3564 Echuca <br>
+3472 Eddington <br>
+3757 Eden Park <br>
+3318 Edenhope <br>
+3196 Edithvale <br>
+3713 Eildon <br>
+3334 Elaine <br>
+3746 Eldorado <br>
+3265 Ellerslie <br>
+3250 Elliminyt <br>
+3469 Elmhurst <br>
+3558 Elmore <br>
+3448 Elphinstone <br>
+3185 Elsternwick <br>
+3095 Eltham <br>
+3095 Eltham North <br>
+3184 Elwood <br>
+3782 Emerald <br>
+3475 Emu <br>
+3802 Endeavour Hills <br>
+3352 Enfield <br>
+3895 Ensay <br>
+3551 Eppalock <br>
+3076 Epping <br>
+3076 Epping Dc <br>
+3551 Epsom <br>
+3825 Erica <br>
+3701 Eskdale <br>
+3040 Essendon <br>
+3041 Essendon North <br>
+3040 Essendon West <br>
+3350 Eureka <br>
+3666 Euroa <br>
+3739 Eurobin <br>
+3371 Evansford <br>
+3678 Everton <br>
+3338 Exford <br>
+<br>
+F<br>
+3078 Fairfield <br>
+3231 Fairhaven <br>
+3699 Falls Creek <br>
+3060 Fawkner <br>
+3458 Fern Hill <br>
+3864 Fernbank <br>
+3518 Fernihurst <br>
+3156 Ferntree Gully <br>
+3786 Ferny Creek <br>
+3939 Fingal <br>
+3959 Fish Creek <br>
+3065 Fitzroy <br>
+3068 Fitzroy North <br>
+3977 Five Ways <br>
+3031 Flemington <br>
+3929 Flinders <br>
+8009 Flinders Lane <br>
+3717 Flowerdale <br>
+3844 Flynn <br>
+3011 Footscray <br>
+3131 Forest Hill <br>
+3236 Forrest <br>
+3960 Foster <br>
+3557 Fosterville <br>
+3805 Fountain Gate <br>
+3265 Framlingham <br>
+3461 Franklinford <br>
+3199 Frankston <br>
+3200 Frankston North <br>
+3741 Freeburgh <br>
+3216 Freshwater Creek <br>
+3451 Fryerstown <br>
+3221 Fyansford <br>
+<br>
+G<br>
+3737 Gapsted <br>
+3207 Garden City <br>
+3185 Gardenvale <br>
+3814 Garfield <br>
+3265 Garvoc <br>
+3407 Gatum <br>
+3220 Geelong <br>
+3218 Geelong West <br>
+3885 Gelantipy <br>
+3239 Gellibrand <br>
+3237 Gellibrand Lower <br>
+3971 Gelliondale <br>
+3783 Gembrook <br>
+3891 Genoa <br>
+3418 Gerang Gerung <br>
+3243 Gerangamete <br>
+3331 Gheringhap <br>
+3797 Gilderoy <br>
+3616 Gillieston <br>
+3841 Gippsland Mc <br>
+3891 Gipsy Point <br>
+3624 Girgarre <br>
+3437 Gisborne <br>
+3043 Gladstone Park <br>
+3797 Gladysdale <br>
+3979 Glen Alvie <br>
+3691 Glen Creek <br>
+3990 Glen Forbes <br>
+3163 Glen Huntly <br>
+3146 Glen Iris <br>
+3150 Glen Waverley <br>
+3717 Glenburn <br>
+3266 Glenfyne <br>
+3854 Glengarry <br>
+3461 Glenlyon <br>
+3858 Glenmaggie <br>
+3340 Glenmore <br>
+3385 Glenorchy <br>
+3675 Glenrowan <br>
+3046 Glenroy <br>
+3293 Glenthompson <br>
+3221 Gnarwarre <br>
+3260 Gnotuk <br>
+3719 Gobur <br>
+3350 Golden Point <br>
+3451 Golden Point <br>
+3465 Golden Point <br>
+3555 Golden Square <br>
+3472 Goldsborough <br>
+3666 Gooram <br>
+3685 Gooramadda <br>
+3725 Goorambat <br>
+3557 Goornong <br>
+3305 Gorae <br>
+3345 Gordon <br>
+3873 Gormandale <br>
+3412 Goroke <br>
+3723 Goughs Bay <br>
+3608 Goulburn Weir <br>
+3043 Gowanbrae <br>
+3669 Gowangardie <br>
+3984 Grantville <br>
+3701 Granya <br>
+3281 Grassmere <br>
+3608 Graytown <br>
+3377 Great Western <br>
+3537 Gredgwin <br>
+3341 Greendale <br>
+3088 Greensborough <br>
+3059 Greenvale <br>
+3675 Greta <br>
+3216 Grovedale <br>
+3770 Gruyere <br>
+3451 Guildford <br>
+3566 Gunbower <br>
+3691 Gundowring <br>
+3850 Guthridge <br>
+3709 Guys Forest <br>
+3807 Guys Hill <br>
+3401 Gymbowen <br>
+<br>
+H<br>
+3351 Haddon <br>
+3046 Hadfield <br>
+3803 Hallam <br>
+3381 Halls Gap <br>
+3953 Hallston <br>
+3300 Hamilton <br>
+3215 Hamlyn Heights <br>
+3188 Hampton <br>
+3188 Hampton East <br>
+3188 Hampton North <br>
+3976 Hampton Park <br>
+3675 Hansonville <br>
+3453 Harcourt <br>
+3806 Harkaway <br>
+3741 Harrietville <br>
+3317 Harrow <br>
+3616 Harston <br>
+3915 Hastings <br>
+3287 Hawkesdale <br>
+3142 Hawksburn <br>
+3122 Hawthorn <br>
+3123 Hawthorn East <br>
+3658 Hazeldene <br>
+3777 Healesville <br>
+3981 Heath Hill <br>
+3523 Heathcote <br>
+3758 Heathcote Junction <br>
+3202 Heatherton <br>
+3135 Heathmont <br>
+3967 Hedley <br>
+3084 Heidelberg <br>
+3081 Heidelberg Heights <br>
+3081 Heidelberg Rgh <br>
+3081 Heidelberg West <br>
+3312 Henty <br>
+3461 Hepburn Springs <br>
+3218 Herne Hill <br>
+3825 Hernes Oak <br>
+3442 Hesket <br>
+3273 Hexham <br>
+3858 Heyfield <br>
+3304 Heywood <br>
+3756 Hidden Valley <br>
+3190 Highett <br>
+3032 Highpoint City <br>
+3216 Highton <br>
+3825 Hill End <br>
+3351 Hillcrest <br>
+3037 Hillside <br>
+3875 Hillside <br>
+3920 Hmas Cerberus <br>
+3139 Hoddles Creek <br>
+3148 Holmesglen <br>
+3717 Homewood <br>
+3396 Hopetoun <br>
+3162 Hopetoun Gardens <br>
+3029 Hoppers Crossing <br>
+3238 Hordern Vale <br>
+3400 Horsham <br>
+3402 Horsham <br>
+3741 Hotham Heights <br>
+3051 Hotham Hill <br>
+3128 Houston <br>
+3166 Hughesdale <br>
+3691 Hume Weir <br>
+3757 Humevale <br>
+3558 Hunter <br>
+3166 Huntingdale <br>
+3551 Huntly <br>
+3695 Huon <br>
+3099 Hurstbridge <br>
+<br>
+I<br>
+3351 Illabarook <br>
+3282 Illowa <br>
+3223 Indented Head <br>
+3517 Inglewood <br>
+3472 Inkerman <br>
+3636 Invergordon <br>
+3634 Invergordon South <br>
+3321 Inverleigh <br>
+3996 Inverloch <br>
+3352 Invermay <br>
+3815 Iona <br>
+3249 Irrewarra <br>
+3498 Irymple <br>
+3079 Ivanhoe <br>
+3079 Ivanhoe East <br>
+<br>
+J<br>
+3047 Jacana <br>
+3984 Jam Jerrup <br>
+3723 Jamieson <br>
+3228 Jan Juc <br>
+3266 Jancourt <br>
+3266 Jancourt East <br>
+3517 Jarklin <br>
+3840 Jeeralang <br>
+3945 Jeetho <br>
+3423 Jeparit <br>
+3238 Johanna <br>
+3902 Johnsonville <br>
+3869 Jumbuk <br>
+3951 Jumbunna <br>
+3399 Jung <br>
+3551 Junortoun <br>
+<br>
+K<br>
+3909 Kalimna <br>
+3064 Kalkallo <br>
+3791 Kallista <br>
+3766 Kalorama <br>
+3555 Kangaroo Flat <br>
+3097 Kangaroo Ground <br>
+3419 Kaniva <br>
+3719 Kanumbra <br>
+3564 Kanyapella <br>
+3951 Kardella <br>
+3199 Karingal <br>
+3401 Karnak <br>
+3649 Katamatite <br>
+3634 Katandra <br>
+3640 Katunga <br>
+3249 Kawarren <br>
+3021 Kealba <br>
+3036 Keilor <br>
+3038 Keilor Downs <br>
+3033 Keilor East <br>
+3036 Keilor North <br>
+3042 Keilor Park <br>
+3239 Kennedys Creek <br>
+3221 Kennett River <br>
+3550 Kennington <br>
+3031 Kensington <br>
+3073 Keon Park <br>
+3579 Kerang <br>
+3691 Kergunyah <br>
+3979 Kernot <br>
+3434 Kerrie <br>
+3129 Kerrimuir <br>
+3660 Kerrisdale <br>
+3101 Kew <br>
+3102 Kew East <br>
+3173 Keysborough <br>
+3631 Kialla <br>
+3631 Kialla East <br>
+3631 Kialla West <br>
+3418 Kiata <br>
+3691 Kiewa <br>
+3995 Kilcunda <br>
+3283 Killarney <br>
+3851 Kilmany <br>
+3764 Kilmore <br>
+3137 Kilsyth <br>
+3137 Kilsyth South <br>
+3763 Kinglake <br>
+3757 Kinglake West <br>
+3021 Kings Park <br>
+3083 Kingsbury <br>
+3364 Kingston <br>
+3012 Kingsville <br>
+3283 Kirkstall <br>
+3666 Kithbrook <br>
+3523 Knowsley <br>
+3152 Knox City Centre <br>
+3180 Knoxfield <br>
+3704 Koetong <br>
+3265 Kolora <br>
+3951 Kongwak <br>
+3981 Koo Wee Rup <br>
+3669 Koonda <br>
+3580 Koondrook <br>
+3954 Koonwarra <br>
+3501 Koorlong <br>
+3844 Koornalla <br>
+3144 Kooyong <br>
+3714 Koriella <br>
+3282 Koroit <br>
+3520 Korong Vale <br>
+3950 Korumburra <br>
+3461 Korweinguboora <br>
+3565 Kotta <br>
+3638 Kotupna <br>
+3622 Koyuga <br>
+3621 Koyuga South <br>
+3945 Krowera <br>
+3930 Kunyung <br>
+3337 Kurunjang <br>
+3619 Kyabram <br>
+3620 Kyabram <br>
+3444 Kyneton <br>
+<br>
+L<br>
+3463 Laanecoorie <br>
+3816 Labertouche <br>
+3130 Laburnum <br>
+3584 Lake Boga <br>
+3351 Lake Bolac <br>
+3581 Lake Charm <br>
+3312 Lake Mundi <br>
+3727 Lake Rowan <br>
+3887 Lake Tyers <br>
+3909 Lake Tyers Beach <br>
+3350 Lake Wendouree <br>
+3909 Lakes Entrance <br>
+3352 Lal Lal <br>
+3542 Lalbert <br>
+3075 Lalor <br>
+3620 Lancaster <br>
+3435 Lancefield <br>
+3384 Landsborough <br>
+3984 Lang Lang <br>
+3318 Langkoop <br>
+3910 Langwarrin <br>
+3212 Lara <br>
+3249 Larpent <br>
+3487 Lascelles <br>
+3139 Launching Place <br>
+3238 Lavers Hill <br>
+3028 Laverton <br>
+3026 Laverton North <br>
+8010 Law Courts <br>
+3415 Lawloit <br>
+3352 Learmonth <br>
+3516 Leichardt <br>
+3352 Leigh Creek <br>
+3567 Leitchville <br>
+3631 Lemnos <br>
+3691 Leneva <br>
+3953 Leongatha <br>
+3224 Leopold <br>
+3458 Lerderderg <br>
+3332 Lethbridge <br>
+3352 Lexton <br>
+3858 Licola <br>
+3420 Lillimur <br>
+3140 Lilydale <br>
+3673 Lima <br>
+3865 Lindenow <br>
+3875 Lindenow South <br>
+3360 Linton <br>
+3324 Lismore <br>
+3480 Litchfield <br>
+3211 Little River <br>
+3551 Llanelly <br>
+3945 Loch <br>
+3851 Loch Sport <br>
+3563 Lockington <br>
+3665 Locksley <br>
+3551 Lockwood South <br>
+3475 Logan <br>
+3691 Lone Pine <br>
+3550 Long Gully <br>
+3851 Longford <br>
+3551 Longlea <br>
+3816 Longwarry <br>
+3665 Longwood <br>
+3232 Lorne <br>
+3221 Lovely Banks <br>
+3093 Lower Plenty <br>
+3381 Lubeck <br>
+3875 Lucknow <br>
+3691 Lucyvale <br>
+3975 Lynbrook <br>
+3975 Lyndhurst <br>
+3461 Lyonville <br>
+3156 Lysterfield <br>
+<br>
+M<br>
+3286 Macarthur <br>
+3782 Macclesfield <br>
+3440 Macedon <br>
+3971 Macks Creek <br>
+3085 Macleod <br>
+3579 Macorna <br>
+3860 Maffra <br>
+3352 Magpie <br>
+3551 Maiden Gully <br>
+3012 Maidstone <br>
+3275 Mailer Flat <br>
+3928 Main Ridge <br>
+3465 Majorca <br>
+3463 Maldon <br>
+3892 Mallacoota <br>
+3446 Malmsbury <br>
+3144 Malvern <br>
+3145 Malvern East <br>
+3546 Manangatang <br>
+3551 Mandurang <br>
+3663 Mangalore <br>
+3218 Manifold Heights <br>
+3222 Mannerim <br>
+3722 Mansfield <br>
+3724 Mansfield <br>
+3222 Marcus Hill <br>
+3032 Maribyrnong <br>
+3888 Marlo <br>
+3387 Marnoo <br>
+3515 Marong <br>
+3377 Maroona <br>
+3216 Marshall <br>
+3634 Marungi <br>
+3465 Maryborough <br>
+3812 Maryknoll <br>
+3779 Marysville <br>
+3723 Matlock <br>
+3331 Maude <br>
+3938 Mccrae <br>
+3204 Mckinnon <br>
+3799 Mcmahons Creek <br>
+3048 Meadow Heights <br>
+3956 Meeniyan <br>
+3862 Meerlieu <br>
+3000 Melbourne <br>
+3001 Melbourne <br>
+8001 Melbourne <br>
+3045 Melbourne Airport <br>
+3052 Melbourne University <br>
+3337 Melton <br>
+3338 Melton South <br>
+3315 Melville Forest <br>
+3194 Mentone <br>
+3159 Menzies Creek <br>
+3277 Mepunga <br>
+3505 Merbein <br>
+3333 Meredith <br>
+3496 Meringur <br>
+3310 Merino <br>
+3058 Merlynston <br>
+3754 Mernda <br>
+3916 Merricks <br>
+3926 Merricks Beach <br>
+3926 Merricks North <br>
+3618 Merrigum <br>
+3723 Merrijig <br>
+3715 Merton <br>
+3448 Metcalfe <br>
+3904 Metung <br>
+3444 Mia Mia <br>
+3064 Mickleham <br>
+3840 Mid Valley <br>
+3124 Middle Camberwell <br>
+3206 Middle Park <br>
+3678 Milawa <br>
+3500 Mildura, Victoria <br>
+3502 Mildura <br>
+3501 Mildura Centre Plaza <br>
+3082 Mill Park <br>
+3352 Millbrook <br>
+3799 Millgrove <br>
+3572 Milloo <br>
+3575 Mincha <br>
+3567 Mincha West <br>
+3352 Miners Rest <br>
+3287 Minhamite <br>
+3413 Minimay <br>
+3351 Mininera <br>
+3392 Minyip <br>
+3415 Miram <br>
+3871 Mirboo North <br>
+3722 Mirimbah <br>
+3132 Mitcham <br>
+3352 Mitchell Park <br>
+3355 Mitchell Park <br>
+3573 Mitiamo <br>
+3401 Mitre <br>
+3701 Mitta Mitta <br>
+3816 Modella <br>
+3240 Modewarre <br>
+3825 Moe <br>
+3231 Moggs Creek <br>
+3718 Molesworth <br>
+3472 Moliagul <br>
+3352 Mollongghip <br>
+3673 Molyullah <br>
+3800 Monash University <br>
+3793 Monbulk <br>
+3984 Monomeith <br>
+3127 Mont Albert <br>
+3129 Mont Albert North <br>
+3094 Montmorency <br>
+3765 Montrose <br>
+3221 Moolap <br>
+3478 Moonambel <br>
+3825 Moondarra <br>
+3039 Moonee Ponds <br>
+3189 Moorabbin <br>
+3194 Moorabbin Airport <br>
+3189 Moorabbin East <br>
+3221 Moorabool <br>
+3933 Moorooduc <br>
+3138 Mooroolbark <br>
+3629 Mooroopna <br>
+3195 Mordialloc <br>
+3058 Moreland <br>
+3240 Moriac <br>
+3931 Mornington <br>
+3334 Morrisons <br>
+3272 Mortlake <br>
+3840 Morwell <br>
+3885 Mossiface <br>
+3691 Mount Alfred <br>
+3699 Mount Beauty <br>
+3960 Mount Best <br>
+3740 Mount Buffalo <br>
+3723 Mount Buller <br>
+3350 Mount Clear <br>
+3024 Mount Cottrell <br>
+3767 Mount Dandenong <br>
+3216 Mount Duneed <br>
+3352 Mount Egerton <br>
+3930 Mount Eliza <br>
+3796 Mount Evelyn <br>
+3350 Mount Helen <br>
+3741 Mount Hotham <br>
+3377 Mount Lonarch <br>
+3441 Mount Macedon <br>
+3934 Mount Martha <br>
+3240 Mount Moriac <br>
+3350 Mount Pleasant <br>
+3352 Mount Rowan <br>
+3875 Mount Taylor <br>
+3342 Mount Wallace <br>
+3149 Mount Waverley <br>
+3156 Mountain Gate <br>
+3294 Moutajup <br>
+3732 Moyhu <br>
+3377 Moyston <br>
+3451 Muckleford <br>
+3462 Muckleford South <br>
+3737 Mudgegonga <br>
+3170 Mulgrave <br>
+3610 Murchison <br>
+3221 Murgheboluc <br>
+3747 Murmungee <br>
+3579 Murrabit <br>
+3512 Murrayville <br>
+3717 Murrindindi <br>
+3243 Murroon <br>
+3163 Murrumbeena <br>
+3390 Murtoa <br>
+3461 Musk <br>
+3556 Myers Flat <br>
+3341 Myrniong <br>
+3851 Myrtlebank <br>
+3736 Myrtleford <br>
+3737 Myrtleford <br>
+3518 Mysia <br>
+<br>
+N<br>
+3608 Nagambie <br>
+3249 Nalangil <br>
+3847 Nambrok <br>
+3533 Nandaly <br>
+3494 Nangiloc <br>
+3561 Nanneella <br>
+3352 Napoleons <br>
+3812 Nar Nar Goon <br>
+3778 Narbethong <br>
+3315 Nareen <br>
+3705 Nariel Valley <br>
+3277 Naringal <br>
+3285 Narrawong <br>
+3805 Narre Warren <br>
+3804 Narre Warren East <br>
+3804 Narre Warren North <br>
+3638 Nathalia <br>
+3409 Natimuk <br>
+3465 Natte Yallock <br>
+3384 Navarre <br>
+3352 Navigators <br>
+3831 Neerim <br>
+3821 Neerim Junction <br>
+3821 Neerim North <br>
+3831 Neerim South <br>
+3292 Nelson <br>
+3953 Nerrena <br>
+3351 Nerrin Nerrin <br>
+3350 Nerrina <br>
+3413 Neuarpurr <br>
+3438 New Gisborne <br>
+3825 Newborough <br>
+3551 Newbridge <br>
+3458 Newbury <br>
+3219 Newcomb <br>
+3442 Newham <br>
+3925 Newhaven <br>
+3875 Newlands Arm <br>
+3364 Newlyn <br>
+3886 Newmerella <br>
+3015 Newport <br>
+3859 Newry <br>
+3462 Newstead <br>
+3220 Newtown <br>
+3418 Nhill <br>
+3501 Nichols Point <br>
+3882 Nicholson <br>
+3042 Niddrie <br>
+3821 Nilma <br>
+3268 Nirranda <br>
+3174 Noble Park <br>
+3174 Noble Park North <br>
+3833 Noojee <br>
+3265 Noorat <br>
+3890 Noorinbee <br>
+3401 Noradjuha <br>
+3214 Norlane <br>
+3682 Norong <br>
+3550 North Bendigo <br>
+3215 North Geelong <br>
+3051 North Melbourne <br>
+3187 North Road <br>
+3214 North Shore <br>
+3113 North Warrandyte <br>
+3070 Northcote <br>
+3072 Northland Centre <br>
+3168 Notting Hill <br>
+3887 Nowa Nowa <br>
+3268 Nullawarre <br>
+3529 Nullawil <br>
+3636 Numurkah <br>
+3131 Nunawading <br>
+3110 Nunawading Bc <br>
+3099 Nutfield <br>
+3594 Nyah <br>
+3595 Nyah West <br>
+3987 Nyora <br>
+<br>
+O<br>
+3046 Oak Park <br>
+3063 Oaklands Junction <br>
+3166 Oakleigh <br>
+3166 Oakleigh East <br>
+3167 Oakleigh South <br>
+3226 Ocean Grove <br>
+3809 Officer <br>
+3788 Olinda <br>
+3898 Omeo <br>
+3249 Ondit <br>
+3888 Orbost <br>
+3204 Ormond <br>
+3951 Outtrim <br>
+3490 Ouyen <br>
+3738 Ovens <br>
+3678 Oxley <br>
+3413 Ozenkadnook <br>
+<br>
+P<br>
+3810 Pakenham <br>
+3810 Pakenham Upper <br>
+3265 Panmure <br>
+3759 Panton Hill <br>
+3851 Paradise Beach <br>
+3114 Park Orchards <br>
+3195 Parkdale <br>
+3052 Parkville <br>
+3340 Parwan <br>
+3044 Pascoe Vale <br>
+3044 Pascoe Vale South <br>
+3491 Patchewollock <br>
+3564 Patho <br>
+3197 Patterson Lakes <br>
+3880 Paynesville <br>
+3912 Pearcedale <br>
+3289 Penshurst <br>
+3413 Peronne <br>
+3270 Peterborough <br>
+3757 Pheasant Creek <br>
+3597 Piangil <br>
+3572 Piavella <br>
+3639 Picola <br>
+3631 Pine Lodge <br>
+3200 Pines Forest <br>
+3249 Pirron Yallock <br>
+3090 Plenty <br>
+3030 Point Cook <br>
+3225 Point Lonsdale <br>
+3260 Pomborneit <br>
+3381 Pomonal <br>
+3312 Poolaijelo <br>
+3352 Pootilla <br>
+3988 Poowong <br>
+3740 Porepunkah <br>
+3971 Port Albert <br>
+3269 Port Campbell <br>
+3284 Port Fairy <br>
+3964 Port Franklin <br>
+3207 Port Melbourne <br>
+3965 Port Welshpool <br>
+3223 Portarlington <br>
+3305 Portland <br>
+3944 Portsea <br>
+3797 Powelltown <br>
+3181 Prahran <br>
+3572 Prairie <br>
+3685 Prentice North <br>
+3072 Preston <br>
+3072 Preston South <br>
+3054 Princes Hill <br>
+3269 Princetown <br>
+3662 Puckapunyal Milpo <br>
+3271 Pura Pura <br>
+3278 Purnim <br>
+3521 Pyalong <br>
+3575 Pyramid Hill <br>
+<br>
+Q<br>
+3540 Quambatook <br>
+3401 Quantong <br>
+3550 Quarry Hill <br>
+3225 Queenscliff <br>
+<br>
+R<br>
+3424 Rainbow <br>
+3132 Rangeview <br>
+3465 Rathscar <br>
+3453 Ravenswood <br>
+3825 Rawson <br>
+3880 Raymond Island <br>
+3570 Raywood <br>
+3695 Red Bluff <br>
+3496 Red Cliffs <br>
+3937 Red Hill <br>
+3937 Red Hill South <br>
+3350 Redan <br>
+3478 Redbank <br>
+3444 Redesdale <br>
+3658 Reedy Creek <br>
+3072 Regent West <br>
+3095 Research <br>
+3073 Reservoir <br>
+3923 Rhyll <br>
+3121 Richmond <br>
+3431 Riddells Creek <br>
+3134 Ringwood <br>
+3135 Ringwood East <br>
+3134 Ringwood North <br>
+3818 Ripplebrook <br>
+3185 Ripponlea <br>
+3019 Robinson <br>
+3549 Robinvale <br>
+3561 Rochester <br>
+3442 Rochford <br>
+3335 Rockbank <br>
+3401 Rocklands <br>
+3364 Rocklyn <br>
+3821 Rokeby <br>
+3330 Rokewood <br>
+3351 Rokewood Junction <br>
+3434 Romsey <br>
+3084 Rosanna <br>
+3285 Rosebrook <br>
+3939 Rosebud <br>
+3940 Rosebud West <br>
+3847 Rosedale <br>
+3351 Ross Creek <br>
+3340 Rowsley <br>
+3178 Rowville <br>
+3064 Roxburgh Park <br>
+3050 Royal Melbourne Hospital <br>
+3712 Rubicon <br>
+3666 Ruffy <br>
+3388 Rupanyup <br>
+3612 Rushworth <br>
+3331 Russells Bridge <br>
+3685 Rutherglen <br>
+3941 Rye <br>
+<br>
+S<br>
+3936 Safety Beach <br>
+3088 Saint Helena <br>
+3850 Sale <br>
+3853 Sale <br>
+3517 Salisbury West <br>
+3925 San Remo <br>
+3312 Sandford <br>
+3550 Sandhurst East <br>
+3171 Sandown Village <br>
+3191 Sandringham <br>
+3695 Sandy Creek <br>
+3959 Sandy Point <br>
+3875 Sarsfield <br>
+3787 Sassafras <br>
+3787 Sassafras Gully <br>
+3351 Scarsdale <br>
+3179 Scoresby <br>
+3176 Scoresby Bc <br>
+3352 Scotsburn <br>
+3267 Scotts Creek <br>
+3533 Sea Lake <br>
+3028 Seabrook <br>
+3198 Seaford <br>
+3018 Seaholme <br>
+3851 Seaspray <br>
+3858 Seaton <br>
+3556 Sebastian <br>
+3356 Sebastopol <br>
+3011 Seddon <br>
+3011 Seddon West <br>
+3159 Selby <br>
+3517 Serpentine <br>
+3420 Serviceton <br>
+3139 Seville <br>
+3660 Seymour <br>
+3661 Seymour <br>
+3331 She Oaks <br>
+3392 Sheep Hills <br>
+3463 Shelbourne <br>
+3329 Shelford <br>
+3701 Shelley <br>
+3630 Shepparton <br>
+3632 Shepparton <br>
+3631 Shepparton East <br>
+3789 Sherbrooke <br>
+3916 Shoreham <br>
+3795 Silvan <br>
+3564 Simmie <br>
+3266 Simpson <br>
+3465 Simson <br>
+3615607 Skenes Creek <br>
+3361 Skipton <br>
+3977 Skye <br>
+3364 Smeaton <br>
+3760 Smiths Gully <br>
+3351 Smythes Creek <br>
+3351 Smythesdale <br>
+3351 Snake Valley <br>
+3927 Somers <br>
+3062 Somerton <br>
+3912 Somerville <br>
+3943 Sorrento <br>
+3995 South Dudley <br>
+3015 South Kingsville <br>
+3205 South Melbourne <br>
+3205 South Melbourne Dc <br>
+3752 South Morang <br>
+3141 South Yarra <br>
+3006 Southbank <br>
+3283 Southern Cross <br>
+3192 Southland Centre <br>
+3350 Sovereign Hill <br>
+3488 Speed <br>
+3015 Spotswood <br>
+3550 Spring Gully <br>
+3352 Springbank <br>
+3682 Springhurst <br>
+3171 Springvale <br>
+3172 Springvale South <br>
+3021 St Albans <br>
+3219 St Albans Park <br>
+3761 St Andrews <br>
+3941 St Andrews Beach <br>
+3478 St Arnaud <br>
+3285 St Helens <br>
+3727 St James <br>
+3182 St Kilda <br>
+3183 St Kilda East <br>
+8004 St Kilda Road <br>
+8008 St Kilda Road Central <br>
+3182 St Kilda South <br>
+3182 St Kilda West <br>
+3223 St Leonards <br>
+3691 Staghorn Flat <br>
+3623 Stanhope <br>
+3747 Stanley <br>
+3221 Staughton Vale <br>
+3379 Stavely <br>
+3380 Stawell <br>
+3775 Steels Creek <br>
+3331 Steiglitz <br>
+3221 Stonehaven <br>
+3371 Stony Creek <br>
+3957 Stony Creek <br>
+3260 Stonyford <br>
+3862 Stratford <br>
+3658 Strath Creek <br>
+3622 Strathallan <br>
+3666 Strathbogie <br>
+3550 Strathdale <br>
+3312 Strathdownie <br>
+3099 Strathewen <br>
+3551 Strathfieldsaye <br>
+3301 Strathkellar <br>
+3641 Strathmerton <br>
+3041 Strathmore <br>
+3041 Strathmore Heights <br>
+3351 Streatham <br>
+3478 Stuart Mill <br>
+3152 Studfield <br>
+3429 Sunbury <br>
+3496 Sunnycliffs <br>
+3020 Sunshine <br>
+3127 Surrey Hills <br>
+3331 Sutherlands Creek <br>
+3448 Sutton Grange <br>
+3585 Swan Hill <br>
+3249 Swan Marsh <br>
+3903 Swan Reach <br>
+3673 Swanpool <br>
+3896 Swifts Creek <br>
+3037 Sydenham <br>
+3149 Syndal <br>
+<br>
+T<br>
+3607 Tabilk <br>
+3714 Taggerty <br>
+3371 Talbot <br>
+3691 Talgarno <br>
+3700 Tallangatta <br>
+3659 Tallarook <br>
+3634 Tallygaroopna <br>
+3893 Tambo Crossing <br>
+3885 Tambo Upper <br>
+3669 Tamleugh <br>
+3631 Tamleugh West <br>
+3571 Tandarra <br>
+3691 Tangambalanga <br>
+3825 Tanjil South <br>
+3921 Tankerton <br>
+3447 Taradale <br>
+3551 Tarnagulla <br>
+3029 Tarneit <br>
+3422 Tarranyurk <br>
+3971 Tarraville <br>
+3301 Tarrington <br>
+3956 Tarwin <br>
+3673 Tatong <br>
+3616 Tatura <br>
+3378 Tatyoon <br>
+3697 Tawonga <br>
+3698 Tawonga South <br>
+3038 Taylors Lakes <br>
+3160 Tecoma <br>
+3328 Teesdale <br>
+3401 Telangatuk East <br>
+3730 Telford <br>
+3106 Templestowe <br>
+3107 Templestowe Lower <br>
+3489 Tempy <br>
+3984 Tenby Point <br>
+3572 Tennyson <br>
+3264 Terang <br>
+3154 The Basin <br>
+3984 The Gurdies <br>
+3792 The Patch <br>
+3265 The Sisters <br>
+3074 Thomastown <br>
+3726 Thoona <br>
+3071 Thornbury <br>
+3712 Thornton <br>
+3835 Thorpdale <br>
+3824 Thorpdale South <br>
+3707 Thowgla Valley <br>
+3797 Three Bridges <br>
+3960 Tidal River <br>
+3268 Timboon <br>
+3859 Tinamba <br>
+3708 Tintaldra <br>
+3621 Tongala <br>
+3815 Tonimbuk <br>
+3522 Tooborac <br>
+3614 Toolamba <br>
+3777 Toolangi <br>
+3337 Toolern Vale <br>
+3551 Toolleen <br>
+3401 Toolondo <br>
+3285 Toolong <br>
+3856 Toongabbie <br>
+3962 Toora <br>
+3980 Tooradin <br>
+3142 Toorak <br>
+3941 Tootgarook <br>
+3228 Torquay <br>
+3562 Torrumbarry <br>
+3012 Tottenham <br>
+3283 Tower Hill <br>
+3707 Towong <br>
+3824 Trafalgar <br>
+3844 Traralgon <br>
+3032 Travancore <br>
+3373 Trawalla <br>
+3660 Trawool <br>
+3458 Trentham <br>
+3583 Tresco <br>
+3029 Truganina <br>
+3888 Tubbut <br>
+3915 Tuerong <br>
+3043 Tullamarine <br>
+3728 Tungamah <br>
+3109 Tunstall Square Po <br>
+3913 Tyabb <br>
+3844 Tyers <br>
+3444 Tylden <br>
+3813 Tynong <br>
+3285 Tyrendarra <br>
+3550 Tysons Reef <br>
+<br>
+U<br>
+3364 Ullina <br>
+3544 Ultima <br>
+3629 Undera <br>
+3509 Underbool <br>
+3010 University Of Melbourne <br>
+3156 Upper Ferntree Gully <br>
+3756 Upper Plenty <br>
+3158 Upwey <br>
+<br>
+V<br>
+3860 Valencia Creek <br>
+3407 Vasey <br>
+3956 Venus Bay <br>
+3133 Vermont <br>
+3133 Vermont South <br>
+3814 Vervale <br>
+3294 Victoria Valley <br>
+3084 Viewbank <br>
+3591 Vinifera <br>
+3669 Violet Town <br>
+<br>
+W<br>
+3885 W Tree <br>
+3637 Waaia <br>
+3687 Wahgunyah <br>
+3608 Wahring <br>
+3887 Wairewa <br>
+3544 Waitchie <br>
+3825 Walhalla <br>
+3956 Walkerville <br>
+3956 Walkerville South <br>
+3352 Wallace <br>
+3756 Wallan <br>
+3221 Wallington <br>
+3401 Wallup <br>
+3875 Walpa <br>
+3507 Walpeup <br>
+3709 Walwa <br>
+3612 Wanalta <br>
+3216 Wandana Heights <br>
+3744 Wandiligong <br>
+3139 Wandin North <br>
+3312 Wando Vale <br>
+3758 Wandong <br>
+3676 Wangaratta <br>
+3677 Wangaratta <br>
+3279 Wangoom <br>
+3152 Wantirna <br>
+3152 Wantirna South <br>
+3959 Waratah Bay <br>
+3799 Warburton <br>
+3465 Wareek <br>
+3243 Warncoort <br>
+3980 Warneet <br>
+3393 Warracknabeal <br>
+3820 Warragul <br>
+3377 Warrak <br>
+3113 Warrandyte <br>
+3134 Warrandyte South <br>
+3134 Warranwood <br>
+3670 Warrenbayne <br>
+3352 Warrenheip <br>
+3249 Warrion <br>
+3280 Warrnambool <br>
+3482 Watchem <br>
+3485 Watchupga <br>
+3195 Waterways <br>
+3087 Watsonia <br>
+3097 Watsons Creek <br>
+3096 Wattle Glen <br>
+3128 Wattle Park <br>
+3352 Waubra <br>
+3216 Waurn Ponds <br>
+3352 Weatherboard <br>
+3518 Wedderburn <br>
+3251 Weering <br>
+3966 Welshpool <br>
+3355 Wendouree <br>
+3355 Wendouree Village <br>
+3352 Werneth <br>
+3030 Werribee <br>
+3496 Werrimull <br>
+3799 Wesburn <br>
+3012 West Footscray <br>
+3003 West Melbourne <br>
+3049 Westmeadows <br>
+3351 Westmere <br>
+3150 Wheelers Hill <br>
+3550 White Hills <br>
+3733 Whitfield <br>
+3733 Whitlands <br>
+3219 Whittington <br>
+3757 Whittlesea <br>
+3735 Whorouly <br>
+3379 Wickliffe <br>
+3728 Wilby <br>
+3379 Willaura <br>
+3016 Williamstown <br>
+3825 Willow Grove <br>
+3847 Willung <br>
+3844 Willung South <br>
+3241 Winchelsea <br>
+3352 Windermere <br>
+3181 Windsor <br>
+3304 Winnap <br>
+3281 Winslow <br>
+3673 Winton <br>
+3885 Wiseleigh <br>
+3189 Wishart <br>
+3689 Wodonga <br>
+3690 Wodonga <br>
+3690 Wodonga Plaza <br>
+3750 Wollert <br>
+3401 Wombelano <br>
+3971 Won Wron <br>
+3115 Wonga Park <br>
+3221 Wongarra <br>
+3995 Wonthaggi <br>
+3596 Wood Wood <br>
+3442 Woodend <br>
+3715 Woodfield <br>
+3281 Woodford <br>
+3945 Woodleigh <br>
+3723 Woods Point <br>
+3874 Woodside <br>
+3751 Woodstock <br>
+3463 Woodstock West <br>
+3249 Wool Wool <br>
+3995 Woolamai <br>
+3276 Woolsthorpe <br>
+3485 Woomelang <br>
+3747 Wooragee <br>
+3139 Woori Yallock <br>
+3589 Woorinen <br>
+3588 Woorinen South <br>
+3272 Woorndoo <br>
+3005 World Trade Centre <br>
+8005 World Trade Centre <br>
+3885 Wulgulmerang <br>
+3635 Wunghnu <br>
+3241 Wurdiboluc <br>
+3850 Wurruk <br>
+3875 Wy Yung <br>
+3527 Wycheproof <br>
+3525 Wychitella <br>
+3221 Wye River <br>
+3024 Wyndham Vale <br>
+3620 Wyuna <br>
+<br>
+Y<br>
+3424 Yaapeet <br>
+3646 Yabba North <br>
+3749 Yackandandah <br>
+3085 Yallambie <br>
+3825 Yallourn North <br>
+3285 Yambuk <br>
+3621 Yambuna <br>
+3755 Yan Yean <br>
+3418 Yanac <br>
+3960 Yanakie <br>
+3461 Yandoit <br>
+3981 Yannathan <br>
+3719 Yarck <br>
+3775 Yarra Glen <br>
+3797 Yarra Junction <br>
+3823 Yarragon <br>
+3971 Yarram <br>
+3091 Yarrambat <br>
+3013 Yarraville <br>
+3013 Yarraville West <br>
+3575 Yarrawalla <br>
+3730 Yarrawonga <br>
+3644 Yarroweyah <br>
+3677 Yarrunga <br>
+3717 Yea <br>
+3139 Yellingbo <br>
+3352 Yendon <br>
+3249 Yeo <br>
+3249 Yeodene <br>
+3869 Yinnar <br>
+3646 Youanmite <br>
+3727 Yundool <br>
+3063 Yuroke <br>
+<br>
+Missing from Australia Post Postcodes<br>
+Jolimont<br>
+Phillip Island<br>
+Hanging Rock<br>
+Tarra<br>
+Yarra Plenty<br>
+Yarra Valley<br>
+Kings Domain<br>
+Southgate<br>
+Research<br>
+Lake Mulwala<br>
+Harbour Esplanade<br>
+Albury 
+	
+		
+
+<!-- </a> -->
+
+<div style="display:none" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress"><span style="display:none" itemprop="streetAddress"></span><span style="display:none" itemprop="addressLocality">Melbourne</span><span style="display:none" itemprop="addressRegion">Victoria</span><span style="display:none" itemprop="telephone"></span></div><TABLE class="tablecss"><TR><TD></TD></TR></TABLE>
+<!--- <P style="margin-left: 7"> -->
+
+<br><br><!-- AddToAny BEGIN -->
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_x"></a>
+<a class="a2a_button_email"></a>
+<a class="a2a_button_copy_link"></a>
+</div>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+<!-- AddToAny END --><br>
+<hr><h4>&#10058; Web Links &#10058;</h4><br>
+
+<!--- <P style="margin-left: 7"> -->
+
+
+&#10172; <a rel="nofollow noopener" target="_blank" title="https://en.wikipedia.org/wiki/List_of_postcodes_in_Victoria " href="https://en.wikipedia.org/wiki/List_of_postcodes_in_Victoria">
+
+Melbourne & Victorian Postcodes</a>&nbsp;<a title="https://en.wikipedia.org/wiki/List_of_postcodes_in_Victoria" rel="nofollow noopener" target="_blank" href="https://en.wikipedia.org/wiki/List_of_postcodes_in_Victoria"></a>
+
+<br><br>
+
+
+<!-- </P>       -->
+
+
+<br>
+
+<!-- Disclaimer Block Start --><div class="info-box">
+	<i class="bi bi-info-circle-fill"></i>
+	<p><a target="_blank" title="Disclaimer" rel="nofollow noopener" href="https://www.onlymelbourne.com.au/disclaimer">Disclaimer</a>:  Check with the venue (web links) before making plans, travelling or buying tickets.</p>
+	<p>Accessibility: Contact the venue for accessibility information.</p>
+</div><!-- Disclaimer Block End -->
+
+
+
+
+
+
+<br>
+
+
+<br><br>
+<!-- TRENDING HOT -->
+
+<br>
+
+<a title="Update this page" class="btn btn-outline-primary" rel="nofollow noopener" href="/update-details.php?pid=8271">Update Page</a>
+<!-- upgrade not required -->
+
+<br><br>
+
+<div style="display:none" class="description" itemprop="description">List of postcodes in Melbourne and Victoria from Wikipedia, the free encyclopedia<br>
+<br>
+Postcodes are used by Australia Post to identify postal districts.<br>
+<br>
+3067 Abbotsford <br>
+3040 Aberfeldie <br>
+3825 Aberfeldy <br>
+3714 Acheron <br>
+3352 Addington <br>
+3962 Agnes <br>
+3231 Aireys Inlet <br>
+3042 Airport West <br>
+3021 Albanvale <br>
+3206 Albert Park <br>
+3971 Alberton <br>
+3020 Albion <br>
+3714 Alexandra <br>
+3350 Alfredton <br>
+3691 Allans Flat <br>
+3277 Allansford <br>
+3364 Allendale <br>
+3305 Allestree <br>
+3465 Alma <br>
+3979 Almurta <br>
+3078 Alphington <br>
+3018 Altona <br>
+3028 Altona Meadows <br>
+3025 Altona North <br>
+3249 Alvie <br>
+3377 Amphitheatre <br>
+3221 Anakie <br>
+3715 Ancona <br>
+3230 Anglesea <br>
+3414 Antwerp <br>
+3615607 Apollo Bay <br>
+3677 Appin Park <br>
+3319 Apsley <br>
+3377 Ararat <br>
+3631 Arcadia <br>
+3995 Archies Creek <br>
+3022 Ardeer <br>
+3629 Ardmona <br>
+3480 Areegra <br>
+3143 Armadale <br>
+3143 Armadale North <br>
+3551 Arnold <br>
+3099 Arthurs Creek <br>
+3936 Arthurs Seat <br>
+3364 Ascot <br>
+3032 Ascot Vale <br>
+3442 Ashbourne <br>
+3147 Ashburton <br>
+3147 Ashwood <br>
+3195 Aspendale <br>
+3195 Aspendale Gardens <br>
+3818 Athlone <br>
+3049 Attwood <br>
+3664 Avenel <br>
+3467 Avoca <br>
+3034 Avondale Heights <br>
+3782 Avonsleigh <br>
+3551 Axedale <br>
+<br>
+B<br>
+3747 Baarmutha <br>
+3340 Bacchus Marsh <br>
+3670 Baddaginnie <br>
+3608 Bailieston <br>
+3875 Bairnsdale <br>
+3354 Bakery Hill <br>
+3183 Balaclava <br>
+3342 Ballan <br>
+3350 Ballarat <br>
+3353 Ballarat <br>
+3354 Ballarat Mc <br>
+3350 Ballarat North <br>
+3350 Ballarat West <br>
+3340 Balliang <br>
+3666 Balmattum <br>
+3407 Balmoral <br>
+3926 Balnarring <br>
+3971 Balook <br>
+3103 Balwyn <br>
+3104 Balwyn North <br>
+3561 Bamawm <br>
+3241 Bambra <br>
+3694 Bandiana Milpo <br>
+3175 Bangholme <br>
+3331 Bannockburn <br>
+3388 Banyena <br>
+3084 Banyule <br>
+3691 Baranduda <br>
+3463 Baringhup <br>
+3451 Barkers Creek <br>
+3381 Barkly <br>
+3352 Barkstead <br>
+3639 Barmah <br>
+3557 Barnadown <br>
+3688 Barnawartha <br>
+3249 Barongarook <br>
+3221 Barrabool <br>
+3249 Barramunga <br>
+3329 Barunah Park <br>
+3243 Barwon Downs <br>
+3227 Barwon Heads <br>
+3991 Bass <br>
+3221 Batesford <br>
+3911 Baxter <br>
+3375 Bayindeen <br>
+3981 Bayles <br>
+3153 Bayswater <br>
+3153 Bayswater North <br>
+3807 Beaconsfield <br>
+3808 Beaconsfield Upper <br>
+3475 Bealiba <br>
+3373 Beaufort <br>
+3193 Beaumaris <br>
+3135 Bedford Road <br>
+3251 Beeac <br>
+3237 Beech Forest <br>
+3747 Beechworth <br>
+3160 Belgrave <br>
+3215 Bell Park <br>
+3215 Bell Post Hill <br>
+3221 Bellarine <br>
+3228 Bellbrae <br>
+3691 Bellbridge <br>
+3216 Belmont <br>
+3198 Belvedere Park <br>
+3889 Bemm River <br>
+3946 Bena <br>
+3671 Benalla <br>
+3672 Benalla <br>
+3673 Benalla <br>
+3900 Benambra <br>
+3630 Benarch <br>
+3319 Benayeo <br>
+3097 Bend Of Islands <br>
+3550 Bendigo <br>
+3552 Bendigo <br>
+3554 Bendigo Dc <br>
+3888 Bendoc <br>
+3875 Bengworden <br>
+3125 Bennettswood <br>
+3960 Bennison <br>
+3204 Bentleigh <br>
+3165 Bentleigh East <br>
+3342 Beremboke <br>
+3518 Berrimal <br>
+3351 Berringa <br>
+3691 Berringama <br>
+3531 Berriwillock <br>
+3323 Berrybank <br>
+3953 Berrys Creek <br>
+3806 Berwick <br>
+3472 Bet Bet <br>
+3691 Bethanga <br>
+3472 Betley <br>
+3395 Beulah <br>
+3590 Beverford <br>
+3753 Beveridge <br>
+3707 Biggara <br>
+3966 Binginwarri <br>
+3483 Birchip <br>
+3242 Birregurra <br>
+3918 Bittern <br>
+3350 Black Hill <br>
+3193 Black Rock <br>
+3130 Blackburn <br>
+3130 Blackburn North <br>
+3130 Blackburn South <br>
+3458 Blackwood <br>
+3942 Blairgowrie <br>
+3342 Blakeville <br>
+3364 Blampied <br>
+3980 Blind Bight <br>
+3352 Blowhard <br>
+3699 Bogong <br>
+3669 Boho South <br>
+3860 Boisdale <br>
+3432 Bolinda <br>
+3546 Bolton <br>
+3305 Bolwarra <br>
+3352 Bolwarrah <br>
+3888 Bonang <br>
+3196 Bonbeach <br>
+3691 Bonegilla <br>
+3720 Bonnie Doon <br>
+3870 Boolarra <br>
+3265 Boorcan <br>
+3678 Boorhaman <br>
+3685 Boorhaman North <br>
+3537 Boort <br>
+3155 Boronia <br>
+3518 Borung <br>
+3977 Botanic Ridge<br>
+3599 Boundary Bend <br>
+3735 Bowmans Forest <br>
+3128 Box Hill <br>
+3129 Box Hill North <br>
+3128 Box Hill South <br>
+3725 Boxwood <br>
+3195 Braeside <br>
+3630 Branditt <br>
+3302 Branxholme <br>
+3019 Braybrook <br>
+3219 Breakwater <br>
+3227 Breamlea <br>
+3131 Brentford Square <br>
+3860 Briagolong <br>
+3088 Briar Hill <br>
+3516 Bridgewater On Loddon <br>
+3741 Bright <br>
+3186 Brighton <br>
+3187 Brighton East <br>
+3184 Brighton Road <br>
+3391 Brim <br>
+3658 Broadford <br>
+3047 Broadmeadows <br>
+3301 Broadwater <br>
+3338 Brookfield <br>
+3012 Brooklyn <br>
+3364 Broomfield <br>
+3350 Brown Hill <br>
+3685 Browns Plains <br>
+3056 Brunswick <br>
+3057 Brunswick East <br>
+3055 Brunswick West <br>
+3885 Bruthen <br>
+3375 Buangor <br>
+3885 Buchan <br>
+3240 Buckley <br>
+3958 Buffalo <br>
+3737 Buffalo River <br>
+3428 Bulla <br>
+3352 Bullarook <br>
+3461 Bullarto <br>
+3105 Bulleen <br>
+3437 Bullengarook <br>
+3821 Buln Buln <br>
+3634 Bunbartha <br>
+3851 Bundalaguah <br>
+3730 Bundalong <br>
+3083 Bundoora <br>
+3260 Bungador <br>
+3352 Bungaree <br>
+3726 Bungeet <br>
+3357 Buninyong <br>
+3815 Bunyip <br>
+3121 Burnley <br>
+3023 Burnside <br>
+3709 Burrowye <br>
+3352 Burrumbeet <br>
+3125 Burwood <br>
+3151 Burwood East <br>
+3151 Burwood Heights <br>
+3281 Bushfield <br>
+3885 Butchers Ridge <br>
+3711 Buxton <br>
+3301 Byaduk <br>
+3762 Bylands <br>
+3617 Byrneside <br>
+<br>
+C<br>
+3505 Cabarita <br>
+3889 Cabbage Tree Creek <br>
+3023 Cairnlea <br>
+3984 Caldermeade <br>
+3556 California Gully <br>
+3573 Calivil <br>
+3844 Callignee <br>
+3875 Calulu <br>
+3124 Camberwell <br>
+3126 Camberwell East <br>
+3124 Camberwell North <br>
+3124 Camberwell South <br>
+3124 Camberwell West <br>
+3352 Cambrian Hill <br>
+3061 Campbellfield <br>
+3381 Campbells Bridge <br>
+3451 Campbells Creek <br>
+3556 Campbells Forest <br>
+3364 Campbelltown <br>
+3260 Camperdown <br>
+3350 Canadian <br>
+3630 Caniambo <br>
+3890 Cann River <br>
+3540 Cannie <br>
+3977 Cannons Creek <br>
+3126 Canterbury <br>
+3351 Cape Clear <br>
+3995 Cape Paterson <br>
+3925 Cape Woolamai <br>
+3274 Caramut <br>
+3312 Carapook <br>
+3352 Cardigan <br>
+3978 Cardinia <br>
+3496 Cardross <br>
+3464 Carisbrook <br>
+3239 Carlisle River <br>
+3442 Carlsruhe <br>
+3053 Carlton <br>
+3054 Carlton North <br>
+3053 Carlton South <br>
+3163 Carnegie <br>
+3351 Carngham <br>
+3023 Caroline Springs <br>
+3844 Carrajung <br>
+3874 Carrajung South <br>
+3361 Carranballac <br>
+3197 Carrum <br>
+3201 Carrum Downs <br>
+3494 Carwarp <br>
+3311 Casterton <br>
+3450 Castlemaine <br>
+3981 Catani <br>
+3714 Cathkin <br>
+3162 Caulfield <br>
+3145 Caulfield East <br>
+3161 Caulfield Junction <br>
+3161 Caulfield North <br>
+3162 Caulfield South <br>
+3314 Cavendish <br>
+3145 Central Park <br>
+3221 Ceres <br>
+3148 Chadstone <br>
+3239 Chapple Vale <br>
+3695 Charleroi <br>
+3525 Charlton <br>
+3379 Chatsworth <br>
+3196 Chelsea <br>
+3196 Chelsea Heights <br>
+3192 Cheltenham <br>
+3192 Cheltenham East <br>
+3351 Chepstowe <br>
+3678 Cheshunt <br>
+3312 Chetwynd <br>
+3451 Chewton <br>
+3824 Childers <br>
+3683 Chiltern <br>
+3546 Chinkapook <br>
+3116 Chirnside Park <br>
+3775 Christmas Hills <br>
+3842 Churchill <br>
+3352 Clarendon <br>
+3169 Clarinda <br>
+3430 Clarkefield <br>
+3352 Clarkes Hill <br>
+3168 Clayton <br>
+3169 Clayton South <br>
+3782 Clematis <br>
+3068 Clifton Hill <br>
+3222 Clifton Springs <br>
+3658 Clonbinane <br>
+3889 Club Terrace <br>
+3370 Clunes <br>
+3978 Clyde <br>
+3825 Coalville <br>
+3165 Coatesville <br>
+3266 Cobden <br>
+3643 Cobram <br>
+3644 Cobram <br>
+3058 Coburg <br>
+3058 Coburg North <br>
+3781 Cockatoo <br>
+3364 Coghills Creek <br>
+3568 Cohuna <br>
+3340 Coimadai <br>
+3250 Colac <br>
+3707 Colac Colac <br>
+3559 Colbinabbin <br>
+3770 Coldstream <br>
+3315 Coleraine <br>
+3494 Colignan <br>
+3066 Collingwood <br>
+8003 Collins Street East <br>
+8007 Collins Street West <br>
+3630 Colliver <br>
+3889 Combienbar <br>
+3556 Comet Hill <br>
+3303 Condah <br>
+3633 Congupna <br>
+3227 Connewarre <br>
+3318 Connewirricoo <br>
+3048 Coolaroo <br>
+3616 Cooma <br>
+3629 Coomboona <br>
+3814 Cora Lynn <br>
+3480 Corack <br>
+3249 Coragulac <br>
+3352 Corindhap <br>
+3984 Corinella <br>
+3214 Corio <br>
+3984 Coronet Bay <br>
+3559 Corop <br>
+3254 Cororooke <br>
+3707 Corryong <br>
+3249 Corunnun <br>
+3631 Cosgrove <br>
+3523 Costerfield <br>
+3099 Cottles Bridge <br>
+3506 Cowangie <br>
+3922 Cowes <br>
+3857 Cowwarr <br>
+3465 Craigie <br>
+3064 Craigieburn <br>
+3977 Cranbourne <br>
+3977 Cranbourne North <br>
+3977 Cranbourne South <br>
+3669 Creek Junction <br>
+3666 Creighton <br>
+3121 Cremorne <br>
+3322 Cressy <br>
+3363 Creswick <br>
+3919 Crib Point <br>
+3193 Cromer <br>
+3377 Crowlands <br>
+3136 Croydon <br>
+3136 Croydon Hills <br>
+3136 Croydon North <br>
+3136 Croydon South <br>
+3265 Cudgee <br>
+3705 Cudgewa <br>
+3530 Culgoa <br>
+3496 Cullulleraine <br>
+3251 Cundare North <br>
+3268 Curdie Vale <br>
+3268 Curdies River <br>
+3222 Curlewis <br>
+<br>
+D<br>
+3385 Dadswells Bridge <br>
+3465 Daisy Hill <br>
+3047 Dallas <br>
+3981 Dalmore <br>
+3992 Dalyston <br>
+3175 Dandenong <br>
+3164 Dandenong South <br>
+3175 Dandenong South <br>
+3737 Dandongadale <br>
+3862 Dargo <br>
+3871 Darlimurla <br>
+3145 Darling <br>
+3271 Darlington <br>
+3822 Darnum <br>
+3756 Darraweit Guim <br>
+3851 Darriman <br>
+3304 Dartmoor <br>
+3701 Dartmouth <br>
+3460 Daylesford <br>
+3217 Deakin University <br>
+3352 Dean <br>
+3235 Deans Marsh <br>
+3691 Dederang <br>
+3023 Deer Park <br>
+3022 Deer Park East <br>
+3356 Delacombe <br>
+3037 Delahey <br>
+3186 Dendy <br>
+3280 Dennington <br>
+3516 Derby <br>
+3352 Dereel <br>
+3312 Dergholm <br>
+3030 Derrimut <br>
+3325 Derrinallum <br>
+3726 Devenish <br>
+3977 Devon Meadows <br>
+3971 Devon North <br>
+3610 Dhurringile <br>
+3089 Diamond Creek <br>
+3309 Digby <br>
+3427 Diggers Rest <br>
+3414 Dimboola <br>
+3571 Dingee <br>
+3172 Dingley Village <br>
+3898 Dinner Plain <br>
+3775 Dixons Creek <br>
+3008 Docklands <br>
+3480 Donald <br>
+3108 Doncaster <br>
+3109 Doncaster East <br>
+3109 Doncaster Heights <br>
+3064 Donnybrook <br>
+3111 Donvale <br>
+3401 Dooen <br>
+3646 Dookie <br>
+3647 Dookie College <br>
+3754 Doreen <br>
+3401 Douglas <br>
+3177 Doveton <br>
+3249 Dreeite <br>
+3936 Dromana <br>
+3818 Drouin <br>
+3461 Drummond <br>
+3446 Drummond North <br>
+3222 Drysdale <br>
+3956 Dumbalk <br>
+3271 Dundonnell <br>
+3294 Dunkeld <br>
+3630 Dunkirk <br>
+3352 Dunnstown <br>
+3472 Dunolly <br>
+3352 Durham Lead <br>
+3576 Durham Ox <br>
+3323 Duverney <br>
+<br>
+E<br>
+3878 Eagle Point <br>
+3556 Eaglehawk <br>
+3084 Eaglemont <br>
+3219 East Geelong <br>
+3002 East Melbourne <br>
+8002 East Melbourne <br>
+3852 East Sale Raaf <br>
+3231 Eastern View <br>
+3691 Ebden <br>
+3564 Echuca <br>
+3472 Eddington <br>
+3757 Eden Park <br>
+3318 Edenhope <br>
+3196 Edithvale <br>
+3713 Eildon <br>
+3334 Elaine <br>
+3746 Eldorado <br>
+3265 Ellerslie <br>
+3250 Elliminyt <br>
+3469 Elmhurst <br>
+3558 Elmore <br>
+3448 Elphinstone <br>
+3185 Elsternwick <br>
+3095 Eltham <br>
+3095 Eltham North <br>
+3184 Elwood <br>
+3782 Emerald <br>
+3475 Emu <br>
+3802 Endeavour Hills <br>
+3352 Enfield <br>
+3895 Ensay <br>
+3551 Eppalock <br>
+3076 Epping <br>
+3076 Epping Dc <br>
+3551 Epsom <br>
+3825 Erica <br>
+3701 Eskdale <br>
+3040 Essendon <br>
+3041 Essendon North <br>
+3040 Essendon West <br>
+3350 Eureka <br>
+3666 Euroa <br>
+3739 Eurobin <br>
+3371 Evansford <br>
+3678 Everton <br>
+3338 Exford <br>
+<br>
+F<br>
+3078 Fairfield <br>
+3231 Fairhaven <br>
+3699 Falls Creek <br>
+3060 Fawkner <br>
+3458 Fern Hill <br>
+3864 Fernbank <br>
+3518 Fernihurst <br>
+3156 Ferntree Gully <br>
+3786 Ferny Creek <br>
+3939 Fingal <br>
+3959 Fish Creek <br>
+3065 Fitzroy <br>
+3068 Fitzroy North <br>
+3977 Five Ways <br>
+3031 Flemington <br>
+3929 Flinders <br>
+8009 Flinders Lane <br>
+3717 Flowerdale <br>
+3844 Flynn <br>
+3011 Footscray <br>
+3131 Forest Hill <br>
+3236 Forrest <br>
+3960 Foster <br>
+3557 Fosterville <br>
+3805 Fountain Gate <br>
+3265 Framlingham <br>
+3461 Franklinford <br>
+3199 Frankston <br>
+3200 Frankston North <br>
+3741 Freeburgh <br>
+3216 Freshwater Creek <br>
+3451 Fryerstown <br>
+3221 Fyansford <br>
+<br>
+G<br>
+3737 Gapsted <br>
+3207 Garden City <br>
+3185 Gardenvale <br>
+3814 Garfield <br>
+3265 Garvoc <br>
+3407 Gatum <br>
+3220 Geelong <br>
+3218 Geelong West <br>
+3885 Gelantipy <br>
+3239 Gellibrand <br>
+3237 Gellibrand Lower <br>
+3971 Gelliondale <br>
+3783 Gembrook <br>
+3891 Genoa <br>
+3418 Gerang Gerung <br>
+3243 Gerangamete <br>
+3331 Gheringhap <br>
+3797 Gilderoy <br>
+3616 Gillieston <br>
+3841 Gippsland Mc <br>
+3891 Gipsy Point <br>
+3624 Girgarre <br>
+3437 Gisborne <br>
+3043 Gladstone Park <br>
+3797 Gladysdale <br>
+3979 Glen Alvie <br>
+3691 Glen Creek <br>
+3990 Glen Forbes <br>
+3163 Glen Huntly <br>
+3146 Glen Iris <br>
+3150 Glen Waverley <br>
+3717 Glenburn <br>
+3266 Glenfyne <br>
+3854 Glengarry <br>
+3461 Glenlyon <br>
+3858 Glenmaggie <br>
+3340 Glenmore <br>
+3385 Glenorchy <br>
+3675 Glenrowan <br>
+3046 Glenroy <br>
+3293 Glenthompson <br>
+3221 Gnarwarre <br>
+3260 Gnotuk <br>
+3719 Gobur <br>
+3350 Golden Point <br>
+3451 Golden Point <br>
+3465 Golden Point <br>
+3555 Golden Square <br>
+3472 Goldsborough <br>
+3666 Gooram <br>
+3685 Gooramadda <br>
+3725 Goorambat <br>
+3557 Goornong <br>
+3305 Gorae <br>
+3345 Gordon <br>
+3873 Gormandale <br>
+3412 Goroke <br>
+3723 Goughs Bay <br>
+3608 Goulburn Weir <br>
+3043 Gowanbrae <br>
+3669 Gowangardie <br>
+3984 Grantville <br>
+3701 Granya <br>
+3281 Grassmere <br>
+3608 Graytown <br>
+3377 Great Western <br>
+3537 Gredgwin <br>
+3341 Greendale <br>
+3088 Greensborough <br>
+3059 Greenvale <br>
+3675 Greta <br>
+3216 Grovedale <br>
+3770 Gruyere <br>
+3451 Guildford <br>
+3566 Gunbower <br>
+3691 Gundowring <br>
+3850 Guthridge <br>
+3709 Guys Forest <br>
+3807 Guys Hill <br>
+3401 Gymbowen <br>
+<br>
+H<br>
+3351 Haddon <br>
+3046 Hadfield <br>
+3803 Hallam <br>
+3381 Halls Gap <br>
+3953 Hallston <br>
+3300 Hamilton <br>
+3215 Hamlyn Heights <br>
+3188 Hampton <br>
+3188 Hampton East <br>
+3188 Hampton North <br>
+3976 Hampton Park <br>
+3675 Hansonville <br>
+3453 Harcourt <br>
+3806 Harkaway <br>
+3741 Harrietville <br>
+3317 Harrow <br>
+3616 Harston <br>
+3915 Hastings <br>
+3287 Hawkesdale <br>
+3142 Hawksburn <br>
+3122 Hawthorn <br>
+3123 Hawthorn East <br>
+3658 Hazeldene <br>
+3777 Healesville <br>
+3981 Heath Hill <br>
+3523 Heathcote <br>
+3758 Heathcote Junction <br>
+3202 Heatherton <br>
+3135 Heathmont <br>
+3967 Hedley <br>
+3084 Heidelberg <br>
+3081 Heidelberg Heights <br>
+3081 Heidelberg Rgh <br>
+3081 Heidelberg West <br>
+3312 Henty <br>
+3461 Hepburn Springs <br>
+3218 Herne Hill <br>
+3825 Hernes Oak <br>
+3442 Hesket <br>
+3273 Hexham <br>
+3858 Heyfield <br>
+3304 Heywood <br>
+3756 Hidden Valley <br>
+3190 Highett <br>
+3032 Highpoint City <br>
+3216 Highton <br>
+3825 Hill End <br>
+3351 Hillcrest <br>
+3037 Hillside <br>
+3875 Hillside <br>
+3920 Hmas Cerberus <br>
+3139 Hoddles Creek <br>
+3148 Holmesglen <br>
+3717 Homewood <br>
+3396 Hopetoun <br>
+3162 Hopetoun Gardens <br>
+3029 Hoppers Crossing <br>
+3238 Hordern Vale <br>
+3400 Horsham <br>
+3402 Horsham <br>
+3741 Hotham Heights <br>
+3051 Hotham Hill <br>
+3128 Houston <br>
+3166 Hughesdale <br>
+3691 Hume Weir <br>
+3757 Humevale <br>
+3558 Hunter <br>
+3166 Huntingdale <br>
+3551 Huntly <br>
+3695 Huon <br>
+3099 Hurstbridge <br>
+<br>
+I<br>
+3351 Illabarook <br>
+3282 Illowa <br>
+3223 Indented Head <br>
+3517 Inglewood <br>
+3472 Inkerman <br>
+3636 Invergordon <br>
+3634 Invergordon South <br>
+3321 Inverleigh <br>
+3996 Inverloch <br>
+3352 Invermay <br>
+3815 Iona <br>
+3249 Irrewarra <br>
+3498 Irymple <br>
+3079 Ivanhoe <br>
+3079 Ivanhoe East <br>
+<br>
+J<br>
+3047 Jacana <br>
+3984 Jam Jerrup <br>
+3723 Jamieson <br>
+3228 Jan Juc <br>
+3266 Jancourt <br>
+3266 Jancourt East <br>
+3517 Jarklin <br>
+3840 Jeeralang <br>
+3945 Jeetho <br>
+3423 Jeparit <br>
+3238 Johanna <br>
+3902 Johnsonville <br>
+3869 Jumbuk <br>
+3951 Jumbunna <br>
+3399 Jung <br>
+3551 Junortoun <br>
+<br>
+K<br>
+3909 Kalimna <br>
+3064 Kalkallo <br>
+3791 Kallista <br>
+3766 Kalorama <br>
+3555 Kangaroo Flat <br>
+3097 Kangaroo Ground <br>
+3419 Kaniva <br>
+3719 Kanumbra <br>
+3564 Kanyapella <br>
+3951 Kardella <br>
+3199 Karingal <br>
+3401 Karnak <br>
+3649 Katamatite <br>
+3634 Katandra <br>
+3640 Katunga <br>
+3249 Kawarren <br>
+3021 Kealba <br>
+3036 Keilor <br>
+3038 Keilor Downs <br>
+3033 Keilor East <br>
+3036 Keilor North <br>
+3042 Keilor Park <br>
+3239 Kennedys Creek <br>
+3221 Kennett River <br>
+3550 Kennington <br>
+3031 Kensington <br>
+3073 Keon Park <br>
+3579 Kerang <br>
+3691 Kergunyah <br>
+3979 Kernot <br>
+3434 Kerrie <br>
+3129 Kerrimuir <br>
+3660 Kerrisdale <br>
+3101 Kew <br>
+3102 Kew East <br>
+3173 Keysborough <br>
+3631 Kialla <br>
+3631 Kialla East <br>
+3631 Kialla West <br>
+3418 Kiata <br>
+3691 Kiewa <br>
+3995 Kilcunda <br>
+3283 Killarney <br>
+3851 Kilmany <br>
+3764 Kilmore <br>
+3137 Kilsyth <br>
+3137 Kilsyth South <br>
+3763 Kinglake <br>
+3757 Kinglake West <br>
+3021 Kings Park <br>
+3083 Kingsbury <br>
+3364 Kingston <br>
+3012 Kingsville <br>
+3283 Kirkstall <br>
+3666 Kithbrook <br>
+3523 Knowsley <br>
+3152 Knox City Centre <br>
+3180 Knoxfield <br>
+3704 Koetong <br>
+3265 Kolora <br>
+3951 Kongwak <br>
+3981 Koo Wee Rup <br>
+3669 Koonda <br>
+3580 Koondrook <br>
+3954 Koonwarra <br>
+3501 Koorlong <br>
+3844 Koornalla <br>
+3144 Kooyong <br>
+3714 Koriella <br>
+3282 Koroit <br>
+3520 Korong Vale <br>
+3950 Korumburra <br>
+3461 Korweinguboora <br>
+3565 Kotta <br>
+3638 Kotupna <br>
+3622 Koyuga <br>
+3621 Koyuga South <br>
+3945 Krowera <br>
+3930 Kunyung <br>
+3337 Kurunjang <br>
+3619 Kyabram <br>
+3620 Kyabram <br>
+3444 Kyneton <br>
+<br>
+L<br>
+3463 Laanecoorie <br>
+3816 Labertouche <br>
+3130 Laburnum <br>
+3584 Lake Boga <br>
+3351 Lake Bolac <br>
+3581 Lake Charm <br>
+3312 Lake Mundi <br>
+3727 Lake Rowan <br>
+3887 Lake Tyers <br>
+3909 Lake Tyers Beach <br>
+3350 Lake Wendouree <br>
+3909 Lakes Entrance <br>
+3352 Lal Lal <br>
+3542 Lalbert <br>
+3075 Lalor <br>
+3620 Lancaster <br>
+3435 Lancefield <br>
+3384 Landsborough <br>
+3984 Lang Lang <br>
+3318 Langkoop <br>
+3910 Langwarrin <br>
+3212 Lara <br>
+3249 Larpent <br>
+3487 Lascelles <br>
+3139 Launching Place <br>
+3238 Lavers Hill <br>
+3028 Laverton <br>
+3026 Laverton North <br>
+8010 Law Courts <br>
+3415 Lawloit <br>
+3352 Learmonth <br>
+3516 Leichardt <br>
+3352 Leigh Creek <br>
+3567 Leitchville <br>
+3631 Lemnos <br>
+3691 Leneva <br>
+3953 Leongatha <br>
+3224 Leopold <br>
+3458 Lerderderg <br>
+3332 Lethbridge <br>
+3352 Lexton <br>
+3858 Licola <br>
+3420 Lillimur <br>
+3140 Lilydale <br>
+3673 Lima <br>
+3865 Lindenow <br>
+3875 Lindenow South <br>
+3360 Linton <br>
+3324 Lismore <br>
+3480 Litchfield <br>
+3211 Little River <br>
+3551 Llanelly <br>
+3945 Loch <br>
+3851 Loch Sport <br>
+3563 Lockington <br>
+3665 Locksley <br>
+3551 Lockwood South <br>
+3475 Logan <br>
+3691 Lone Pine <br>
+3550 Long Gully <br>
+3851 Longford <br>
+3551 Longlea <br>
+3816 Longwarry <br>
+3665 Longwood <br>
+3232 Lorne <br>
+3221 Lovely Banks <br>
+3093 Lower Plenty <br>
+3381 Lubeck <br>
+3875 Lucknow <br>
+3691 Lucyvale <br>
+3975 Lynbrook <br>
+3975 Lyndhurst <br>
+3461 Lyonville <br>
+3156 Lysterfield <br>
+<br>
+M<br>
+3286 Macarthur <br>
+3782 Macclesfield <br>
+3440 Macedon <br>
+3971 Macks Creek <br>
+3085 Macleod <br>
+3579 Macorna <br>
+3860 Maffra <br>
+3352 Magpie <br>
+3551 Maiden Gully <br>
+3012 Maidstone <br>
+3275 Mailer Flat <br>
+3928 Main Ridge <br>
+3465 Majorca <br>
+3463 Maldon <br>
+3892 Mallacoota <br>
+3446 Malmsbury <br>
+3144 Malvern <br>
+3145 Malvern East <br>
+3546 Manangatang <br>
+3551 Mandurang <br>
+3663 Mangalore <br>
+3218 Manifold Heights <br>
+3222 Mannerim <br>
+3722 Mansfield <br>
+3724 Mansfield <br>
+3222 Marcus Hill <br>
+3032 Maribyrnong <br>
+3888 Marlo <br>
+3387 Marnoo <br>
+3515 Marong <br>
+3377 Maroona <br>
+3216 Marshall <br>
+3634 Marungi <br>
+3465 Maryborough <br>
+3812 Maryknoll <br>
+3779 Marysville <br>
+3723 Matlock <br>
+3331 Maude <br>
+3938 Mccrae <br>
+3204 Mckinnon <br>
+3799 Mcmahons Creek <br>
+3048 Meadow Heights <br>
+3956 Meeniyan <br>
+3862 Meerlieu <br>
+3000 Melbourne <br>
+3001 Melbourne <br>
+8001 Melbourne <br>
+3045 Melbourne Airport <br>
+3052 Melbourne University <br>
+3337 Melton <br>
+3338 Melton South <br>
+3315 Melville Forest <br>
+3194 Mentone <br>
+3159 Menzies Creek <br>
+3277 Mepunga <br>
+3505 Merbein <br>
+3333 Meredith <br>
+3496 Meringur <br>
+3310 Merino <br>
+3058 Merlynston <br>
+3754 Mernda <br>
+3916 Merricks <br>
+3926 Merricks Beach <br>
+3926 Merricks North <br>
+3618 Merrigum <br>
+3723 Merrijig <br>
+3715 Merton <br>
+3448 Metcalfe <br>
+3904 Metung <br>
+3444 Mia Mia <br>
+3064 Mickleham <br>
+3840 Mid Valley <br>
+3124 Middle Camberwell <br>
+3206 Middle Park <br>
+3678 Milawa <br>
+3500 Mildura, Victoria <br>
+3502 Mildura <br>
+3501 Mildura Centre Plaza <br>
+3082 Mill Park <br>
+3352 Millbrook <br>
+3799 Millgrove <br>
+3572 Milloo <br>
+3575 Mincha <br>
+3567 Mincha West <br>
+3352 Miners Rest <br>
+3287 Minhamite <br>
+3413 Minimay <br>
+3351 Mininera <br>
+3392 Minyip <br>
+3415 Miram <br>
+3871 Mirboo North <br>
+3722 Mirimbah <br>
+3132 Mitcham <br>
+3352 Mitchell Park <br>
+3355 Mitchell Park <br>
+3573 Mitiamo <br>
+3401 Mitre <br>
+3701 Mitta Mitta <br>
+3816 Modella <br>
+3240 Modewarre <br>
+3825 Moe <br>
+3231 Moggs Creek <br>
+3718 Molesworth <br>
+3472 Moliagul <br>
+3352 Mollongghip <br>
+3673 Molyullah <br>
+3800 Monash University <br>
+3793 Monbulk <br>
+3984 Monomeith <br>
+3127 Mont Albert <br>
+3129 Mont Albert North <br>
+3094 Montmorency <br>
+3765 Montrose <br>
+3221 Moolap <br>
+3478 Moonambel <br>
+3825 Moondarra <br>
+3039 Moonee Ponds <br>
+3189 Moorabbin <br>
+3194 Moorabbin Airport <br>
+3189 Moorabbin East <br>
+3221 Moorabool <br>
+3933 Moorooduc <br>
+3138 Mooroolbark <br>
+3629 Mooroopna <br>
+3195 Mordialloc <br>
+3058 Moreland <br>
+3240 Moriac <br>
+3931 Mornington <br>
+3334 Morrisons <br>
+3272 Mortlake <br>
+3840 Morwell <br>
+3885 Mossiface <br>
+3691 Mount Alfred <br>
+3699 Mount Beauty <br>
+3960 Mount Best <br>
+3740 Mount Buffalo <br>
+3723 Mount Buller <br>
+3350 Mount Clear <br>
+3024 Mount Cottrell <br>
+3767 Mount Dandenong <br>
+3216 Mount Duneed <br>
+3352 Mount Egerton <br>
+3930 Mount Eliza <br>
+3796 Mount Evelyn <br>
+3350 Mount Helen <br>
+3741 Mount Hotham <br>
+3377 Mount Lonarch <br>
+3441 Mount Macedon <br>
+3934 Mount Martha <br>
+3240 Mount Moriac <br>
+3350 Mount Pleasant <br>
+3352 Mount Rowan <br>
+3875 Mount Taylor <br>
+3342 Mount Wallace <br>
+3149 Mount Waverley <br>
+3156 Mountain Gate <br>
+3294 Moutajup <br>
+3732 Moyhu <br>
+3377 Moyston <br>
+3451 Muckleford <br>
+3462 Muckleford South <br>
+3737 Mudgegonga <br>
+3170 Mulgrave <br>
+3610 Murchison <br>
+3221 Murgheboluc <br>
+3747 Murmungee <br>
+3579 Murrabit <br>
+3512 Murrayville <br>
+3717 Murrindindi <br>
+3243 Murroon <br>
+3163 Murrumbeena <br>
+3390 Murtoa <br>
+3461 Musk <br>
+3556 Myers Flat <br>
+3341 Myrniong <br>
+3851 Myrtlebank <br>
+3736 Myrtleford <br>
+3737 Myrtleford <br>
+3518 Mysia <br>
+<br>
+N<br>
+3608 Nagambie <br>
+3249 Nalangil <br>
+3847 Nambrok <br>
+3533 Nandaly <br>
+3494 Nangiloc <br>
+3561 Nanneella <br>
+3352 Napoleons <br>
+3812 Nar Nar Goon <br>
+3778 Narbethong <br>
+3315 Nareen <br>
+3705 Nariel Valley <br>
+3277 Naringal <br>
+3285 Narrawong <br>
+3805 Narre Warren <br>
+3804 Narre Warren East <br>
+3804 Narre Warren North <br>
+3638 Nathalia <br>
+3409 Natimuk <br>
+3465 Natte Yallock <br>
+3384 Navarre <br>
+3352 Navigators <br>
+3831 Neerim <br>
+3821 Neerim Junction <br>
+3821 Neerim North <br>
+3831 Neerim South <br>
+3292 Nelson <br>
+3953 Nerrena <br>
+3351 Nerrin Nerrin <br>
+3350 Nerrina <br>
+3413 Neuarpurr <br>
+3438 New Gisborne <br>
+3825 Newborough <br>
+3551 Newbridge <br>
+3458 Newbury <br>
+3219 Newcomb <br>
+3442 Newham <br>
+3925 Newhaven <br>
+3875 Newlands Arm <br>
+3364 Newlyn <br>
+3886 Newmerella <br>
+3015 Newport <br>
+3859 Newry <br>
+3462 Newstead <br>
+3220 Newtown <br>
+3418 Nhill <br>
+3501 Nichols Point <br>
+3882 Nicholson <br>
+3042 Niddrie <br>
+3821 Nilma <br>
+3268 Nirranda <br>
+3174 Noble Park <br>
+3174 Noble Park North <br>
+3833 Noojee <br>
+3265 Noorat <br>
+3890 Noorinbee <br>
+3401 Noradjuha <br>
+3214 Norlane <br>
+3682 Norong <br>
+3550 North Bendigo <br>
+3215 North Geelong <br>
+3051 North Melbourne <br>
+3187 North Road <br>
+3214 North Shore <br>
+3113 North Warrandyte <br>
+3070 Northcote <br>
+3072 Northland Centre <br>
+3168 Notting Hill <br>
+3887 Nowa Nowa <br>
+3268 Nullawarre <br>
+3529 Nullawil <br>
+3636 Numurkah <br>
+3131 Nunawading <br>
+3110 Nunawading Bc <br>
+3099 Nutfield <br>
+3594 Nyah <br>
+3595 Nyah West <br>
+3987 Nyora <br>
+<br>
+O<br>
+3046 Oak Park <br>
+3063 Oaklands Junction <br>
+3166 Oakleigh <br>
+3166 Oakleigh East <br>
+3167 Oakleigh South <br>
+3226 Ocean Grove <br>
+3809 Officer <br>
+3788 Olinda <br>
+3898 Omeo <br>
+3249 Ondit <br>
+3888 Orbost <br>
+3204 Ormond <br>
+3951 Outtrim <br>
+3490 Ouyen <br>
+3738 Ovens <br>
+3678 Oxley <br>
+3413 Ozenkadnook <br>
+<br>
+P<br>
+3810 Pakenham <br>
+3810 Pakenham Upper <br>
+3265 Panmure <br>
+3759 Panton Hill <br>
+3851 Paradise Beach <br>
+3114 Park Orchards <br>
+3195 Parkdale <br>
+3052 Parkville <br>
+3340 Parwan <br>
+3044 Pascoe Vale <br>
+3044 Pascoe Vale South <br>
+3491 Patchewollock <br>
+3564 Patho <br>
+3197 Patterson Lakes <br>
+3880 Paynesville <br>
+3912 Pearcedale <br>
+3289 Penshurst <br>
+3413 Peronne <br>
+3270 Peterborough <br>
+3757 Pheasant Creek <br>
+3597 Piangil <br>
+3572 Piavella <br>
+3639 Picola <br>
+3631 Pine Lodge <br>
+3200 Pines Forest <br>
+3249 Pirron Yallock <br>
+3090 Plenty <br>
+3030 Point Cook <br>
+3225 Point Lonsdale <br>
+3260 Pomborneit <br>
+3381 Pomonal <br>
+3312 Poolaijelo <br>
+3352 Pootilla <br>
+3988 Poowong <br>
+3740 Porepunkah <br>
+3971 Port Albert <br>
+3269 Port Campbell <br>
+3284 Port Fairy <br>
+3964 Port Franklin <br>
+3207 Port Melbourne <br>
+3965 Port Welshpool <br>
+3223 Portarlington <br>
+3305 Portland <br>
+3944 Portsea <br>
+3797 Powelltown <br>
+3181 Prahran <br>
+3572 Prairie <br>
+3685 Prentice North <br>
+3072 Preston <br>
+3072 Preston South <br>
+3054 Princes Hill <br>
+3269 Princetown <br>
+3662 Puckapunyal Milpo <br>
+3271 Pura Pura <br>
+3278 Purnim <br>
+3521 Pyalong <br>
+3575 Pyramid Hill <br>
+<br>
+Q<br>
+3540 Quambatook <br>
+3401 Quantong <br>
+3550 Quarry Hill <br>
+3225 Queenscliff <br>
+<br>
+R<br>
+3424 Rainbow <br>
+3132 Rangeview <br>
+3465 Rathscar <br>
+3453 Ravenswood <br>
+3825 Rawson <br>
+3880 Raymond Island <br>
+3570 Raywood <br>
+3695 Red Bluff <br>
+3496 Red Cliffs <br>
+3937 Red Hill <br>
+3937 Red Hill South <br>
+3350 Redan <br>
+3478 Redbank <br>
+3444 Redesdale <br>
+3658 Reedy Creek <br>
+3072 Regent West <br>
+3095 Research <br>
+3073 Reservoir <br>
+3923 Rhyll <br>
+3121 Richmond <br>
+3431 Riddells Creek <br>
+3134 Ringwood <br>
+3135 Ringwood East <br>
+3134 Ringwood North <br>
+3818 Ripplebrook <br>
+3185 Ripponlea <br>
+3019 Robinson <br>
+3549 Robinvale <br>
+3561 Rochester <br>
+3442 Rochford <br>
+3335 Rockbank <br>
+3401 Rocklands <br>
+3364 Rocklyn <br>
+3821 Rokeby <br>
+3330 Rokewood <br>
+3351 Rokewood Junction <br>
+3434 Romsey <br>
+3084 Rosanna <br>
+3285 Rosebrook <br>
+3939 Rosebud <br>
+3940 Rosebud West <br>
+3847 Rosedale <br>
+3351 Ross Creek <br>
+3340 Rowsley <br>
+3178 Rowville <br>
+3064 Roxburgh Park <br>
+3050 Royal Melbourne Hospital <br>
+3712 Rubicon <br>
+3666 Ruffy <br>
+3388 Rupanyup <br>
+3612 Rushworth <br>
+3331 Russells Bridge <br>
+3685 Rutherglen <br>
+3941 Rye <br>
+<br>
+S<br>
+3936 Safety Beach <br>
+3088 Saint Helena <br>
+3850 Sale <br>
+3853 Sale <br>
+3517 Salisbury West <br>
+3925 San Remo <br>
+3312 Sandford <br>
+3550 Sandhurst East <br>
+3171 Sandown Village <br>
+3191 Sandringham <br>
+3695 Sandy Creek <br>
+3959 Sandy Point <br>
+3875 Sarsfield <br>
+3787 Sassafras <br>
+3787 Sassafras Gully <br>
+3351 Scarsdale <br>
+3179 Scoresby <br>
+3176 Scoresby Bc <br>
+3352 Scotsburn <br>
+3267 Scotts Creek <br>
+3533 Sea Lake <br>
+3028 Seabrook <br>
+3198 Seaford <br>
+3018 Seaholme <br>
+3851 Seaspray <br>
+3858 Seaton <br>
+3556 Sebastian <br>
+3356 Sebastopol <br>
+3011 Seddon <br>
+3011 Seddon West <br>
+3159 Selby <br>
+3517 Serpentine <br>
+3420 Serviceton <br>
+3139 Seville <br>
+3660 Seymour <br>
+3661 Seymour <br>
+3331 She Oaks <br>
+3392 Sheep Hills <br>
+3463 Shelbourne <br>
+3329 Shelford <br>
+3701 Shelley <br>
+3630 Shepparton <br>
+3632 Shepparton <br>
+3631 Shepparton East <br>
+3789 Sherbrooke <br>
+3916 Shoreham <br>
+3795 Silvan <br>
+3564 Simmie <br>
+3266 Simpson <br>
+3465 Simson <br>
+3615607 Skenes Creek <br>
+3361 Skipton <br>
+3977 Skye <br>
+3364 Smeaton <br>
+3760 Smiths Gully <br>
+3351 Smythes Creek <br>
+3351 Smythesdale <br>
+3351 Snake Valley <br>
+3927 Somers <br>
+3062 Somerton <br>
+3912 Somerville <br>
+3943 Sorrento <br>
+3995 South Dudley <br>
+3015 South Kingsville <br>
+3205 South Melbourne <br>
+3205 South Melbourne Dc <br>
+3752 South Morang <br>
+3141 South Yarra <br>
+3006 Southbank <br>
+3283 Southern Cross <br>
+3192 Southland Centre <br>
+3350 Sovereign Hill <br>
+3488 Speed <br>
+3015 Spotswood <br>
+3550 Spring Gully <br>
+3352 Springbank <br>
+3682 Springhurst <br>
+3171 Springvale <br>
+3172 Springvale South <br>
+3021 St Albans <br>
+3219 St Albans Park <br>
+3761 St Andrews <br>
+3941 St Andrews Beach <br>
+3478 St Arnaud <br>
+3285 St Helens <br>
+3727 St James <br>
+3182 St Kilda <br>
+3183 St Kilda East <br>
+8004 St Kilda Road <br>
+8008 St Kilda Road Central <br>
+3182 St Kilda South <br>
+3182 St Kilda West <br>
+3223 St Leonards <br>
+3691 Staghorn Flat <br>
+3623 Stanhope <br>
+3747 Stanley <br>
+3221 Staughton Vale <br>
+3379 Stavely <br>
+3380 Stawell <br>
+3775 Steels Creek <br>
+3331 Steiglitz <br>
+3221 Stonehaven <br>
+3371 Stony Creek <br>
+3957 Stony Creek <br>
+3260 Stonyford <br>
+3862 Stratford <br>
+3658 Strath Creek <br>
+3622 Strathallan <br>
+3666 Strathbogie <br>
+3550 Strathdale <br>
+3312 Strathdownie <br>
+3099 Strathewen <br>
+3551 Strathfieldsaye <br>
+3301 Strathkellar <br>
+3641 Strathmerton <br>
+3041 Strathmore <br>
+3041 Strathmore Heights <br>
+3351 Streatham <br>
+3478 Stuart Mill <br>
+3152 Studfield <br>
+3429 Sunbury <br>
+3496 Sunnycliffs <br>
+3020 Sunshine <br>
+3127 Surrey Hills <br>
+3331 Sutherlands Creek <br>
+3448 Sutton Grange <br>
+3585 Swan Hill <br>
+3249 Swan Marsh <br>
+3903 Swan Reach <br>
+3673 Swanpool <br>
+3896 Swifts Creek <br>
+3037 Sydenham <br>
+3149 Syndal <br>
+<br>
+T<br>
+3607 Tabilk <br>
+3714 Taggerty <br>
+3371 Talbot <br>
+3691 Talgarno <br>
+3700 Tallangatta <br>
+3659 Tallarook <br>
+3634 Tallygaroopna <br>
+3893 Tambo Crossing <br>
+3885 Tambo Upper <br>
+3669 Tamleugh <br>
+3631 Tamleugh West <br>
+3571 Tandarra <br>
+3691 Tangambalanga <br>
+3825 Tanjil South <br>
+3921 Tankerton <br>
+3447 Taradale <br>
+3551 Tarnagulla <br>
+3029 Tarneit <br>
+3422 Tarranyurk <br>
+3971 Tarraville <br>
+3301 Tarrington <br>
+3956 Tarwin <br>
+3673 Tatong <br>
+3616 Tatura <br>
+3378 Tatyoon <br>
+3697 Tawonga <br>
+3698 Tawonga South <br>
+3038 Taylors Lakes <br>
+3160 Tecoma <br>
+3328 Teesdale <br>
+3401 Telangatuk East <br>
+3730 Telford <br>
+3106 Templestowe <br>
+3107 Templestowe Lower <br>
+3489 Tempy <br>
+3984 Tenby Point <br>
+3572 Tennyson <br>
+3264 Terang <br>
+3154 The Basin <br>
+3984 The Gurdies <br>
+3792 The Patch <br>
+3265 The Sisters <br>
+3074 Thomastown <br>
+3726 Thoona <br>
+3071 Thornbury <br>
+3712 Thornton <br>
+3835 Thorpdale <br>
+3824 Thorpdale South <br>
+3707 Thowgla Valley <br>
+3797 Three Bridges <br>
+3960 Tidal River <br>
+3268 Timboon <br>
+3859 Tinamba <br>
+3708 Tintaldra <br>
+3621 Tongala <br>
+3815 Tonimbuk <br>
+3522 Tooborac <br>
+3614 Toolamba <br>
+3777 Toolangi <br>
+3337 Toolern Vale <br>
+3551 Toolleen <br>
+3401 Toolondo <br>
+3285 Toolong <br>
+3856 Toongabbie <br>
+3962 Toora <br>
+3980 Tooradin <br>
+3142 Toorak <br>
+3941 Tootgarook <br>
+3228 Torquay <br>
+3562 Torrumbarry <br>
+3012 Tottenham <br>
+3283 Tower Hill <br>
+3707 Towong <br>
+3824 Trafalgar <br>
+3844 Traralgon <br>
+3032 Travancore <br>
+3373 Trawalla <br>
+3660 Trawool <br>
+3458 Trentham <br>
+3583 Tresco <br>
+3029 Truganina <br>
+3888 Tubbut <br>
+3915 Tuerong <br>
+3043 Tullamarine <br>
+3728 Tungamah <br>
+3109 Tunstall Square Po <br>
+3913 Tyabb <br>
+3844 Tyers <br>
+3444 Tylden <br>
+3813 Tynong <br>
+3285 Tyrendarra <br>
+3550 Tysons Reef <br>
+<br>
+U<br>
+3364 Ullina <br>
+3544 Ultima <br>
+3629 Undera <br>
+3509 Underbool <br>
+3010 University Of Melbourne <br>
+3156 Upper Ferntree Gully <br>
+3756 Upper Plenty <br>
+3158 Upwey <br>
+<br>
+V<br>
+3860 Valencia Creek <br>
+3407 Vasey <br>
+3956 Venus Bay <br>
+3133 Vermont <br>
+3133 Vermont South <br>
+3814 Vervale <br>
+3294 Victoria Valley <br>
+3084 Viewbank <br>
+3591 Vinifera <br>
+3669 Violet Town <br>
+<br>
+W<br>
+3885 W Tree <br>
+3637 Waaia <br>
+3687 Wahgunyah <br>
+3608 Wahring <br>
+3887 Wairewa <br>
+3544 Waitchie <br>
+3825 Walhalla <br>
+3956 Walkerville <br>
+3956 Walkerville South <br>
+3352 Wallace <br>
+3756 Wallan <br>
+3221 Wallington <br>
+3401 Wallup <br>
+3875 Walpa <br>
+3507 Walpeup <br>
+3709 Walwa <br>
+3612 Wanalta <br>
+3216 Wandana Heights <br>
+3744 Wandiligong <br>
+3139 Wandin North <br>
+3312 Wando Vale <br>
+3758 Wandong <br>
+3676 Wangaratta <br>
+3677 Wangaratta <br>
+3279 Wangoom <br>
+3152 Wantirna <br>
+3152 Wantirna South <br>
+3959 Waratah Bay <br>
+3799 Warburton <br>
+3465 Wareek <br>
+3243 Warncoort <br>
+3980 Warneet <br>
+3393 Warracknabeal <br>
+3820 Warragul <br>
+3377 Warrak <br>
+3113 Warrandyte <br>
+3134 Warrandyte South <br>
+3134 Warranwood <br>
+3670 Warrenbayne <br>
+3352 Warrenheip <br>
+3249 Warrion <br>
+3280 Warrnambool <br>
+3482 Watchem <br>
+3485 Watchupga <br>
+3195 Waterways <br>
+3087 Watsonia <br>
+3097 Watsons Creek <br>
+3096 Wattle Glen <br>
+3128 Wattle Park <br>
+3352 Waubra <br>
+3216 Waurn Ponds <br>
+3352 Weatherboard <br>
+3518 Wedderburn <br>
+3251 Weering <br>
+3966 Welshpool <br>
+3355 Wendouree <br>
+3355 Wendouree Village <br>
+3352 Werneth <br>
+3030 Werribee <br>
+3496 Werrimull <br>
+3799 Wesburn <br>
+3012 West Footscray <br>
+3003 West Melbourne <br>
+3049 Westmeadows <br>
+3351 Westmere <br>
+3150 Wheelers Hill <br>
+3550 White Hills <br>
+3733 Whitfield <br>
+3733 Whitlands <br>
+3219 Whittington <br>
+3757 Whittlesea <br>
+3735 Whorouly <br>
+3379 Wickliffe <br>
+3728 Wilby <br>
+3379 Willaura <br>
+3016 Williamstown <br>
+3825 Willow Grove <br>
+3847 Willung <br>
+3844 Willung South <br>
+3241 Winchelsea <br>
+3352 Windermere <br>
+3181 Windsor <br>
+3304 Winnap <br>
+3281 Winslow <br>
+3673 Winton <br>
+3885 Wiseleigh <br>
+3189 Wishart <br>
+3689 Wodonga <br>
+3690 Wodonga <br>
+3690 Wodonga Plaza <br>
+3750 Wollert <br>
+3401 Wombelano <br>
+3971 Won Wron <br>
+3115 Wonga Park <br>
+3221 Wongarra <br>
+3995 Wonthaggi <br>
+3596 Wood Wood <br>
+3442 Woodend <br>
+3715 Woodfield <br>
+3281 Woodford <br>
+3945 Woodleigh <br>
+3723 Woods Point <br>
+3874 Woodside <br>
+3751 Woodstock <br>
+3463 Woodstock West <br>
+3249 Wool Wool <br>
+3995 Woolamai <br>
+3276 Woolsthorpe <br>
+3485 Woomelang <br>
+3747 Wooragee <br>
+3139 Woori Yallock <br>
+3589 Woorinen <br>
+3588 Woorinen South <br>
+3272 Woorndoo <br>
+3005 World Trade Centre <br>
+8005 World Trade Centre <br>
+3885 Wulgulmerang <br>
+3635 Wunghnu <br>
+3241 Wurdiboluc <br>
+3850 Wurruk <br>
+3875 Wy Yung <br>
+3527 Wycheproof <br>
+3525 Wychitella <br>
+3221 Wye River <br>
+3024 Wyndham Vale <br>
+3620 Wyuna <br>
+<br>
+Y<br>
+3424 Yaapeet <br>
+3646 Yabba North <br>
+3749 Yackandandah <br>
+3085 Yallambie <br>
+3825 Yallourn North <br>
+3285 Yambuk <br>
+3621 Yambuna <br>
+3755 Yan Yean <br>
+3418 Yanac <br>
+3960 Yanakie <br>
+3461 Yandoit <br>
+3981 Yannathan <br>
+3719 Yarck <br>
+3775 Yarra Glen <br>
+3797 Yarra Junction <br>
+3823 Yarragon <br>
+3971 Yarram <br>
+3091 Yarrambat <br>
+3013 Yarraville <br>
+3013 Yarraville West <br>
+3575 Yarrawalla <br>
+3730 Yarrawonga <br>
+3644 Yarroweyah <br>
+3677 Yarrunga <br>
+3717 Yea <br>
+3139 Yellingbo <br>
+3352 Yendon <br>
+3249 Yeo <br>
+3249 Yeodene <br>
+3869 Yinnar <br>
+3646 Youanmite <br>
+3727 Yundool <br>
+3063 Yuroke <br>
+<br>
+Missing from Australia Post Postcodes<br>
+Jolimont<br>
+Phillip Island<br>
+Hanging Rock<br>
+Tarra<br>
+Yarra Plenty<br>
+Yarra Valley<br>
+Kings Domain<br>
+Southgate<br>
+Research<br>
+Lake Mulwala<br>
+Harbour Esplanade<br>
+Albury</div><img style="display:none" alt="Melbourne & Victorian Postcodes" itemprop="image" src="/image/ico-postcodes.jpg"><link style="display:none" itemprop="url" href="/melbourne-postcodes">
+</div>
+            </div> <!-- end page content -->
+
+            <div class="col-lg-4 sidebar-module"> <!-- Sidebar Column -->
+                <!-- multiple side bars -->
+<!-- modified text size 13/3/2019 -->
+
+<div class="visible-xs-block">
+<!-- phone -->
+
+ &nbsp;&nbsp;&nbsp;<h2>&#128150; Melbourne &#128150;</h2>
+
+<div class="mx-auto" style="width: 250px;">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- OM Mobile 250x250 -->
+<!-- style="display:inline-block;width:250px;height:250px" -->
+<ins class="adsbygoogle"
+     style="width:250px;height:250px;"
+     data-ad-client="ca-pub-6768268379511823"
+     data-ad-slot="9156123042"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<div class="tab-head">&#10043; Featured &#10043; </div>
+
+<div class="tab-body">
+
+<a class="listtitle" title="Beauty and the Beast | The Musical " href="/beauty-and-the-beast">Beauty and the Beast | The Musical</a><br><div class="city-side_image"><a rel='nofollow'  href="/beauty-and-the-beast"><img title="Beauty and the Beast | The Musical" alt="Beauty and the Beast | The Musical" src="https://www.ripefruitmedia.com.au/images_rfm/0324-679468636s.jpg"></a></div><a title="Beauty and the Beast | The Musical" class="font-weight-light" href="/beauty-and-the-beast">It's time to Be Our Guest!
+
+Disney's enchanting new musical, Beauty and the Beast, is ..</a>	<br><br><a class="listtitle" title="Impossible Occurrences: Melbourne's Exclusive Magic Show " href="/impossible-occurrences-magic-illusion-mind-reading">Impossible Occurrences: Melbourne's Exclusive Magic Show</a><br><div class="city-side_image"><a rel='nofollow'  href="/impossible-occurrences-magic-illusion-mind-reading"><img title="Impossible Occurrences: Melbourne's Exclusive Magic Show" alt="Impossible Occurrences: Melbourne's Exclusive Magic Show" src="https://www.onlymelbourne.com.au/images4/1219-lukebanners.jpg"></a></div><a title="Impossible Occurrences: Melbourne's Exclusive Magic Show" class="font-weight-light" href="/impossible-occurrences-magic-illusion-mind-reading">Witness Impossible Occurrences one of Melbourne's most exclusive attractions.  ..</a>	<br><br>
+</div><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- OnlyCity-iPad -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6768268379511823"
+     data-ad-slot="3910682200"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<!-- also see social-likeus-sidenav.php -->
+
+<!-- home page buttons = inc_main-2017.php -->
+
+<br>
+<div class="csscenter">
+<a href="https://www.onlymelbourne.com.au/melbourne-today.php"><img alt="TODAY" class="butfoots" src="https://www.onlymelbourne.com.au/image/footer-nav-today.gif" width="200" height="50"></a>
+<br>
+<a href="https://www.onlymelbourne.com.au/whats-on-this-weekend.php"><img alt="WEEKEND" class="butfoots" src="https://www.onlymelbourne.com.au/image/footer-nav-we.gif" width="200" height="50"></a> 
+<br>
+<a href="https://www.onlymelbourne.com.au/newsletter-melbourne.php"><img alt="NEWSLETTER" class="butfoots" src="https://www.onlymelbourne.com.au/image/footer-nav-newsletter.gif" width="200" height="50"></a>
+
+</div>
+
+
+
+<br><br>
+<div class="csscenter">
+<a target="_blank" title="Facebook" href="https://www.facebook.com/WickedMelbourne/" rel="nofollow"><img class="smimg" src="https://www.onlymelbourne.com.au/image/butsm-fb.gif" alt="Facebook" width="52" height="48"></a>
+<a target="_blank" title="Twitter" href="https://twitter.com/OnlyMelbourne/" rel="nofollow"><img class="smimg" src="https://www.onlymelbourne.com.au/image/butsm-tw.gif" alt="Twitter" width="52" height="48"></a>
+<a target="_blank" title="YouTube" href="https://www.youtube.com/user/onlymelbourne" rel="nofollow"><img class="smimg" src="https://www.onlymelbourne.com.au/image/butsm-yt.gif" alt="YouTube" width="52" height="48"></a>
+ <a target="_blank" title="Instagram" href="https://www.instagram.com/onlymelbourne.com.au/" rel="nofollow"><img class="smimg" src="https://www.onlymelbourne.com.au/image/butsm-in.gif" alt="Instagram" width="52" height="48"></a>
+  <a target="_blank" title="Threads" href="https://www.threads.net/@onlymelbourne.com.au" rel="nofollow"><img class="smimg" src="https://www.onlymelbourne.com.au/image/butsm-threads3.gif" alt="Threads" width="52" height="48"></a>
+</div>
+<br>
+<!-- base space  -->
+
+<!--
+<br>
+<div class="csscenter">
+<br><br><a target="_blank" title="Cyber Monday Sale" href="/cyber-monday"><img class="img-fluid" alt="Cyber Monday Sale" src="https://www.ripefruitmedia.com.au/image/banner-cybermonday.jpg"> </a>
+</div>
+<br><br>
+--><br>
+</div>
+
+<div class="visible-sm-block">
+<!-- tablet vertical -->
+<br><br>
+<div class="tab-head">&#10043; Featured &#10043; </div>
+
+<div class="tab-body">
+
+<a class="listtitle" title="Beauty and the Beast | The Musical " href="/beauty-and-the-beast">Beauty and the Beast | The Musical</a><br><div class="city-side_image"><a rel='nofollow'  href="/beauty-and-the-beast"><img title="Beauty and the Beast | The Musical" alt="Beauty and the Beast | The Musical" src="https://www.ripefruitmedia.com.au/images_rfm/0324-679468636s.jpg"></a></div><a title="Beauty and the Beast | The Musical" class="font-weight-light" href="/beauty-and-the-beast">It's time to Be Our Guest!
+
+Disney's enchanting new musical, Beauty and the Beast, is ..</a>	<br><br><a class="listtitle" title="Impossible Occurrences: Melbourne's Exclusive Magic Show " href="/impossible-occurrences-magic-illusion-mind-reading">Impossible Occurrences: Melbourne's Exclusive Magic Show</a><br><div class="city-side_image"><a rel='nofollow'  href="/impossible-occurrences-magic-illusion-mind-reading"><img title="Impossible Occurrences: Melbourne's Exclusive Magic Show" alt="Impossible Occurrences: Melbourne's Exclusive Magic Show" src="https://www.onlymelbourne.com.au/images4/1219-lukebanners.jpg"></a></div><a title="Impossible Occurrences: Melbourne's Exclusive Magic Show" class="font-weight-light" href="/impossible-occurrences-magic-illusion-mind-reading">Witness Impossible Occurrences one of Melbourne's most exclusive attractions.  ..</a>	<br><br>
+</div><!-- also see social-likeus-sidenav.php -->
+
+<!-- home page buttons = inc_main-2017.php -->
+
+<br>
+<div class="csscenter">
+<a href="https://www.onlymelbourne.com.au/melbourne-today.php"><img alt="TODAY" class="butfoots" src="https://www.onlymelbourne.com.au/image/footer-nav-today.gif" width="200" height="50"></a>
+<br>
+<a href="https://www.onlymelbourne.com.au/whats-on-this-weekend.php"><img alt="WEEKEND" class="butfoots" src="https://www.onlymelbourne.com.au/image/footer-nav-we.gif" width="200" height="50"></a> 
+<br>
+<a href="https://www.onlymelbourne.com.au/newsletter-melbourne.php"><img alt="NEWSLETTER" class="butfoots" src="https://www.onlymelbourne.com.au/image/footer-nav-newsletter.gif" width="200" height="50"></a>
+
+</div>
+
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- OnlyCity-iPad -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6768268379511823"
+     data-ad-slot="3910682200"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br>
+</div>
+
+<div class="visible-md-block">
+<!-- tablet horizontal 992 ipad -->
+
+<div class="tab-head">&#10043; Featured &#10043; </div>
+
+<div class="tab-body">
+
+<a class="listtitle" title="Beauty and the Beast | The Musical " href="/beauty-and-the-beast">Beauty and the Beast | The Musical</a><br><div class="city-side_image"><a rel='nofollow'  href="/beauty-and-the-beast"><img title="Beauty and the Beast | The Musical" alt="Beauty and the Beast | The Musical" src="https://www.ripefruitmedia.com.au/images_rfm/0324-679468636s.jpg"></a></div><a title="Beauty and the Beast | The Musical" class="font-weight-light" href="/beauty-and-the-beast">It's time to Be Our Guest!
+
+Disney's enchanting new musical, Beauty and the Beast, is ..</a>	<br><br><a class="listtitle" title="Impossible Occurrences: Melbourne's Exclusive Magic Show " href="/impossible-occurrences-magic-illusion-mind-reading">Impossible Occurrences: Melbourne's Exclusive Magic Show</a><br><div class="city-side_image"><a rel='nofollow'  href="/impossible-occurrences-magic-illusion-mind-reading"><img title="Impossible Occurrences: Melbourne's Exclusive Magic Show" alt="Impossible Occurrences: Melbourne's Exclusive Magic Show" src="https://www.onlymelbourne.com.au/images4/1219-lukebanners.jpg"></a></div><a title="Impossible Occurrences: Melbourne's Exclusive Magic Show" class="font-weight-light" href="/impossible-occurrences-magic-illusion-mind-reading">Witness Impossible Occurrences one of Melbourne's most exclusive attractions.  ..</a>	<br><br>
+</div><!-- also see social-likeus-sidenav.php -->
+
+<!-- home page buttons = inc_main-2017.php -->
+
+<br>
+<div class="csscenter">
+<a href="https://www.onlymelbourne.com.au/melbourne-today.php"><img alt="TODAY" class="butfoots" src="https://www.onlymelbourne.com.au/image/footer-nav-today.gif" width="200" height="50"></a>
+<br>
+<a href="https://www.onlymelbourne.com.au/whats-on-this-weekend.php"><img alt="WEEKEND" class="butfoots" src="https://www.onlymelbourne.com.au/image/footer-nav-we.gif" width="200" height="50"></a> 
+<br>
+<a href="https://www.onlymelbourne.com.au/newsletter-melbourne.php"><img alt="NEWSLETTER" class="butfoots" src="https://www.onlymelbourne.com.au/image/footer-nav-newsletter.gif" width="200" height="50"></a>
+
+</div>
+
+
+
+<br>
+<div class="mx-auto" style="width: 300px;">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-6768268379511823"
+     data-ad-slot="7230434105"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<br><br>
+<div class="csscenter">
+<a target="_blank" title="Facebook" href="https://www.facebook.com/WickedMelbourne/" rel="nofollow"><img class="smimg" src="https://www.onlymelbourne.com.au/image/butsm-fb.gif" alt="Facebook" width="52" height="48"></a>
+<a target="_blank" title="Twitter" href="https://twitter.com/OnlyMelbourne/" rel="nofollow"><img class="smimg" src="https://www.onlymelbourne.com.au/image/butsm-tw.gif" alt="Twitter" width="52" height="48"></a>
+<a target="_blank" title="YouTube" href="https://www.youtube.com/user/onlymelbourne" rel="nofollow"><img class="smimg" src="https://www.onlymelbourne.com.au/image/butsm-yt.gif" alt="YouTube" width="52" height="48"></a>
+ <a target="_blank" title="Instagram" href="https://www.instagram.com/onlymelbourne.com.au/" rel="nofollow"><img class="smimg" src="https://www.onlymelbourne.com.au/image/butsm-in.gif" alt="Instagram" width="52" height="48"></a>
+  <a target="_blank" title="Threads" href="https://www.threads.net/@onlymelbourne.com.au" rel="nofollow"><img class="smimg" src="https://www.onlymelbourne.com.au/image/butsm-threads3.gif" alt="Threads" width="52" height="48"></a>
+</div>
+<br>
+<!-- base space  -->
+
+<!--
+<br>
+<div class="csscenter">
+<br><br><a target="_blank" title="Cyber Monday Sale" href="/cyber-monday"><img class="img-fluid" alt="Cyber Monday Sale" src="https://www.ripefruitmedia.com.au/image/banner-cybermonday.jpg"> </a>
+</div>
+<br><br>
+--><br>
+</div>
+
+<div class="visible-lg-block">
+<!-- Desktop > 1200 -->
+<!-- <br><br>-->
+
+<div class="tab-head">&#10043; Featured &#10043; </div>
+
+<div class="tab-body">
+
+<a class="listtitle" title="Beauty and the Beast | The Musical " href="/beauty-and-the-beast">Beauty and the Beast | The Musical</a><br><div class="city-side_image"><a rel='nofollow'  href="/beauty-and-the-beast"><img title="Beauty and the Beast | The Musical" alt="Beauty and the Beast | The Musical" src="https://www.ripefruitmedia.com.au/images_rfm/0324-679468636s.jpg"></a></div><a title="Beauty and the Beast | The Musical" class="font-weight-light" href="/beauty-and-the-beast">It's time to Be Our Guest!
+
+Disney's enchanting new musical, Beauty and the Beast, is ..</a>	<br><br><a class="listtitle" title="Impossible Occurrences: Melbourne's Exclusive Magic Show " href="/impossible-occurrences-magic-illusion-mind-reading">Impossible Occurrences: Melbourne's Exclusive Magic Show</a><br><div class="city-side_image"><a rel='nofollow'  href="/impossible-occurrences-magic-illusion-mind-reading"><img title="Impossible Occurrences: Melbourne's Exclusive Magic Show" alt="Impossible Occurrences: Melbourne's Exclusive Magic Show" src="https://www.onlymelbourne.com.au/images4/1219-lukebanners.jpg"></a></div><a title="Impossible Occurrences: Melbourne's Exclusive Magic Show" class="font-weight-light" href="/impossible-occurrences-magic-illusion-mind-reading">Witness Impossible Occurrences one of Melbourne's most exclusive attractions.  ..</a>	<br><br>
+</div><!-- also see social-likeus-sidenav.php -->
+
+<!-- home page buttons = inc_main-2017.php -->
+
+<br>
+<div class="csscenter">
+<a href="https://www.onlymelbourne.com.au/melbourne-today.php"><img alt="TODAY" class="butfoots" src="https://www.onlymelbourne.com.au/image/footer-nav-today.gif" width="200" height="50"></a>
+<br>
+<a href="https://www.onlymelbourne.com.au/whats-on-this-weekend.php"><img alt="WEEKEND" class="butfoots" src="https://www.onlymelbourne.com.au/image/footer-nav-we.gif" width="200" height="50"></a> 
+<br>
+<a href="https://www.onlymelbourne.com.au/newsletter-melbourne.php"><img alt="NEWSLETTER" class="butfoots" src="https://www.onlymelbourne.com.au/image/footer-nav-newsletter.gif" width="200" height="50"></a>
+
+</div>
+
+
+
+<br>
+<div class="mx-auto" style="width: 300px;">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-6768268379511823"
+     data-ad-slot="7230434105"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<br><br>
+<div class="csscenter">
+<a target="_blank" title="Facebook" href="https://www.facebook.com/WickedMelbourne/" rel="nofollow"><img class="smimg" src="https://www.onlymelbourne.com.au/image/butsm-fb.gif" alt="Facebook" width="52" height="48"></a>
+<a target="_blank" title="Twitter" href="https://twitter.com/OnlyMelbourne/" rel="nofollow"><img class="smimg" src="https://www.onlymelbourne.com.au/image/butsm-tw.gif" alt="Twitter" width="52" height="48"></a>
+<a target="_blank" title="YouTube" href="https://www.youtube.com/user/onlymelbourne" rel="nofollow"><img class="smimg" src="https://www.onlymelbourne.com.au/image/butsm-yt.gif" alt="YouTube" width="52" height="48"></a>
+ <a target="_blank" title="Instagram" href="https://www.instagram.com/onlymelbourne.com.au/" rel="nofollow"><img class="smimg" src="https://www.onlymelbourne.com.au/image/butsm-in.gif" alt="Instagram" width="52" height="48"></a>
+  <a target="_blank" title="Threads" href="https://www.threads.net/@onlymelbourne.com.au" rel="nofollow"><img class="smimg" src="https://www.onlymelbourne.com.au/image/butsm-threads3.gif" alt="Threads" width="52" height="48"></a>
+</div>
+<br>
+<!-- base space  -->
+
+<!--
+<br>
+<div class="csscenter">
+<br><br><a target="_blank" title="Cyber Monday Sale" href="/cyber-monday"><img class="img-fluid" alt="Cyber Monday Sale" src="https://www.ripefruitmedia.com.au/image/banner-cybermonday.jpg"> </a>
+</div>
+<br><br>
+--><br>
+</div>
+
+<br>
+            </div> <!-- end sidebar -->
+        </div> <!-- /.row -->
+
+        <div class="row"> <!-- Breadcrumb Row back 7/6/18 -->
+            <div class="breadcrumb small"> &#8594;&nbsp;<a class="melbournebreadcrumb" title="View Around Melbourne" href="/c-7/guide">Around Melbourne</a>&nbsp; &#8594;&nbsp;<a class="melbournebreadcrumb" title="View Government" href="/c-54/government">Government</a>&nbsp; &#8594;&nbsp;<a class="melbournebreadcrumb" title="View Municipal Councils | Melbourne" href="/c-2040/melbourne-municipal-councils">Municipal Councils | Melbourne</a>&nbsp;</div>        </div> <!-- end Breadcrumb Row -->
+
+        <div class="row footerspace"> <!-- Footer Row -->
+            <footer class="col-12 bg-dark">
+                <div class="visible-xs-block">
+<!-- phone -->
+<a title="Home" class="btn btn-outline-warning btn-lg" href="/">Home</a>
+<br><br>
+<a title="About" class="btn btn-outline-warning btn-lg" href="/about-us.php">About</a>
+<br><br>
+<a title="Advertising" class="btn btn-outline-warning btn-lg" href="/advertising.php">Advertising</a>
+<br><br>
+<a title="Contact Us" class="btn btn-outline-warning btn-lg" href="/contactus.php">Contact Us</a>
+<br><br>
+<a title="Latest" class="btn btn-outline-warning btn-lg" href="/new.php">Latest</a>
+<br><br>
+<a title="Network" class="btn btn-outline-warning btn-lg" href="https://www.onlyaustralia.com.au/things">Network</a>
+<br><br>
+<a title="SiteMap" class="btn btn-outline-warning btn-lg" href="/sitemap.php">SiteMap</a>
+
+<br>
+</div>
+
+<div class="visible-sm-block">
+<!-- ipad vertical -->
+<br><br>
+<div class="footerr">
+<form  action="https://www.onlymelbourne.com.au/search-google.php" style="margin-top:0;margin-bottom:0;">
+<div class="mx-auto">
+  <div  class="col-auto">
+    <input type="hidden" name="cx" value="partner-pub-6768268379511823:8583446746">
+    <input type="hidden" name="cof" value="FORID:10">
+    <input type="hidden" name="ie" value="utf-8">
+    <input class="form-control" type="text" name="q" placeholder="Search - Find Anything (Enhanced by Google)">
+  </div>
+  <div  class="col-auto">
+    <input class="btn btn-primary" type="submit" name="sa" value=" GO ">
+  </div>  </div>
+</form>
+
+<script src="https://www.google.com.au/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
+<br>
+<a title="Home" class="btn btn-outline-warning" href="/">Home</a>
+<a title="About" class="btn btn-outline-warning" href="/about-onlymelbourne.php">About</a>
+<a title="Advertising" class="btn btn-outline-warning" href="/advertising.php">Advertising</a>
+<a title="Contact Us" class="btn btn-outline-warning" href="/contact-onlymelbourne">Contact Us</a>
+<a title="Latest" class="btn btn-outline-warning" href="/new.php">Latest</a>
+<a title="Network" class="btn btn-outline-warning" href="https://www.onlyaustralia.com.au/things">Network</a>
+<a title="SiteMap" class="btn btn-outline-warning" href="/sitemap.php">SiteMap</a>
+</div>
+<br>
+</div>
+
+<div class="visible-md-block">
+<!-- ipad horizontal -->
+<br><br>
+<div class="footerr">
+<form  action="https://www.onlymelbourne.com.au/search-google.php" style="margin-top:0;margin-bottom:0;">
+<div class="mx-auto">
+  <div  class="col-auto">
+    <input type="hidden" name="cx" value="partner-pub-6768268379511823:8583446746">
+    <input type="hidden" name="cof" value="FORID:10">
+    <input type="hidden" name="ie" value="utf-8">
+    <input class="form-control" type="text" name="q" placeholder="Search - Find Anything (Enhanced by Google)">
+  </div>
+  <div  class="col-auto">
+    <input class="btn btn-primary" type="submit" name="sa" value=" GO ">
+  </div>  </div>
+</form>
+
+<script src="https://www.google.com.au/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
+<br>
+<a title="Home" class="btn btn-outline-warning" href="/">Home</a>
+<a title="About" class="btn btn-outline-warning" href="/about-onlymelbourne.php">About</a>
+<a title="Advertising" class="btn btn-outline-warning" href="/advertising.php">Advertising</a>
+<a title="Contact Us" class="btn btn-outline-warning" href="/contact-onlymelbourne">Contact Us</a>
+<a title="Latest" class="btn btn-outline-warning" href="/new.php">Latest</a>
+<a title="Network" class="btn btn-outline-warning" href="https://www.onlyaustralia.com.au/things">Network</a>
+<a title="SiteMap" class="btn btn-outline-warning" href="/sitemap.php">SiteMap</a>
+</div>
+<br>
+</div>
+
+<div class="visible-lg-block">
+<!-- pc -->
+<br><br>
+<div class="footerr">
+<form  action="https://www.onlymelbourne.com.au/search-google.php" style="margin-top:0;margin-bottom:0;">
+<div class="mx-auto">
+  <div  class="col-auto">
+    <input type="hidden" name="cx" value="partner-pub-6768268379511823:8583446746">
+    <input type="hidden" name="cof" value="FORID:10">
+    <input type="hidden" name="ie" value="utf-8">
+    <input class="form-control" type="text" name="q" placeholder="Search - Find Anything (Enhanced by Google)">
+  </div>
+  <div  class="col-auto">
+    <input class="btn btn-primary" type="submit" name="sa" value=" GO ">
+  </div>  </div>
+</form>
+
+<script src="https://www.google.com.au/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
+<br>
+<a title="Home" class="btn btn-outline-warning" href="/">Home</a>
+<a title="About" class="btn btn-outline-warning" href="/about-onlymelbourne.php">About</a>
+<a title="Advertising" class="btn btn-outline-warning" href="/advertising.php">Advertising</a>
+<a title="Contact Us" class="btn btn-outline-warning" href="/contact-onlymelbourne">Contact Us</a>
+<a title="Latest" class="btn btn-outline-warning" href="/new.php">Latest</a>
+<a title="Network" class="btn btn-outline-warning" href="https://www.onlyaustralia.com.au/things">Network</a>
+<a title="SiteMap" class="btn btn-outline-warning" href="/sitemap.php">SiteMap</a>
+</div>
+<br><br>
+</div>
+            </footer> <!-- end footer -->
+        </div> <!-- End Footer Row -->
+    </div> <!-- /.container -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
