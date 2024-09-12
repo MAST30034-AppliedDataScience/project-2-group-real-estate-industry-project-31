@@ -136,5 +136,8 @@ data/SA2/
 data/SA1/
 data/socioeconomic/
 !data/landing/postcode_html.txt
+data/population/
+data/homelessness/
+data/socioeconomic/
 # OSX .DS_Store file
 .DS_Store
