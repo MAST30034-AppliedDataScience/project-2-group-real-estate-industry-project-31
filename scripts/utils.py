@@ -58,7 +58,3 @@ def get_suburb_names():
     suburb_names = [name.split(' (')[0] for name in suburb_names]
     
     return suburb_names
-
-# Call the function
-suburb_names = get_suburb_names()
-print(suburb_names)
