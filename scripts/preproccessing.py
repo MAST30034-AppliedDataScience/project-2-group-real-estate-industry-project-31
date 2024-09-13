@@ -90,3 +90,12 @@ def combine_SA2(df, column):
     gdf_joined = gdf_joined.drop([column, 'index_right', 'CHG_FLAG21', 'CHG_LBL21',	'SA3_CODE21', 'LOCI_URI21', 'AUS_NAME21', 'AUS_CODE21', 'STE_NAME21', 'STE_CODE21', 'SA3_NAME21', 'SA4_CODE21', 'SA4_NAME21', 'GCC_CODE21'], axis=1)
 
     return gdf_joined
+
+
+def check_empty_or_zero(coord_list):
+    """
+    Function to check if a list is empty or contains 0s
+    """
+    if isinstance(coord_list, list):
+        return len(coord_list) == 0 or '0' in coord_list
+    return False
