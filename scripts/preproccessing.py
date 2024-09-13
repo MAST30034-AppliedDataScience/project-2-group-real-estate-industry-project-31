@@ -69,3 +69,11 @@ def extract_house_details(df):
 
     return df
 
+def check_empty_or_zero(coord_list):
+    """
+    Function to check if a list is empty or contains 0s
+    """
+    if isinstance(coord_list, list):
+        return len(coord_list) == 0 or '0' in coord_list
+    return False
+
