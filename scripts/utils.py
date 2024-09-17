@@ -14,13 +14,7 @@ def download_file(url, local_path):
 
     response = requests.get(url, stream=True)
     response.raise_for_status()  # Check for request errors
-
-    # Checks to see if the directory exists
-    if not os.path.exists(local_path):
-        os.makedirs(local_path)
-        print(f"Created directory: {local_path}")
     
-
     with open(local_path, 'wb') as f:
         for chunk in response.iter_content(chunk_size=8192):
             f.write(chunk)
