@@ -144,8 +144,7 @@ def clean_property_type(df):
 
     return df
 
-
-def combine_SA2(df, column):
+def combine_SA2(df):
     """
     Accepts a dataframe and column as input. The 'column' input is a string which corresponds to the column name within the dataframe that specifies the coordinates of each listing.
     Returns a dataframe, similar to the 'df' input, with SA2 information appended
@@ -154,8 +153,8 @@ def combine_SA2(df, column):
     sf = sf[sf['STE_NAME21'] == 'Victoria'] # remove all instances not in victoria
 
     # create geometry column in dataframe
-    df = df.dropna(subset=[column])
-    df['point'] = df[column].apply(lambda x: Point(x[1], x[0]))  # Point(longitude, latitude)
+    df = df.dropna(subset=['longitude'])
+    df['point'] = (df['longitude'], df['latitude'])  # Point(longitude, latitude)
 
     gdf_points = gpd.GeoDataFrame(df, geometry='point', crs='EPSG:4326')
     gdf_joined = gpd.sjoin(gdf_points, sf, how='left', op='within') # join our SA2 points with all listings
