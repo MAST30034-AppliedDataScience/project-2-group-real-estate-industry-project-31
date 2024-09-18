@@ -63,13 +63,87 @@ def extract_house_details(df):
     df['suburb'] = df['suburb'].str.lower()
     df['postcode'] = df['postcode'].str.lower()
 
+    df['beds'] = df['rooms'].apply(lambda x: int(x[0].split()[0]) if isinstance(x, list) and len(x) > 0 else 0)
+    df['baths'] = df['rooms'].apply(lambda x: int(x[1].split()[0]) if isinstance(x, list) and len(x) > 1 else 0)
+
+
+    # Fill NaN values with 0 for beds and baths, then convert to integers
+    df['beds'] = df['beds'].fillna(0).astype(int)
+    df['baths'] = df['baths'].fillna(0).astype(int)
+
+    # Extract parking spots (assuming 'parking' is in the format "1 Parking")
+    #df['parking'] = df['parking'].apply(lambda x: int(x.split()[0]) if isinstance(x, str) and x else 0)
+    #df['parking_1'] = df['parking'].apply(lambda x: int(x[0].split()[0]) if isinstance(x, list) and len(x) > 0 else 0)
+    df['parking'] = df['parking'].apply(extract_parking)
+
+
     # Set date_available column to '09/24'
     df['date_available'] = '09/24'
 
     # Drop unnecessary columns
-    df = df.drop(columns=['cost_text', 'desc', 'property_features'], errors='ignore')
+    df = df.drop(columns=['cost_text', 'desc', 'property_features', 'name', 'rooms', 'bond'], errors='ignore')
 
     return df
+
+# Extract parking spots (assuming 'parking' is in the format ["1 Parking"])
+def extract_parking(parking_list):
+    if isinstance(parking_list, list) and len(parking_list) > 0:
+        try:
+            return int(parking_list[0].split()[0])
+        except (ValueError, IndexError):
+            return 0
+    return 0
+
+def extract_latitude(coordinate):
+    if isinstance(coordinate, list) and len(coordinate) == 2:
+        return coordinate[0]
+    else:
+        return None
+
+def extract_longitude(coordinate):
+    if isinstance(coordinate, list) and len(coordinate) == 2:
+        return coordinate[1]
+    else:
+        return None
+
+def clean_property_type(df):
+    """
+    Cleans the 'property_type' column by performing the following operations:
+    - Drops entries that are 'Carspace', 'Acreage / Semi-Rural', 'Vacant land', or 'New land'
+    - Combines 'New House & Land' with 'House'
+    - Combines 'New Apartments / ...' with 'Apartment / Unit ...' and renames to 'Unit'
+    - Changes 'Block of Units' to 'Units'
+    - Renames 'Semi-Detached' to 'Duplex'
+    - Drops any rows with 'Carspace', 'Acreage / Semi-Rural', 'Vacant land', 'New land'
+    """
+
+    # Define the mapping of property types to their cleaned versions
+    property_type_map = {
+        'Townhouse': 'Townhouse',
+        'Semi-Detached': 'Duplex',
+        'Studio': 'Studio',
+        'New land': None,  # Mark for dropping
+        'Villa': 'Villa',
+        'Apartment / Unit / Flat': 'Unit',
+        'House': 'House',
+        'New Apartments / Unit / Flat': 'Unit',
+        'Block of Units': 'Unit',
+        'New House & Land': 'House',
+        'Terrace': 'Terrace',
+        'Vacant land': None,  # Mark for dropping
+        'Acreage / Semi-Rural': None,  # Mark for dropping
+        'Duplex': 'Duplex',
+        'Carspace': None  # Mark for dropping
+    }
+
+    # Map the property_type column to the new values
+    df['property_type'] = df['property_type'].map(property_type_map)
+
+    # Drop rows where property_type is None (i.e., the dropped types)
+    df = df.dropna(subset=['property_type'])
+
+    return df
+
 
 def combine_SA2(df, column):
     """
