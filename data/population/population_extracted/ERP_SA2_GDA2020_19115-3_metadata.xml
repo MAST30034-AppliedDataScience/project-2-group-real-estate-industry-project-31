@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdb:MD_Metadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cat="http://standards.iso.org/iso/19115/-3/cat/1.0" xmlns:cit="http://standards.iso.org/iso/19115/-3/cit/1.0" xmlns:gcx="http://standards.iso.org/iso/19115/-3/gcx/1.0" xmlns:gex="http://standards.iso.org/iso/19115/-3/gex/1.0" xmlns:lan="http://standards.iso.org/iso/19115/-3/lan/1.0" xmlns:srv="http://standards.iso.org/iso/19115/-3/srv/2.0" xmlns:mac="http://standards.iso.org/iso/19115/-3/mac/1.0" xmlns:mas="http://standards.iso.org/iso/19115/-3/mas/1.0" xmlns:mcc="http://standards.iso.org/iso/19115/-3/mcc/1.0" xmlns:mco="http://standards.iso.org/iso/19115/-3/mco/1.0" xmlns:mda="http://standards.iso.org/iso/19115/-3/mda/1.0" xmlns:mdb="http://standards.iso.org/iso/19115/-3/mdb/1.0" xmlns:mdt="http://standards.iso.org/iso/19115/-3/mdt/1.0" xmlns:mex="http://standards.iso.org/iso/19115/-3/mex/1.0" xmlns:mrl="http://standards.iso.org/iso/19115/-3/mrl/1.0" xmlns:mds="http://standards.iso.org/iso/19115/-3/mds/1.0" xmlns:mmi="http://standards.iso.org/iso/19115/-3/mmi/1.0" xmlns:mpc="http://standards.iso.org/iso/19115/-3/mpc/1.0" xmlns:mrc="http://standards.iso.org/iso/19115/-3/mrc/1.0" xmlns:mrd="http://standards.iso.org/iso/19115/-3/mrd/1.0" xmlns:mri="http://standards.iso.org/iso/19115/-3/mri/1.0" xmlns:mrs="http://standards.iso.org/iso/19115/-3/mrs/1.0" xmlns:msr="http://standards.iso.org/iso/19115/-3/msr/1.0" xmlns:mdq="http://standards.iso.org/iso/19157/-2/mdq/1.0" xmlns:dqc="http://standards.iso.org/iso/19157/-2/dqc/1.0" xmlns:gco="http://standards.iso.org/iso/19115/-3/gco/1.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xlink="http://www.w3.org/1999/xlink">
+<mdb:defaultLocale>
+<lan:PT_Locale>
+<lan:language>
+<lan:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/php/code_list.php" codeListValue="eng">eng</lan:LanguageCode>
+</lan:language>
+<lan:country>
+<lan:CountryCode codeList="http://www.iso.org/iso/country_codes/iso_3166_code_lists.htm" codeListValue="AU">AU</lan:CountryCode>
+</lan:country>
+<lan:characterEncoding>
+<lan:MD_CharacterSetCode codeList="standards.iso.org/19115/-3/lan/1.0/codelists.xml#MD_CharacterSetCode" codeListValue="utf8">utf8</lan:MD_CharacterSetCode>
+</lan:characterEncoding>
+</lan:PT_Locale>
+</mdb:defaultLocale>
+<mdb:metadataScope>
+<mdb:MD_MetadataScope>
+<mdb:resourceScope>
+<mcc:MD_ScopeCode codeList="standards.iso.org/19115/-3/lan/1.0/codelists.xml#MD_ScopeCode" codeListValue="dataset">dataset</mcc:MD_ScopeCode>
+</mdb:resourceScope>
+<mdb:name>
+<gco:CharacterString>Feature layer</gco:CharacterString>
+</mdb:name>
+</mdb:MD_MetadataScope>
+</mdb:metadataScope>
+<mdb:contact>
+<cit:CI_Responsibility>
+<cit:role>
+<cit:CI_RoleCode codeList="standards.iso.org/19115/-3/lan/1.0/codelists.xml#CI_RoleCode" codeListValue="custodian">custodian</cit:CI_RoleCode>
+</cit:role>
+<cit:party>
+<cit:CI_Organisation>
+<cit:name>
+<gco:CharacterString>Australian Bureau of Statistics</gco:CharacterString>
+</cit:name>
+<cit:contactInfo>
+<cit:CI_Contact>
+<cit:address>
+<cit:CI_Address>
+<cit:electronicMailAddress>
+<gco:CharacterString>geography@abs.gov.au</gco:CharacterString>
+</cit:electronicMailAddress>
+</cit:CI_Address>
+</cit:address>
+</cit:CI_Contact>
+</cit:contactInfo>
+</cit:CI_Organisation>
+</cit:party>
+</cit:CI_Responsibility>
+</mdb:contact>
+<mdb:dateInfo>
+<cit:CI_Date>
+<cit:date>
+<gco:DateTime>2024-03-14T00:00:00</gco:DateTime>
+</cit:date>
+<cit:dateType>
+<cit:CI_DateTypeCode codeList="standards.iso.org/19115/-3/lan/1.0/codelists.xml#CI_DateTypeCode" codeListValue="revision">revision</cit:CI_DateTypeCode>
+</cit:dateType>
+</cit:CI_Date>
+</mdb:dateInfo>
+<mdb:metadataStandard>
+<cit:CI_Citation>
+<cit:title>
+<gco:CharacterString>ISO 19115-3 Geographic Information - Metadata - Part 1: Fundamentals</gco:CharacterString>
+</cit:title>
+<cit:edition>
+<gco:CharacterString>2014</gco:CharacterString>
+</cit:edition>
+</cit:CI_Citation>
+</mdb:metadataStandard>
+<mdb:spatialRepresentationInfo>
+<msr:MD_VectorSpatialRepresentation>
+<msr:topologyLevel>
+<msr:MD_TopologyLevelCode codeList="standards.iso.org/19115/-3/lan/1.0/codelists.xml#MD_TopologyLevelCode" codeListValue="geometryOnly">geometryOnly</msr:MD_TopologyLevelCode>
+</msr:topologyLevel>
+<msr:geometricObjects>
+<msr:MD_GeometricObjects>
+<msr:geometricObjectType>
+<msr:MD_GeometricObjectTypeCode codeList="standards.iso.org/19115/-3/lan/1.0/codelists.xml#MD_GeometricObjectTypeCode" codeListValue="composite">composite</msr:MD_GeometricObjectTypeCode>
+</msr:geometricObjectType>
+<msr:geometricObjectCount>
+<gco:Integer>2473</gco:Integer>
+</msr:geometricObjectCount>
+</msr:MD_GeometricObjects>
+</msr:geometricObjects>
+</msr:MD_VectorSpatialRepresentation>
+</mdb:spatialRepresentationInfo>
+<mdb:referenceSystemInfo>
+<mrs:MD_ReferenceSystem>
+<mrs:referenceSystemIdentifier>
+<mcc:MD_Identifier>
+<mcc:code>
+<gco:CharacterString>7844</gco:CharacterString>
+</mcc:code>
+<mcc:codeSpace>
+<gco:CharacterString>EPSG</gco:CharacterString>
+</mcc:codeSpace>
+</mcc:MD_Identifier>
+</mrs:referenceSystemIdentifier>
+</mrs:MD_ReferenceSystem>
+</mdb:referenceSystemInfo>
+<mdb:identificationInfo>
+<mri:MD_DataIdentification>
+<mri:citation>
+<cit:CI_Citation>
+<cit:title>
+<gco:CharacterString>SA2 ERP GeoPackage 2023 GDA2020</gco:CharacterString>
+</cit:title>
+<cit:alternateTitle>
+<gco:CharacterString>withheld</gco:CharacterString>
+</cit:alternateTitle>
+<cit:citedResponsibleParty>
+<cit:CI_Responsibility>
+<cit:role>
+<cit:CI_RoleCode codeList="standards.iso.org/19115/-3/lan/1.0/codelists.xml#CI_RoleCode" codeListValue="custodian">custodian</cit:CI_RoleCode>
+</cit:role>
+<cit:party>
+<cit:CI_Organisation>
+<cit:name>
+<gco:CharacterString>Australian Bureau of Statistics</gco:CharacterString>
+</cit:name>
+<cit:contactInfo>
+<cit:CI_Contact>
+<cit:address>
+<cit:CI_Address>
+<cit:electronicMailAddress>
+<gco:CharacterString>geography@abs.gov.au</gco:CharacterString>
+</cit:electronicMailAddress>
+</cit:CI_Address>
+</cit:address>
+</cit:CI_Contact>
+</cit:contactInfo>
+</cit:CI_Organisation>
+</cit:party>
+</cit:CI_Responsibility>
+</cit:citedResponsibleParty>
+</cit:CI_Citation>
+</mri:citation>
+<mri:abstract>
+<gco:CharacterString>ABS GeoPackages are suitable for data users who have their own Geospatial Information System (GIS). GeoPackages do not include software. This geopackage has GDA2020 digital boundary files.  GeoPackages contain Estimated Resident Population (ERP) data linked together with the ASGS boundaries in an SQLite container that can be easily used. They are formatted in a standards based format gpkg which is in an open format, that is supported by commonly used software systems.    ERP GeoPackages contain the following data:    *Geography level - Australian Statistical Geography Standard (ASGS) Statistical Areas Level 2 (SA2)(2021)  *ERP for each year from 2001 to current year (number)  *ERP change from previous year to current year (number)  *ERP change from previous year to current year (percent)  *Area in square kilometres  *Population density for current year (persons per square kilometre)  *Components of ERP change - births, deaths, natural increase, internal arrivals, internal departures, net internal migration, overseas arrivals, overseas departures, net overseas migration, for 2021-22 and 2022-23 (number)    ABS ERP GeoPackages include metadata and reference documents to enable you to use and read the data. The compressed file contains:    *GeoPackage file - Estimated Resident Population data merged with boundary information, for SA2s (.gpkg)  *AboutGeopackageGDA2020_readme.txt - "Read Me" documentation containing helpful information for users about the GeoPackages and contents (.txt). These files can be viewed in any text editor or web browser  *Xml file containing geographic specific metadata about the boundaries, for SA2s  (.xml)  *Creative Commons Licensing information (.txt)  *The population estimates in this product are final for 2001 to 2021, revised for 2022, and preliminary for 2023.</gco:CharacterString>
+</mri:abstract>
+<mri:purpose>
+<gco:CharacterString>GeoPackages contain Estimated Resident Population (ERP) data linked together with ASGS Statistical Area Level 2 (SA2)(2021) boundaries.</gco:CharacterString>
+</mri:purpose>
+<mri:credit>
+<gco:CharacterString>Australian Bureau of Statistics (ABS)</gco:CharacterString>
+</mri:credit>
+<mri:pointOfContact>
+<cit:CI_Responsibility>
+<cit:role>
+<cit:CI_RoleCode codeList="standards.iso.org/19115/-3/lan/1.0/codelists.xml#CI_RoleCode" codeListValue="custodian">custodian</cit:CI_RoleCode>
+</cit:role>
+<cit:party>
+<cit:CI_Organisation>
+<cit:name>
+<gco:CharacterString>Australian Bureau of Statistics</gco:CharacterString>
+</cit:name>
+<cit:contactInfo>
+<cit:CI_Contact>
+<cit:address>
+<cit:CI_Address>
+<cit:electronicMailAddress>
+<gco:CharacterString>geography@abs.gov.au</gco:CharacterString>
+</cit:electronicMailAddress>
+</cit:CI_Address>
+</cit:address>
+</cit:CI_Contact>
+</cit:contactInfo>
+</cit:CI_Organisation>
+</cit:party>
+</cit:CI_Responsibility>
+</mri:pointOfContact>
+<mri:spatialRepresentationType>
+<mcc:MD_SpatialRepresentationTypeCode codeList="standards.iso.org/19115/-3/lan/1.0/codelists.xml#MD_SpatialRepresentationTypeCode" codeListValue="vector">vector</mcc:MD_SpatialRepresentationTypeCode>
+</mri:spatialRepresentationType>
+<mri:topicCategory>
+<mri:MD_TopicCategoryCode>society</mri:MD_TopicCategoryCode>
+</mri:topicCategory>
+<mri:extent>
+<gex:EX_Extent>
+<gex:geographicElement>
+<gex:EX_GeographicBoundingBox>
+<gex:extentTypeCode>
+<gco:Boolean>true</gco:Boolean>
+</gex:extentTypeCode>
+<gex:westBoundLongitude>
+<gco:Decimal>96.81695163</gco:Decimal>
+</gex:westBoundLongitude>
+<gex:eastBoundLongitude>
+<gco:Decimal>167.99803924</gco:Decimal>
+</gex:eastBoundLongitude>
+<gex:southBoundLatitude>
+<gco:Decimal>-43.74049657</gco:Decimal>
+</gex:southBoundLatitude>
+<gex:northBoundLatitude>
+<gco:Decimal>-9.14216252</gco:Decimal>
+</gex:northBoundLatitude>
+</gex:EX_GeographicBoundingBox>
+</gex:geographicElement>
+<gex:temporalElement>
+<gex:EX_TemporalExtent>
+<gex:extent>
+<gml:TimeInstant>
+<gml:timePosition indeterminatePosition="unknown">
+</gml:timePosition>
+</gml:TimeInstant>
+</gex:extent>
+</gex:EX_TemporalExtent>
+</gex:temporalElement>
+</gex:EX_Extent>
+</mri:extent>
+<mri:resourceMaintenance>
+<mmi:MD_MaintenanceInformation>
+<mmi:maintenanceAndUpdateFrequency>
+<mmi:MD_MaintenanceFrequencyCode codeList="standards.iso.org/19115/-3/lan/1.0/codelists.xml#MD_MaintenanceFrequencyCode" codeListValue="notPlanned">notPlanned</mmi:MD_MaintenanceFrequencyCode>
+</mmi:maintenanceAndUpdateFrequency>
+<mmi:contact>
+<cit:CI_Responsibility>
+<cit:role>
+<cit:CI_RoleCode codeList="standards.iso.org/19115/-3/lan/1.0/codelists.xml#CI_RoleCode" codeListValue="custodian">custodian</cit:CI_RoleCode>
+</cit:role>
+<cit:party>
+<cit:CI_Organisation>
+<cit:name>
+<gco:CharacterString>Australian Bureau of Statistics</gco:CharacterString>
+</cit:name>
+<cit:contactInfo>
+<cit:CI_Contact>
+<cit:address>
+<cit:CI_Address>
+<cit:electronicMailAddress>
+<gco:CharacterString>geography@abs.gov.au</gco:CharacterString>
+</cit:electronicMailAddress>
+</cit:CI_Address>
+</cit:address>
+</cit:CI_Contact>
+</cit:contactInfo>
+</cit:CI_Organisation>
+</cit:party>
+</cit:CI_Responsibility>
+</mmi:contact>
+</mmi:MD_MaintenanceInformation>
+</mri:resourceMaintenance>
+<mri:descriptiveKeywords>
+<mri:MD_Keywords>
+<mri:keyword>
+<gco:CharacterString>ABS</gco:CharacterString>
+</mri:keyword>
+<mri:keyword>
+<gco:CharacterString>SA2</gco:CharacterString>
+</mri:keyword>
+<mri:keyword>
+<gco:CharacterString>Demography</gco:CharacterString>
+</mri:keyword>
+<mri:keyword>
+<gco:CharacterString>Population</gco:CharacterString>
+</mri:keyword>
+<mri:keyword>
+<gco:CharacterString>ERP</gco:CharacterString>
+</mri:keyword>
+</mri:MD_Keywords>
+</mri:descriptiveKeywords>
+<mri:resourceConstraints>
+<mco:MD_Constraints>
+<mco:useLimitation>
+<gco:CharacterString># DataPacks Creative Commons licensing information    DataPacks is licensed under a Creative Commons Attribution 2.5 Australia licence    Please ensure:  • the title of any and all ABS graphs are labelled as they appear in the publication;   • ABS data is attributed to the ABS including a reference to the title, ABS catalogue number and date of publication;   • data from other sources (including that derived from ABS statistics) is not attributed to the ABS;   • the following acknowledgment is included: "ABS data used with permission from the Australian Bureau of Statistics"; and   • a link is provided back to the ABS website &amp;lt;www.abs.gov.au&amp;gt; (if appropriate).    If the ABS statistics are not used as indicated, or if there is a change in ABS policy, permission may be revoked.    This product should be attributed as follows.    ABS material used ‘as supplied’  Provided you have not modified or transformed ABS material in any way including, for example, by:   • changing the ABS text   • calculating percentage changes   • graphing or charting data   • deriving new statistics from published ABS statistics    such material (including – but not restricted to – data, text and images) may be used provided the following attribution is cited:   Source: Australian Bureau of Statistics  OR  Source: ABS    Derivative material  If you have modified or transformed ABS material, or derived new material from those of the ABS in any way, the following attribution must be used:   Based on Australian Bureau of Statistics data  OR  Based on ABS data    For details   For further information see: How to cite ABS sources https://www.abs.gov.au/how-cite-abs-sources    Unless otherwise noted, all material within this report – except the ABS logo, the Commonwealth Coat of Arms, and any material protected by a trade mark – is licensed under a Creative Commons see https://creativecommons.org/licenses/by/2.5/au/</gco:CharacterString>
+</mco:useLimitation>
+</mco:MD_Constraints>
+</mri:resourceConstraints>
+<mri:defaultLocale>
+<lan:PT_Locale>
+<lan:language>
+<lan:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/php/code_list.php" codeListValue="eng">eng</lan:LanguageCode>
+</lan:language>
+<lan:country>
+<lan:CountryCode codeList="http://www.iso.org/iso/country_codes/iso_3166_code_lists.htm" codeListValue="AU">AU</lan:CountryCode>
+</lan:country>
+<lan:characterEncoding>
+<lan:MD_CharacterSetCode codeList="standards.iso.org/19115/-3/lan/1.0/codelists.xml#MD_CharacterSetCode" codeListValue="utf8">utf8</lan:MD_CharacterSetCode>
+</lan:characterEncoding>
+</lan:PT_Locale>
+</mri:defaultLocale>
+</mri:MD_DataIdentification>
+</mdb:identificationInfo>
+<mdb:distributionInfo>
+<mrd:MD_Distribution>
+<mrd:distributionFormat>
+<mrd:MD_Format>
+<mrd:formatSpecificationCitation>
+<cit:CI_Citation>
+<cit:title>
+<gco:CharacterString>GeoPackage</gco:CharacterString>
+</cit:title>
+</cit:CI_Citation>
+</mrd:formatSpecificationCitation>
+</mrd:MD_Format>
+</mrd:distributionFormat>
+</mrd:MD_Distribution>
+</mdb:distributionInfo>
+<mdb:resourceLineage>
+<mrl:LI_Lineage>
+<mrl:statement>
+<gco:CharacterString>Please refer to https://www.abs.gov.au/statistics/people/population/regional-population/latest-release#methodology</gco:CharacterString>
+</mrl:statement>
+<mrl:scope>
+<mcc:MD_Scope>
+<mcc:level>
+<mcc:MD_ScopeCode codeList="standards.iso.org/19115/-3/lan/1.0/codelists.xml#MD_ScopeCode" codeListValue="dataset">dataset</mcc:MD_ScopeCode>
+</mcc:level>
+</mcc:MD_Scope>
+</mrl:scope>
+</mrl:LI_Lineage>
+</mdb:resourceLineage>
+<mdb:metadataConstraints>
+<mco:MD_Constraints>
+<mco:useLimitation>
+<gco:CharacterString># DataPacks Creative Commons licensing information
+
+DataPacks is licensed under a Creative Commons Attribution 2.5 Australia licence
+
+Please ensure:
+•	the title of any and all ABS graphs are labelled as they appear in the publication; 
+•	ABS data is attributed to the ABS including a reference to the title, ABS catalogue number and date of publication; 
+•	data from other sources (including that derived from ABS statistics) is not attributed to the ABS; 
+•	the following acknowledgment is included: "ABS data used with permission from the Australian Bureau of Statistics"; and 
+•	a link is provided back to the ABS website  (if appropriate).
+
+If the ABS statistics are not used as indicated, or if there is a change in ABS policy, permission may be revoked.
+
+This product should be attributed as follows.
+
+ABS material used ‘as supplied’
+Provided you have not modified or transformed ABS material in any way including, for example, by: 
+•	changing the ABS text 
+•	calculating percentage changes 
+•	graphing or charting data 
+•	deriving new statistics from published ABS statistics
+
+such material (including – but not restricted to – data, text and images) may be used provided the following attribution is cited: 
+Source: Australian Bureau of Statistics  OR  Source: ABS
+
+Derivative material
+If you have modified or transformed ABS material, or derived new material from those of the ABS in any way, the following attribution must be used: 
+Based on Australian Bureau of Statistics data  OR  Based on ABS data
+
+For details 
+For further information see: How to cite ABS sources https://www.abs.gov.au/how-cite-abs-sources
+
+Unless otherwise noted, all material within this report – except the ABS logo, the Commonwealth Coat of Arms, and any material protected by a trade mark – is licensed under a Creative Commons see https://creativecommons.org/licenses/by/2.5/au/</gco:CharacterString>
+</mco:useLimitation>
+</mco:MD_Constraints>
+</mdb:metadataConstraints>
+<mdb:metadataMaintenance>
+<mmi:MD_MaintenanceInformation>
+<mmi:maintenanceAndUpdateFrequency>
+<mmi:MD_MaintenanceFrequencyCode codeList="standards.iso.org/19115/-3/lan/1.0/codelists.xml#MD_MaintenanceFrequencyCode" codeListValue="notPlanned">notPlanned</mmi:MD_MaintenanceFrequencyCode>
+</mmi:maintenanceAndUpdateFrequency>
+</mmi:MD_MaintenanceInformation>
+</mdb:metadataMaintenance>
+</mdb:MD_Metadata>
