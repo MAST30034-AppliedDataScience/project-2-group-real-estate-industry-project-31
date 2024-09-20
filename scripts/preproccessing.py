@@ -154,7 +154,9 @@ def combine_SA2(df):
 
     # create geometry column in dataframe
     df = df.dropna(subset=['longitude'])
-    df['point'] = (df['longitude'], df['latitude'])  # Point(longitude, latitude)
+    df['longitude'] = df['longitude'].astype(float)
+    df['latitude'] = df['latitude'].astype(float)
+    df['point'] = df.apply(lambda row: Point(row['longitude'], row['latitude']), axis=1)
 
     gdf_points = gpd.GeoDataFrame(df, geometry='point', crs='EPSG:4326')
     gdf_joined = gpd.sjoin(gdf_points, sf, how='left', op='within') # join our SA2 points with all listings
