@@ -78,7 +78,7 @@ def extract_house_details(df):
 
 
     # Set date_available column to '09/24'
-    df['date_available'] = '09/24'
+    df['date_available'] = 2024
 
     # Drop unnecessary columns
     df = df.drop(columns=['cost_text', 'desc', 'property_features', 'name', 'rooms', 'bond'], errors='ignore')
