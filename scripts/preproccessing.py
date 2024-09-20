@@ -63,15 +63,88 @@ def extract_house_details(df):
     df['suburb'] = df['suburb'].str.lower()
     df['postcode'] = df['postcode'].str.lower()
 
+    df['beds'] = df['rooms'].apply(lambda x: int(x[0].split()[0]) if isinstance(x, list) and len(x) > 0 else 0)
+    df['baths'] = df['rooms'].apply(lambda x: int(x[1].split()[0]) if isinstance(x, list) and len(x) > 1 else 0)
+
+
+    # Fill NaN values with 0 for beds and baths, then convert to integers
+    df['beds'] = df['beds'].fillna(0).astype(int)
+    df['baths'] = df['baths'].fillna(0).astype(int)
+
+    # Extract parking spots (assuming 'parking' is in the format "1 Parking")
+    #df['parking'] = df['parking'].apply(lambda x: int(x.split()[0]) if isinstance(x, str) and x else 0)
+    #df['parking_1'] = df['parking'].apply(lambda x: int(x[0].split()[0]) if isinstance(x, list) and len(x) > 0 else 0)
+    df['parking'] = df['parking'].apply(extract_parking)
+
+
     # Set date_available column to '09/24'
-    df['date_available'] = '09/24'
+    df['date_available'] = 2024
 
     # Drop unnecessary columns
-    df = df.drop(columns=['cost_text', 'desc', 'property_features'], errors='ignore')
+    df = df.drop(columns=['cost_text', 'desc', 'property_features', 'name', 'rooms', 'bond'], errors='ignore')
 
     return df
 
-def combine_SA2(df, column):
+# Extract parking spots (assuming 'parking' is in the format ["1 Parking"])
+def extract_parking(parking_list):
+    if isinstance(parking_list, list) and len(parking_list) > 0:
+        try:
+            return int(parking_list[0].split()[0])
+        except (ValueError, IndexError):
+            return 0
+    return 0
+
+def extract_latitude(coordinate):
+    if isinstance(coordinate, list) and len(coordinate) == 2:
+        return coordinate[0]
+    else:
+        return None
+
+def extract_longitude(coordinate):
+    if isinstance(coordinate, list) and len(coordinate) == 2:
+        return coordinate[1]
+    else:
+        return None
+
+def clean_property_type(df):
+    """
+    Cleans the 'property_type' column by performing the following operations:
+    - Drops entries that are 'Carspace', 'Acreage / Semi-Rural', 'Vacant land', or 'New land'
+    - Combines 'New House & Land' with 'House'
+    - Combines 'New Apartments / ...' with 'Apartment / Unit ...' and renames to 'Unit'
+    - Changes 'Block of Units' to 'Units'
+    - Renames 'Semi-Detached' to 'Duplex'
+    - Drops any rows with 'Carspace', 'Acreage / Semi-Rural', 'Vacant land', 'New land'
+    """
+
+    # Define the mapping of property types to their cleaned versions
+    property_type_map = {
+        'Townhouse': 'Townhouse',
+        'Semi-Detached': 'Duplex',
+        'Studio': 'Studio',
+        'New land': None,  # Mark for dropping
+        'Villa': 'Villa',
+        'Apartment / Unit / Flat': 'Unit',
+        'House': 'House',
+        'New Apartments / Unit / Flat': 'Unit',
+        'Block of Units': 'Unit',
+        'New House & Land': 'House',
+        'Terrace': 'Terrace',
+        'Vacant land': None,  # Mark for dropping
+        'Acreage / Semi-Rural': None,  # Mark for dropping
+        'Duplex': 'Duplex',
+        'Carspace': None  # Mark for dropping
+    }
+
+    # Map the property_type column to the new values
+    df['property_type'] = df['property_type'].map(property_type_map)
+
+    # Drop rows where property_type is None (i.e., the dropped types)
+    df = df.dropna(subset=['property_type'])
+
+    return df
+
+def combine_SA2(df):
     """
     Accepts a dataframe and column as input. The 'column' input is a string which corresponds to the column name within the dataframe that specifies the coordinates of each listing.
     Returns a dataframe, similar to the 'df' input, with SA2 information appended
@@ -80,14 +153,16 @@ def combine_SA2(df, column):
     sf = sf[sf['STE_NAME21'] == 'Victoria'] # remove all instances not in victoria
 
     # create geometry column in dataframe
-    df = df.dropna(subset=[column])
-    df['point'] = df[column].apply(lambda x: Point(x[1], x[0]))  # Point(longitude, latitude)
+    df = df.dropna(subset=['longitude'])
+    df['longitude'] = df['longitude'].astype(float)
+    df['latitude'] = df['latitude'].astype(float)
+    df['point'] = df.apply(lambda row: Point(row['longitude'], row['latitude']), axis=1)
 
     gdf_points = gpd.GeoDataFrame(df, geometry='point', crs='EPSG:4326')
     gdf_joined = gpd.sjoin(gdf_points, sf, how='left', predicate='within') # join our SA2 points with all listings
     
     # drop all irrelevant columns
-    gdf_joined = gdf_joined.drop([column, 'index_right', 'CHG_FLAG21', 'CHG_LBL21',	'SA3_CODE21', 'LOCI_URI21', 'AUS_NAME21', 'AUS_CODE21', 'STE_NAME21', 'STE_CODE21', 'SA3_NAME21', 'SA4_CODE21', 'SA4_NAME21', 'GCC_CODE21'], axis=1)
+    gdf_joined = gdf_joined.drop(['index_right', 'CHG_FLAG21', 'CHG_LBL21',	'SA3_CODE21', 'LOCI_URI21', 'AUS_NAME21', 'AUS_CODE21', 'STE_NAME21', 'STE_CODE21', 'SA3_NAME21', 'SA4_CODE21', 'SA4_NAME21', 'GCC_CODE21'], axis=1)
 
     return gdf_joined
 
