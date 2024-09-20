@@ -135,6 +135,14 @@ data/landing/
 data/SA2/
 data/SA1/
 data/socioeconomic/
+<<<<<<< Updated upstream
 
+=======
+!data/landing/postcode_html.txt
+data/population/
+data/homelessness/
+data/socioeconomic/
+data/inflation/
+>>>>>>> Stashed changes
 # OSX .DS_Store file
 .DS_Store
