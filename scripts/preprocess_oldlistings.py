@@ -1,7 +1,8 @@
 from datetime import datetime
 import os
 from pyspark.sql.functions import lower, udf, col, when, explode, from_json, col, regexp_replace, regexp_extract, expr, trim, split, concat, lit, arrays_zip, ltrim
-from pyspark.sql.types import StringType, ArrayType
+from pyspark.sql.types import StringType, ArrayType, IntegerType
+from scripts.preproccessing import combine_SA2
 import json
 
 
@@ -10,7 +11,7 @@ def preprocess_olist(spark):
     out_dir = '../data/raw/oldlisting/'
     
     if not os.path.exists(out_dir):
-                    os.makedirs(out_dir)
+        os.makedirs(out_dir)
     
     # Read in dataframe
     listings_df = spark.read.parquet(read_dir)
@@ -43,7 +44,7 @@ def preprocess_olist(spark):
     
     listings_df.show()
     
-    listings_df.write.parquet(f"{out_dir}oldlisting.parquet")
+    listings_df.write.mode("overwrite").parquet(f"{out_dir}oldlisting.parquet")
     return
 
 def lowercase_string_attributes(df):
@@ -53,10 +54,11 @@ def lowercase_string_attributes(df):
     return df
 
 def preprocess_bbp(df):
-    df = df.fillna({'baths': 0.0, 'beds': 0.0, 'cars': 0.0})
+    df = df.fillna({'baths': 0, 'beds': 0, 'cars': 0})
     
-    # Remove listings with 0 beds 
-    filtered_df = df.filter(col("beds") != 0.0)
+    # Remove listings with 0 beds, 0 baths
+    filtered_df = df.filter((col("beds") != 0) & (col("baths") != 0))
+    df = df.withColumnRenamed("cars", "parking")
     return filtered_df
 
 def preprocess_house_type(df):
@@ -112,7 +114,7 @@ def preprocess_house_type(df):
                        (col("baths") >= 1), 
                        "unit")
                    .otherwise(col("house_type")))
-
+    df = df.withColumnRenamed("house_type", "property_type").drop("unit")
     return df
 
 def preprocess_address(listings_df):
@@ -124,7 +126,6 @@ def preprocess_address(listings_df):
     
     listings_df = listings_df.drop("regex_pattern")
     
-
     # Split the address at '/' to separate unit and house number
     listings_df = listings_df.withColumn("split_address", split(col("address"), "/"))
 
@@ -132,27 +133,9 @@ def preprocess_address(listings_df):
     listings_df = listings_df.withColumn("unit", when(col("split_address").getItem(1).isNotNull(),
                                                       col("split_address").getItem(0))
                                         .otherwise(None))
-    listings_df = listings_df.withColumn("house_number",
-                                         when(col("split_address").getItem(1).isNotNull(),
-                                            split(col("split_address").getItem(1), " ")
-                                            .getItem(0)).otherwise(split(col("split_address")
-                                            .getItem(0), " ").getItem(0)))
-
-    # Optionally, clean up and remove the temporary column
-    listings_df = listings_df.drop("split_address")
-    
-    listings_df = listings_df.withColumn("street_parts", split(col("address"), " "))
-    listings_df = listings_df.withColumn("street_type", expr("street_parts[size(street_parts)-1]"))
-    listings_df = listings_df.withColumn("street_name", expr("concat_ws(' ', slice(street_parts, 1, size(street_parts)-1))"))
-    
-    # Remove numbers from street_name
-    listings_df = listings_df.withColumn("street_name", regexp_replace(col("street_name"), r'\d+', '').alias("clean_street_name"))
-    listings_df = listings_df.withColumn("street_name", regexp_replace(col("street_name"), r'\s+', ' ').alias("clean_street_name"))
-    listings_df = listings_df.withColumn("street_name", ltrim(regexp_replace(col("street_name"), "/", "")))
-
 
     # Optionally, clean up and remove temporary columns
-    listings_df = listings_df.drop("street_parts", "address")
+    listings_df = listings_df.drop("street_parts", "split_address")
     
     return listings_df
 
@@ -206,12 +189,45 @@ def get_weekly_price(listings_df):
                                 )
 
     # Show results
-    COLS_TO_DROP = ["price_str", "ind_price_str", "range", "single_price", "suffix", "dates", "classification"]
+    COLS_TO_DROP = ["price_str", "ind_price_str", "range", "single_price", "suffix", "dates", "classification", "avg_price"]
     df_adjusted = df_adjusted.drop(*COLS_TO_DROP)
     
     df_filtered = df_adjusted.filter(~(col("classification").isin("sale", "other")))
     
     return df_filtered
+
+def create_forecast_template(spark):
+    read_dir = '../data/raw/oldlisting/oldlisting.parquet'
+    out_dir =  '../data/curated/properties.parquet'
+
+    listings_df = spark.read.parquet(read_dir)
+    listings_df = listings_df.drop("date", "weekly_price")
+    print(listings_df.count())
+    unique_properties=  listings_df.dropDuplicates(["address"])
+    print(unique_properties.count())
+    # Create DataFrame of years, to cross join with properties to create template for forecasting 
+    # data 
+    years = [2025, 2026, 2027, 2028, 2029]
+    years_df = spark.createDataFrame(years, IntegerType()).toDF("year")
+    
+    template = unique_properties.crossJoin(years_df)
+    template.write.mode("overwrite").parquet(out_dir)
+    
+def split_by_gcc(spark):
+    read_dir = "../data/raw/oldlisting/oldlisting.parquet"
+    write_dir = '../data/raw/oldlisting/'
+    sdf = spark.read.parquet(read_dir)
+
+    pandas = sdf.toPandas()
+
+    combined = combine_SA2(pandas)
+    greater_melb_pd = combined[combined['GCC_NAME21'] == "Greater Melbourne"]
+    rest_of_vic_pd = combined[combined['GCC_NAME21'] == "Rest of Vic."]
+    
+    greater_melb_pd.to_csv(f"{write_dir}greater_melb_properties.csv")
+    rest_of_vic_pd.to_csv(f"{write_dir}rest_of_vic_properties.csv")
+    
+    return
     
 @udf(returnType=ArrayType(StringType()))
 def preprocess_dates(date_str):
@@ -223,7 +239,7 @@ def preprocess_dates(date_str):
         # Parse the JSON string to a Python list
         dates = json.loads(json_string)
         # Convert each date string to "mm-yy" format
-        processed_dates = [datetime.strptime(date, "%B %Y").strftime("%m-%y") for date in dates]
+        processed_dates = [datetime.strptime(date, "%B %Y").strftime("%Y") for date in dates]
         return processed_dates
     except json.JSONDecodeError:
         # Return an empty list in case of JSON decode error
