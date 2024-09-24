@@ -85,7 +85,6 @@ def extract_house_details(df):
 
     return df
 
-<<<<<<< Updated upstream
 # Extract parking spots (assuming 'parking' is in the format ["1 Parking"])
 def extract_parking(parking_list):
     if isinstance(parking_list, list) and len(parking_list) > 0:
@@ -146,9 +145,6 @@ def clean_property_type(df):
     return df
 
 def combine_SA2(df):
-=======
-def combine_SA2(df, column):
->>>>>>> Stashed changes
     """
     Accepts a dataframe and column as input. The 'column' input is a string which corresponds to the column name within the dataframe that specifies the coordinates of each listing.
     Returns a dataframe, similar to the 'df' input, with SA2 information appended
@@ -157,7 +153,6 @@ def combine_SA2(df, column):
     sf = sf[sf['STE_NAME21'] == 'Victoria'] # remove all instances not in victoria
 
     # create geometry column in dataframe
-<<<<<<< Updated upstream
     df = df.dropna(subset=['longitude'])
     df['longitude'] = df['longitude'].astype(float)
     df['latitude'] = df['latitude'].astype(float)
@@ -168,16 +163,6 @@ def combine_SA2(df, column):
     
     # drop all irrelevant columns
     gdf_joined = gdf_joined.drop(['index_right', 'CHG_FLAG21', 'CHG_LBL21',	'SA3_CODE21', 'LOCI_URI21', 'AUS_NAME21', 'AUS_CODE21', 'STE_NAME21', 'STE_CODE21', 'SA3_NAME21', 'SA4_CODE21', 'SA4_NAME21', 'GCC_CODE21'], axis=1)
-=======
-    df = df.dropna(subset=[column])
-    df['point'] = df[column].apply(lambda x: Point(x[1], x[0]))  # Point(longitude, latitude)
-
-    gdf_points = gpd.GeoDataFrame(df, geometry='point', crs='EPSG:4326')
-    gdf_joined = gpd.sjoin(gdf_points, sf, how='left', op='within') # join our SA2 points with all listings
-    
-    # drop all irrelevant columns
-    gdf_joined = gdf_joined.drop([column, 'index_right', 'CHG_FLAG21', 'CHG_LBL21',	'SA3_CODE21', 'LOCI_URI21', 'AUS_NAME21', 'AUS_CODE21', 'STE_NAME21', 'STE_CODE21', 'SA3_NAME21', 'SA4_CODE21', 'SA4_NAME21', 'GCC_CODE21'], axis=1)
->>>>>>> Stashed changes
 
     return gdf_joined
 

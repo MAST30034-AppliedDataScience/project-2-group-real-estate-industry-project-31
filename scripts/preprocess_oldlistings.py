@@ -19,8 +19,7 @@ def preprocess_olist(spark):
     # Drop Duplicates
     listings_df = listings_df.dropDuplicates()    
     # Preprocess dataframe 
-    
-    listings_df = listings_df.dropDuplicates()
+
 
     listings_df = lowercase_string_attributes(listings_df)
     
@@ -214,18 +213,23 @@ def create_forecast_template(spark):
     template.write.mode("overwrite").parquet(out_dir)
     
 def split_by_gcc(spark):
-    read_dir = "../data/raw/oldlisting/oldlisting.parquet"
+    read_dir = "../data/landing/oldlisting/oldlisting.parquet"
     write_dir = '../data/raw/oldlisting/'
     sdf = spark.read.parquet(read_dir)
 
+    sdf = sdf.dropDuplicates() 
+    
     pandas = sdf.toPandas()
 
     combined = combine_SA2(pandas)
+    combined = combined.drop(['point', 'SA2_NAME21', 'AREASQKM21'], axis=1)
+    
     greater_melb_pd = combined[combined['GCC_NAME21'] == "Greater Melbourne"]
     rest_of_vic_pd = combined[combined['GCC_NAME21'] == "Rest of Vic."]
     
-    greater_melb_pd.to_csv(f"{write_dir}greater_melb_properties.csv")
-    rest_of_vic_pd.to_csv(f"{write_dir}rest_of_vic_properties.csv")
+    
+    greater_melb_pd.to_csv(f"{write_dir}greater_melb_properties_unprocessed.csv")
+    rest_of_vic_pd.to_csv(f"{write_dir}rest_of_vic_properties_unprocessed.csv")
     
     return
     
