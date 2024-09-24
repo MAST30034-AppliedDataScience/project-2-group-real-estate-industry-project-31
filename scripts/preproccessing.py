@@ -2,6 +2,11 @@ import re
 import pandas as pd
 from shapely.geometry import Point
 import geopandas as gpd
+from scipy.interpolate import CubicSpline
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.interpolate import interp1d
+import statsmodels.api as sm
 
 # Function to extract weekly cost
 def extract_weekly_cost(cost_text):
@@ -174,3 +179,231 @@ def check_empty_or_zero(coord_list):
     if isinstance(coord_list, list):
         return len(coord_list) == 0 or '0' in coord_list
     return False
+
+def get_majority_non_na_columns(df):
+    """
+    Function to check if more than 30% of a column in a pandas dataframe is NaN
+    Accepts a pandas dataframe 'pd' as input
+    Returns a list of column names 'columns' that are more than 70% not NaN
+    """
+    columns = []
+    
+    for column in df.columns:
+        non_nan_count = df[column].notna().sum()  # count non NaN
+        total_count = df[column].shape[0]  # total number of values
+        
+        # check if the majority of values are not NaN
+        if non_nan_count > (7 * total_count / 10):
+            columns.append(column)
+    
+    return columns
+
+def extend_data(df, data):
+    """
+    Function to extend range of data to our required years from 2006-2029
+    Accepts a dataframe 'df' with the data that needs to be extended, and a string 'data'
+    representing the name of the data we are extending
+    Displays a scatterplot of our newly extended data and returns a dataframe, 'extended_df',
+    which contains all of our extended data for our desired years
+    """
+    
+    df.replace('-', np.nan, inplace=True) # replace '-' values with NaN
+
+    # extract the columns that have majority not NaN values
+    columns = get_majority_non_na_columns(df)
+    df = df[columns]
+
+    # impute any remaining NaN values with the mean
+    rows_with_nan = df.index[df.isna().any(axis=1)].tolist()
+
+    # Display the result
+    print("\nRows with NaN values:", rows_with_nan)
+
+    df.fillna(df.mean(), inplace=True)
+
+    # create years to be extrapolated from
+    years = np.array(list(df))
+    extended_data = []
+    extended_years = np.arange(2006, 2030, 1)
+
+    # extend the data for each desired year for each SA2 region
+    for index, row in df.iterrows():
+        values = row.values  # get the values for the region
+
+        # set up data for OLS Regression
+        X = sm.add_constant(years)  # add constant term
+        y = values  
+
+        # fit the model
+        model = sm.OLS(y, X).fit()
+
+        # similarly, set up prediciton data
+        extended_X = sm.add_constant(extended_years)  
+
+        extended_values = model.predict(extended_X)
+        
+        extended_data.append(extended_values)
+
+    # convert to dataframe
+    extended_df = pd.DataFrame(extended_data, columns=extended_years, index=df.index)
+
+    # now lets plot out data:
+    sampled_regions = df.sample(n=10, random_state=42)
+
+    # create colours
+    colors = plt.cm.viridis(np.linspace(0, 1, len(sampled_regions)))
+
+    plt.figure(figsize=(10, 6))
+    for color, (index, row) in zip(colors, sampled_regions.iterrows()):
+        # plot extended data
+        plt.plot(extended_years, extended_df.loc[index], color=color, label=index + ' Extended')
+        # plot original data points
+        plt.plot(years, row, 'o', color=color)  
+
+    plt.title(f'Extrapolation of {data} to the years 2006-2029')
+    plt.xlabel('Year')
+    plt.ylabel(f'{data}')
+    plt.xticks(np.arange(2005, 2030, 1), rotation=90)
+    plt.legend(loc='center left', bbox_to_anchor=(1, 0.5), title="Regions")
+
+    plt.grid(True)
+    plt.show()
+
+    return extended_df
+
+def extend_data2(df, data):
+    """
+    Function to extend range of data to our required years from 2006-2029
+    Accepts a dataframe 'df' with the data that needs to be extended, and a string 'data'
+    representing the name of the data we are extending
+    Displays a scatterplot of our newly extended data and returns a dataframe, 'extended_df',
+    which contains all of our extended data for our desired years
+    """
+    
+    df.replace('-', np.nan, inplace=True) # replace '-' values with NaN
+
+    # extract the columns that have majority not NaN values
+    columns = get_majority_non_na_columns(df)
+    df = df[columns]
+
+    # impute any remaining NaN values as 0
+    df.replace(np.nan, 0, inplace=True)
+
+    # create years to be extrapolated from
+    years = np.array(list(df))
+    extended_data = []
+    extended_years = np.arange(2006, 2030, 1)
+
+    # extend the data for each desired year for each SA2 region
+    for index, row in df.iterrows():
+        values = row.values  # get the values for the region
+
+        cs = CubicSpline(years, values, extrapolate=True)  # create a cubic spline with extrapolation feature
+        
+        # extend values out for the years 2006-2029
+        extended_values = cs(extended_years)  
+        
+        # store the results
+        extended_data.append(extended_values)
+
+    # convert to dataframe
+    extended_df = pd.DataFrame(extended_data, columns=extended_years, index=df.index)
+
+    # now lets plot out data:
+    sampled_regions = df.sample(n=10, random_state=42)
+
+    # create colours
+    colors = plt.cm.viridis(np.linspace(0, 1, len(sampled_regions)))
+
+    plt.figure(figsize=(10, 6))
+    for color, (index, row) in zip(colors, sampled_regions.iterrows()):
+        # plot extended data
+        plt.plot(extended_years, extended_df.loc[index], color=color, label=index + ' Extended')
+        # plot original data points
+        plt.plot(years, row, 'o', color=color)  
+
+    plt.title(f'Extrapolation of {data} to the years 2006-2029')
+    plt.xlabel('Year')
+    plt.ylabel(f'{data}')
+    plt.xticks(np.arange(2005, 2030, 1), rotation=90)
+    plt.legend(loc='center left', bbox_to_anchor=(1, 0.5), title="Regions")
+
+    plt.grid(True)
+    plt.show()
+
+    return extended_df
+
+def extend_inflation(df, data):
+    """
+    Function to extend range of data to our required years from 2006-2029
+    Accepts a dataframe 'df' with the data that needs to be extended, and a string 'data'
+    representing the name of the data we are extending
+    Displays a scatterplot of our newly extended data and returns a dataframe, 'extended_df',
+    which contains all of our extended data for our desired years
+    """
+    
+    df.replace('-', np.nan, inplace=True) # replace '-' values with NaN
+
+    # extract the columns that have majority not NaN values
+    columns = get_majority_non_na_columns(df)
+    df = df[columns]
+
+    # impute any remaining NaN values with the mean
+    rows_with_nan = df.index[df.isna().any(axis=1)].tolist()
+
+    # Display the result
+    print("\nRows with NaN values:", rows_with_nan)
+
+    df.fillna(df.mean(), inplace=True)
+
+    # create years to be extrapolated from
+    years = np.array(list(df))
+    extended_data = []
+    extended_years = np.arange(2006, 2030, 1)
+
+    # extend the data for each desired year for each SA2 region
+    for index, row in df.iterrows():
+        values = row.values  # get the values for the region
+
+        # set up data for OLS Regression
+        X = sm.add_constant(years)  # add constant term
+        y = values  
+
+        # fit the model
+        model = sm.OLS(y, X).fit()
+
+        # similarly, set up prediciton data
+        extended_X = sm.add_constant(extended_years)  
+
+        extended_values = model.predict(extended_X)
+        
+        extended_data.append(extended_values)
+
+    # convert to dataframe
+    extended_df = pd.DataFrame(extended_data, columns=extended_years, index=df.index)
+
+    # now lets plot our data
+
+    # create our colours
+    colors = plt.cm.viridis(np.linspace(0, 1, len(extended_df)))
+
+    plt.figure(figsize=(10, 6))
+
+    # Iterate through each row in the DataFrame
+    for color, (index, row) in zip(colors, extended_df.iterrows()):
+        # Plot extended data
+        plt.plot(extended_years, row, color=color, label=index + ' Extended')
+        
+        # Plot original data points if needed (assuming you have original years and data)
+        plt.plot(years, df.loc[index], 'o', color=color)  
+
+    plt.title(f'Extrapolation of {data} to the years 2006-2029')
+    plt.xlabel('Year')
+    plt.ylabel(f'{data}')
+    plt.xticks(np.arange(2006, 2030, 1), rotation=90)
+    plt.legend(loc='center left', bbox_to_anchor=(1, 0.5), title="Inflation Type")
+
+    plt.grid(True)
+    plt.show()
+
+    return extended_df
