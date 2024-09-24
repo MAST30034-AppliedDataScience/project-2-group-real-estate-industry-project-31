@@ -159,7 +159,7 @@ def combine_SA2(df):
     df['point'] = df.apply(lambda row: Point(row['longitude'], row['latitude']), axis=1)
 
     gdf_points = gpd.GeoDataFrame(df, geometry='point', crs='EPSG:4326')
-    gdf_joined = gpd.sjoin(gdf_points, sf, how='left', op='within') # join our SA2 points with all listings
+    gdf_joined = gpd.sjoin(gdf_points, sf, how='left', predicate='within') # join our SA2 points with all listings
     
     # drop all irrelevant columns
     gdf_joined = gdf_joined.drop(['index_right', 'CHG_FLAG21', 'CHG_LBL21',	'SA3_CODE21', 'LOCI_URI21', 'AUS_NAME21', 'AUS_CODE21', 'STE_NAME21', 'STE_CODE21', 'SA3_NAME21', 'SA4_CODE21', 'SA4_NAME21', 'GCC_CODE21'], axis=1)
@@ -167,10 +167,11 @@ def combine_SA2(df):
     return gdf_joined
 
 
-def check_empty_or_zero(coord_list):
+def check_invalid_entries(coord_list):
     """
-    Function to check if a list is empty or contains 0s
+    Function to check if a list is empty, contains '0', or has NaN values.
     """
     if isinstance(coord_list, list):
-        return len(coord_list) == 0 or '0' in coord_list
+        # Check if the list is empty or contains '0' as a string or NaN values
+        return len(coord_list) == 0 or '0' in coord_list or any(pd.isna(coord_list))
     return False
