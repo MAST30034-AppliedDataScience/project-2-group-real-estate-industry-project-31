@@ -122,40 +122,62 @@ def get_batch_distances(df, api_keys, p_lat, p_lon, a_lat, a_lon, batch_size=50)
         coords = [[row[p_lon], row[p_lat]] for _, row in batch.iterrows()] + \
                  [[row[a_lon], row[a_lat]] for _, row in batch.iterrows()]
         
-        try:
-            # ORS Matrix API request for driving distances
-            matrix = client.distance_matrix(
-                locations=coords, 
-                profile='driving-car',
-                metrics=['distance'],
-                sources=list(range(len(batch))),  # Property indices
-                destinations=list(range(len(batch), len(batch)*2))  # Amenity indices
-            )
-            
-            # Get driving distances and append
-            for j in range(len(batch)):
-                distance = matrix['distances'][j][j]  # Property to amenity distance
-                all_distances.append(distance / 1000)  # Convert from meters to kilometers
-        except Exception as e:
-            print(f"Error with batch {i+1}: {e}")
-            if "Rate limit exceeded" in str(e):
-                print("Rate limit exceeded. Waiting for 60 seconds...")
-                time.sleep(60)  # Wait for a minute before retrying
-            else:
-                # Updating the api key index to use the next key
-                current_key += 1
+        # Error handling variables
+        retries = 0  # Track retries for a batch
+        max_retries = 3  # Limit retries to avoid infinite loops
 
-                if current_key >= len(api_keys):
-                    print("All API keys exhausted. Stopping the API calls...")
-                    all_distances.extend([None] * len(batch))  # Append None for failed requests
-                    break  # Exit the loop on other errors
+        while retries < max_retries:
+            try:
+                # ORS Matrix API request for driving distances
+                matrix = client.distance_matrix(
+                    locations=coords, 
+                    profile='driving-car',
+                    metrics=['distance'],
+                    sources=list(range(len(batch))),  # Property indices
+                    destinations=list(range(len(batch), len(batch)*2))  # Amenity indices
+                )
                 
-                print(f"Quota limit exceeded for API key {api_keys[current_key]}")
-                print("Using a new key...")
-        
-                client = Client(key=api_keys[current_key])
+                # Get driving distances and append
+                for j in range(len(batch)):
+                    distance = matrix['distances'][j][j]  # Property to amenity distance
+                    all_distances.append(distance / 1000)  # Convert from meters to kilometers
+                break # Successfully completed this batch, move to next batch
 
-                time.sleep(10) # Adding a small delay before continuing
+            except Exception as e:
+                print(f"Error with batch {(i/batch_size)+1}: {e}")
+
+                # Handle daily limit exceeded
+                if "403" in str(e) and "Quota exceeded" in str(e):
+                    print(f"Quota limit exceeded for API key {api_keys[current_key]}")
+                    current_key += 1  # Switch to the next API key
+
+                    if current_key >= len(api_keys):
+                        print("All API keys exhausted. Stopping the API calls...")
+                        all_distances.extend([None] * len(batch))  # Append None for failed requests
+                        return all_distances  # Exit if all keys are exhausted
+                    
+                    # Set new API key and wait before retrying
+                    client = Client(key=api_keys[current_key])
+                    print("Using a new key... Waiting for 10 seconds before continuing.")
+                    time.sleep(10)
+                    retries += 1  # Increment retries counter
+
+                # Handle rate limit exceeded
+                elif "403" in str(e):
+                    print("Rate limit exceeded. Waiting for 60 seconds...")
+                    time.sleep(60)  # Wait for a minute before retrying
+                    retries += 1  # Increment retries counter
+
+                # Handle other errors (e.g., HTTP 502)
+                else:
+                    print(f"Unhandled error occurred: {e}. Retrying after 10 seconds...")
+                    time.sleep(10)  # Wait before retrying
+                    retries += 1  # Increment retries counter
+
+        # If retries exceeded max_retries, append None for this batch
+        if retries >= max_retries:
+            print(f"Max retries reached for batch {i+1}. Skipping this batch.")
+            all_distances.extend([None] * len(batch))
 
         # Respect the rate limit by adding a delay between batches
         time.sleep(2)  
