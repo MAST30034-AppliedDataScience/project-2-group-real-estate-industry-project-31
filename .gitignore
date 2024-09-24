@@ -132,12 +132,19 @@ dmypy.json
 data/curated/
 data/raw/
 data/landing/*
-data/SA2/
 data/SA1/
 data/socioeconomic/
 !data/landing/postcode_html.txt
 data/population/
 data/homelessness/
 data/socioeconomic/
+data/inflation/
+data/population_dist/
+data/business/
+data/SA2/
+data/income/
+data/unemployment/
+data/community/
+requirements.txt
 # OSX .DS_Store file
 .DS_Store
