@@ -216,10 +216,13 @@ def extend_data(df, data):
     # impute any remaining NaN values with the mean
     rows_with_nan = df.index[df.isna().any(axis=1)].tolist()
 
-    # Display the result
+    # display the result
     print("\nRows with NaN values:", rows_with_nan)
 
     df.fillna(df.mean(), inplace=True)
+
+    # ensure no imputed values are below 0
+    df[df < 0] = 0
 
     # create years to be extrapolated from
     years = np.array(list(df))
@@ -241,14 +244,18 @@ def extend_data(df, data):
         extended_X = sm.add_constant(extended_years)  
 
         extended_values = model.predict(extended_X)
+
+        # ensure no extrapolated values are below 0
+        extended_values[extended_values < 0] = 0
         
         extended_data.append(extended_values)
+
 
     # convert to dataframe
     extended_df = pd.DataFrame(extended_data, columns=extended_years, index=df.index)
 
     # now lets plot out data:
-    sampled_regions = df.sample(n=10, random_state=42)
+    sampled_regions = df.sample(n=10, random_state=13)
 
     # create colours
     colors = plt.cm.viridis(np.linspace(0, 1, len(sampled_regions)))
