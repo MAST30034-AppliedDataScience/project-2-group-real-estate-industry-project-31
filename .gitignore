@@ -145,5 +145,6 @@ data/SA2/
 data/income/
 data/unemployment/
 data/community/
+requirements.txt
 # OSX .DS_Store file
 .DS_Store
