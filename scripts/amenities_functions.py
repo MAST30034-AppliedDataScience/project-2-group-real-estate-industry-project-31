@@ -5,12 +5,10 @@ from scipy.spatial import distance_matrix
 import time
 
 
-def fetch_amentities(api, query):
-
-    # Execute the query
-    result = api.query(query)
-
-    # Extract data into a list
+# Function to fetch amenities from the Overpass API
+def fetch_amenities(api, query):
+    result = api.query(f"[out:json];area[name='Victoria']->.searchArea;({query});out body;")
+    
     amenities_data = []
     for node in result.nodes:
         amenities_data.append({
@@ -21,10 +19,8 @@ def fetch_amentities(api, query):
             "lon": node.lon
         })
 
-    # Convert to DataFrame
-    df_amenities = pd.DataFrame(amenities_data)
+    return pd.DataFrame(amenities_data)
 
-    return df_amenities
 
 # Define a function to choose icons based on amenity type
 def get_icon(amenity):
