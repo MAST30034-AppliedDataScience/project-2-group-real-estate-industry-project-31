@@ -5,12 +5,21 @@ import time
 from openrouteservice import Client
 
 
-# Function to fetch amenities from the Overpass API
-def fetch_amenities(api, query):
-    result = api.query(f"[out:json];area[name='Victoria']->.searchArea;({query});out body;")
+
+def fetch_amenities(api, node_query, way_query):
+    '''
+    Calls an api to the Overpass service to retrieve both the nodes and ways for the 
+    given amenity types and returns a dataframe of each amenity in Victoria
+    '''
     
+    # Extract data into a list
     amenities_data = []
-    for node in result.nodes:
+
+    # Execute the query for the nodes
+    node_results = api.query(f"[out:json];area[name='Victoria']->.searchArea;({node_query});out body;")
+    
+    # Process nodes
+    for node in node_results.nodes:
         amenities_data.append({
             "id": node.id,
             "name": node.tags.get("name", "N/A"),
@@ -19,37 +28,52 @@ def fetch_amenities(api, query):
             "lon": node.lon
         })
 
-    return pd.DataFrame(amenities_data)
+    # Execute the query for the ways
+    way_results = api.query(f"[out:json];area[name='Victoria']->.searchArea;({way_query});(._;>;);out body;")
 
+    # Process ways (calculate centroid from nodes)
+    for way in way_results.ways:
 
-# Define a function to choose icons based on amenity type
-def get_icon(amenity):
-    if amenity == "school":
-        return folium.Icon(color="blue", icon="graduation-cap", prefix="fa")
-    elif amenity == "hospital":
-        return folium.Icon(color="red", icon="plus-square", prefix="fa")
-    elif amenity == "supermarket":
-        return folium.Icon(color="green", icon="shopping-cart", prefix="fa")
-    elif amenity == "park":
-        return folium.Icon(color="darkgreen", icon="tree", prefix="fa")
-    else:
-        return folium.Icon(color="gray", icon="info-sign")
-    
+        way_name = way.tags.get("name", "N/A")
+        if way_name == "N/A":
+            continue  # Skip this way if the name is missing
 
+        node_latitudes = []
+        node_longitudes = []
+        
+        # Iterate over each node in the way
+        for node in way.nodes:
+            node_latitudes.append(node.lat)
+            node_longitudes.append(node.lon)
+        
+        # Calculate centroid (average of latitudes and longitudes)
+        if node_latitudes and node_longitudes:
+            centroid_lat = sum(node_latitudes) / len(node_latitudes)
+            centroid_lon = sum(node_longitudes) / len(node_longitudes)
+            
+            # Append the way data with centroid
+            amenities_data.append({
+                "id": way.id,
+                "name": way_name,
+                "amenity": way.tags.get("amenity"),
+                "lat": centroid_lat,
+                "lon": centroid_lon
+            })
 
-def filter_population_data(pop_data):
-    # Keep only rows where 'SEX' == 'Persons'
-    filtered_data = pop_data[pop_data["SEX"] == "Persons"]
-    
-    # Select only the required columns
-    filtered_data = filtered_data[["YEAR", "SA2_CODE", "SA2_NAME", "Total"]]
-    
-    return filtered_data
+    # Convert to DataFrame
+    df_amenities = pd.DataFrame(amenities_data)
+
+    return df_amenities
 
 
 
 def calculate_closest_amenity(property_df, amenity_df):
+    '''
+    Uses Euclidean distance to compare and find the closest amenity to each 
+    given property and amenity dataframes and adds them to the property_df
+    '''
 
+    # Creates a copy of each dataframe to remove warning
     pdf = property_df.copy()
     adf = amenity_df.copy()
     
@@ -78,10 +102,19 @@ def calculate_closest_amenity(property_df, amenity_df):
 
 
 def get_batch_distances(df, api_keys, p_lat, p_lon, a_lat, a_lon, batch_size=50):
+    '''
+    Makes batch api calls to Open Route Services to calculate the driving distance between
+    each property and amenity pair given, and returns the distances of each pair
+    '''
+
+    # Initialising the return list and api key index
     all_distances = []
     current_key = 0
+
+    # Setting the client to make api calls with the given api key
     client = Client(key=api_keys[current_key])
     
+    # Loops through the dataframe in the size of one batch at a time
     for i in range(0, len(df), batch_size):
         batch = df.iloc[i:i + batch_size]
         
@@ -109,7 +142,7 @@ def get_batch_distances(df, api_keys, p_lat, p_lon, a_lat, a_lon, batch_size=50)
                 print("Rate limit exceeded. Waiting for 60 seconds...")
                 time.sleep(60)  # Wait for a minute before retrying
             else:
-                # Updating the api key index
+                # Updating the api key index to use the next key
                 current_key += 1
 
                 if current_key >= len(api_keys):
@@ -122,13 +155,21 @@ def get_batch_distances(df, api_keys, p_lat, p_lon, a_lat, a_lon, batch_size=50)
         
                 client = Client(key=api_keys[current_key])
 
+                time.sleep(10) # Adding a small delay before continuing
+
         # Respect the rate limit by adding a delay between batches
         time.sleep(2)  
     
     return all_distances
 
 
+
 def get_amenity_distances(property_df, amenity_dfs, api_keys):
+    '''
+    Sets and runs the pipeline to find the closest amenity for each property and uses ORS to find the 
+    driving distance. Returns the dataframe with the distances to the closest amenity
+    '''
+
     # Loop through each amenity type and compute the driving distance
     for amenity_type, amenity_df in amenity_dfs.items():
         print(f"Processing {amenity_type}...")
@@ -154,3 +195,31 @@ def get_amenity_distances(property_df, amenity_dfs, api_keys):
         property_df = property_df.drop(["amenity_lat", "amenity_lon"], axis=1)
     
     return property_df
+
+
+## Functions after this comment were used only for the playground section
+## May need to remove them or relocate them
+
+def get_icon(amenity):
+    if amenity == "school":
+        return folium.Icon(color="blue", icon="graduation-cap", prefix="fa")
+    elif amenity == "hospital":
+        return folium.Icon(color="red", icon="plus-square", prefix="fa")
+    elif amenity == "supermarket":
+        return folium.Icon(color="green", icon="shopping-cart", prefix="fa")
+    elif amenity == "park":
+        return folium.Icon(color="darkgreen", icon="tree", prefix="fa")
+    else:
+        return folium.Icon(color="gray", icon="info-sign")
+    
+
+
+def filter_population_data(pop_data):
+    # Keep only rows where 'SEX' == 'Persons'
+    filtered_data = pop_data[pop_data["SEX"] == "Persons"]
+    
+    # Select only the required columns
+    filtered_data = filtered_data[["YEAR", "SA2_CODE", "SA2_NAME", "Total"]]
+    
+    return filtered_data
+
