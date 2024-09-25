@@ -229,7 +229,6 @@ def get_batch_distances(df, api_keys, p_lat, p_lon, a_lat, a_lon, batch_size=50)
         # Error handling variables
         retries = 0  # Track retries for a batch
         max_retries = 3  # Limit retries to avoid infinite loops
-        success = False  # Track if the batch was successfully processed
 
         while retries < max_retries:
             try:
@@ -246,14 +245,17 @@ def get_batch_distances(df, api_keys, p_lat, p_lon, a_lat, a_lon, batch_size=50)
                 for j in range(len(batch)):
                     distance = matrix['distances'][j][j]  # Property to amenity distance
                     all_distances.append(distance / 1000)  # Convert from meters to kilometers
-                success = True  # Mark batch as successfully processed
                 break # Successfully completed this batch, move to next batch
 
             except Exception as e:
                 print(f"Error with batch {(i/batch_size)+1}: {e}")
 
+                # Handle error in calculation
+                if 'unsupported operand type' in str(e):
+                    print("Cannot complete batch request on this set of properties. Trying something else...")
+                    retries=max_retries
                 # Handle daily limit exceeded
-                if "403" in str(e) and "Quota exceeded" in str(e):
+                elif "403" in str(e) and "Quota exceeded" in str(e):
                     print(f"Quota limit exceeded for API key {api_keys[current_key]}")
                     current_key += 1  # Switch to the next API key
 
@@ -264,8 +266,8 @@ def get_batch_distances(df, api_keys, p_lat, p_lon, a_lat, a_lon, batch_size=50)
                     
                     # Set new API key and wait before retrying
                     client = Client(key=api_keys[current_key])
-                    print("Using a new key... Waiting for 10 seconds before continuing.")
-                    time.sleep(10)
+                    print("Using a new key... Waiting for 5 seconds before continuing.")
+                    time.sleep(5)
                     retries += 1  # Increment retries counter
 
                 # Handle rate limit exceeded
@@ -276,12 +278,12 @@ def get_batch_distances(df, api_keys, p_lat, p_lon, a_lat, a_lon, batch_size=50)
 
                 # Handle other errors (e.g., HTTP 502)
                 else:
-                    print(f"Unhandled error occurred: {e}. Retrying after 10 seconds...")
-                    time.sleep(10)  # Wait before retrying
+                    print(f"Unhandled error occurred: {e}. Retrying after 3 seconds...")
+                    time.sleep(3)  # Wait before retrying
                     retries += 1  # Increment retries counter
 
         # If retries exceeded max_retries, append None for this batch
-        if not success:
+        if retries>=max_retries:
             print(f"Switching to single API calls for batch {i+1}")
             distances = get_single_distances(client, api_keys, current_key, batch, p_lat, p_lon, a_lat, a_lon)
             all_distances.extend(distances)
@@ -290,7 +292,6 @@ def get_batch_distances(df, api_keys, p_lat, p_lon, a_lat, a_lon, batch_size=50)
         time.sleep(2)  
     
     return all_distances
-
 
 
 def get_dist_to_city(property_df, cities_df, api_keys):
