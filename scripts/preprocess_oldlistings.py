@@ -228,8 +228,33 @@ def split_by_gcc(spark):
     rest_of_vic_pd = combined[combined['GCC_NAME21'] == "Rest of Vic."]
     
     
-    greater_melb_pd.to_csv(f"{write_dir}greater_melb_properties_unprocessed.csv")
-    rest_of_vic_pd.to_csv(f"{write_dir}rest_of_vic_properties_unprocessed.csv")
+    greater_melb_pd.to_csv(f"{write_dir}gm_oldlisting.csv")
+    rest_of_vic_pd.to_csv(f"{write_dir}rv_oldlisting.csv")
+    
+    return
+
+def split_domain_by_gcc(spark):
+    read_dir = "../data/raw/all_domain_properties.parquet"
+    out_dir = '../data/raw/domain/'
+    
+    if not os.path.exists(out_dir):
+        os.makedirs(out_dir)
+        
+    sdf = spark.read.parquet(read_dir)
+
+    sdf = sdf.dropDuplicates() 
+    
+    pandas = sdf.toPandas()
+
+    combined = combine_SA2(pandas)
+    combined = combined.drop(['point', 'SA2_NAME21', 'AREASQKM21'], axis=1)
+    
+    greater_melb_pd = combined[combined['GCC_NAME21'] == "Greater Melbourne"]
+    rest_of_vic_pd = combined[combined['GCC_NAME21'] == "Rest of Vic."]
+    
+    
+    greater_melb_pd.to_csv(f"{out_dir}gm_domain.csv", index=False)
+    rest_of_vic_pd.to_csv(f"{out_dir}rv_domain.csv", index=False)
     
     return
     
