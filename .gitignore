@@ -140,6 +140,6 @@ data/population/
 data/homelessness/
 data/socioeconomic/
 data/inflation/
-!data/raw/oldlisting
+
 # OSX .DS_Store file
 .DS_Store
