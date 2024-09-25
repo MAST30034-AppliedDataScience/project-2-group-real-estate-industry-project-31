@@ -5,6 +5,35 @@ import time
 from openrouteservice import Client
 
 
+def get_cities(api, query):
+    '''
+    Fetches the cities given in the query using the Overpass API service
+    and returns the result as a dataframe
+    '''
+
+    # Execute the query
+    result = api.query(query)
+    
+    # Extract the city data into a list
+    city_data = []
+    for node in result.nodes:
+        city_name = node.tags.get("name", "N/A")
+        
+        # Filter out cities with 'Victoria' in their name
+        if "Victoria" not in city_name:
+            city_data.append({
+                "name": city_name,
+                "place_type": node.tags.get("place", "N/A"),
+                "lat": node.lat,
+                "lon": node.lon
+            })
+    
+    # Convert the city data into a Pandas DataFrame
+    df = pd.DataFrame(city_data)
+    
+    return df
+
+
 
 def fetch_amenities(api, node_query, way_query):
     '''
@@ -84,11 +113,11 @@ def calculate_closest_amenity(property_df, amenity_df):
     adf['lon'] = adf['lon'].astype(float)
 
     # Extract lat/lon as numpy arrays
-    domain_coords = pdf[['latitude', 'longitude']].to_numpy()
+    property_coords = pdf[['latitude', 'longitude']].to_numpy()
     amenity_coords = adf[['lat', 'lon']].to_numpy()
     
-    # Calculate distance matrix between all domain properties and the amenity
-    dist_matrix = distance_matrix(domain_coords, amenity_coords)
+    # Calculate distance matrix between all properties and the amenity
+    dist_matrix = distance_matrix(property_coords, amenity_coords)
     
     # Find the index of the minimum distance (closest amenity) for each property
     closest_amenity_indices = dist_matrix.argmin(axis=1)
@@ -186,6 +215,36 @@ def get_batch_distances(df, api_keys, p_lat, p_lon, a_lat, a_lon, batch_size=50)
 
 
 
+def get_dist_to_city(property_df, cities_df, api_keys):
+    '''
+    Sets and runs the pipeline to find the closest city for each property and uses ORS to find the 
+    driving distance. Returns the dataframe with the distances to the closest city
+    '''
+ 
+    # Step 1: Calculate the closest city using Euclidean distance
+    property_df = calculate_closest_amenity(property_df, cities_df)
+
+    # Step 2: Make batch ORS API calls to get driving distances
+    distances = get_batch_distances(
+        property_df, 
+        api_keys, 
+        p_lat='latitude', 
+        p_lon='longitude', 
+        a_lat='amenity_lat', 
+        a_lon='amenity_lon', 
+        batch_size=50
+    )
+
+    # Step 3: Add the driving distance to the DataFrame with the correct column name
+    property_df["dist_to_city"] = distances
+
+    # Step 4: Remove the unneded columns
+    property_df = property_df.drop(["amenity_lat", "amenity_lon"], axis=1)
+
+    return property_df
+
+
+
 def get_amenity_distances(property_df, amenity_dfs, api_keys):
     '''
     Sets and runs the pipeline to find the closest amenity for each property and uses ORS to find the 
@@ -218,30 +277,4 @@ def get_amenity_distances(property_df, amenity_dfs, api_keys):
     
     return property_df
 
-
-## Functions after this comment were used only for the playground section
-## May need to remove them or relocate them
-
-def get_icon(amenity):
-    if amenity == "school":
-        return folium.Icon(color="blue", icon="graduation-cap", prefix="fa")
-    elif amenity == "hospital":
-        return folium.Icon(color="red", icon="plus-square", prefix="fa")
-    elif amenity == "supermarket":
-        return folium.Icon(color="green", icon="shopping-cart", prefix="fa")
-    elif amenity == "park":
-        return folium.Icon(color="darkgreen", icon="tree", prefix="fa")
-    else:
-        return folium.Icon(color="gray", icon="info-sign")
-    
-
-
-def filter_population_data(pop_data):
-    # Keep only rows where 'SEX' == 'Persons'
-    filtered_data = pop_data[pop_data["SEX"] == "Persons"]
-    
-    # Select only the required columns
-    filtered_data = filtered_data[["YEAR", "SA2_CODE", "SA2_NAME", "Total"]]
-    
-    return filtered_data
 
