@@ -129,82 +129,6 @@ def calculate_closest_amenity(property_df, amenity_df):
 
 
 
-def get_single_distances(client, api_keys, current_key, batch, p_lat, p_lon, a_lat, a_lon):
-    '''
-    Makes single API calls to Open Route Services to calculate the driving distance between
-    each property and amenity pair in the batch. Returns the list of distances.
-    '''
-
-    distances = []
-    
-    for _, row in batch.iterrows():
-        # Prepare the coordinates for the property and the amenity
-        prop_coords = (row[p_lon], row[p_lat])
-        amenity_coords = (row[a_lon], row[a_lat])
-
-        retries = 0
-        max_retries = 3
-        success = False
-        
-        while retries < max_retries and not success:
-            try:
-                # Make a single ORS API call to calculate the driving distance
-                route = client.directions(
-                    coordinates=[prop_coords, amenity_coords],
-                    profile='driving-car',
-                    format='json',
-                )
-                
-                # Extract the distance (in meters) and convert to kilometers
-                distance = route['routes'][0]['summary']['distance'] / 1000
-                distances.append(distance)
-                success = True  # Mark as successful
-                
-            except Exception as e:
-                print(f"Error for row {row.name}: {e}")
-                
-                if "404" in str(e) and "2010" in str(e):
-                    print(f"Row {row.name} has no routable point. Appending None.")
-                    distances.append(None)
-                    success = True  # Move on to the next row (no retries for this case)
-                    break  # Exit the retry loop immediately for this specific error
-
-                # Handle daily limit exceeded
-                elif "403" in str(e) and "Quota exceeded" in str(e):
-                    print(f"Quota limit exceeded for API key {api_keys[current_key]}")
-                    current_key += 1  # Switch to the next API key
-
-                    if current_key >= len(api_keys):
-                        print("All API keys exhausted. Stopping the API calls...")
-                        distances.append(None)  # Append None for failed requests
-                        return distances  # Exit if all keys are exhausted
-
-                    # Set new API key and wait before retrying
-                    client = Client(key=api_keys[current_key])
-                    print("Using a new key... Waiting for 10 seconds before continuing.")
-                    time.sleep(3)
-                    retries += 1  # Increment retries counter
-
-                # Handle rate limit exceeded
-                elif "403" in str(e):
-                    print("Rate limit exceeded. Waiting for 60 seconds...")
-                    time.sleep(60)  # Wait for a minute before retrying
-                    retries += 1  # Increment retries counter
-
-                # Handle other errors (e.g., HTTP 502)
-                else:
-                    print(f"Unhandled error occurred: {e}. Retrying after 10 seconds...")
-                    time.sleep(3)  # Wait before retrying
-                    retries += 1  # Increment retries counter
-
-        # If retries exceeded, append None for this pair
-        if not success:
-            distances.append(None)
-    
-    return distances
-
-
-
 def get_batch_distances(df, api_keys, p_lat, p_lon, a_lat, a_lon, batch_size=50):
     '''
     Makes batch api calls to Open Route Services to calculate the driving distance between
@@ -244,7 +168,11 @@ def get_batch_distances(df, api_keys, p_lat, p_lon, a_lat, a_lon, batch_size=50)
                 # Get driving distances and append
                 for j in range(len(batch)):
                     distance = matrix['distances'][j][j]  # Property to amenity distance
-                    all_distances.append(distance / 1000)  # Convert from meters to kilometers
+
+                    if isinstance(distance, (int, float)):
+                        all_distances.append(distance / 1000)  # Convert from meters to kilometers
+                    else:
+                        all_distances.append(None)
                 break # Successfully completed this batch, move to next batch
 
             except Exception as e:
@@ -252,7 +180,7 @@ def get_batch_distances(df, api_keys, p_lat, p_lon, a_lat, a_lon, batch_size=50)
 
                 # Handle error in calculation
                 if 'unsupported operand type' in str(e):
-                    print("Cannot complete batch request on this set of properties. Trying something else...")
+                    print("Cannot complete batch request on this set of properties. Skipping to next batch.\n")
                     retries=max_retries
                 # Handle daily limit exceeded
                 elif "403" in str(e) and "Quota exceeded" in str(e):
@@ -260,13 +188,13 @@ def get_batch_distances(df, api_keys, p_lat, p_lon, a_lat, a_lon, batch_size=50)
                     current_key += 1  # Switch to the next API key
 
                     if current_key >= len(api_keys):
-                        print("All API keys exhausted. Stopping the API calls...")
+                        print("All API keys exhausted. Stopping the API calls...\n")
                         all_distances.extend([None] * len(batch))  # Append None for failed requests
                         return all_distances  # Exit if all keys are exhausted
                     
                     # Set new API key and wait before retrying
                     client = Client(key=api_keys[current_key])
-                    print("Using a new key... Waiting for 5 seconds before continuing.")
+                    print("Using a new key...\nWaiting for 5 seconds before continuing.")
                     time.sleep(5)
                     retries += 1  # Increment retries counter
 
@@ -278,20 +206,20 @@ def get_batch_distances(df, api_keys, p_lat, p_lon, a_lat, a_lon, batch_size=50)
 
                 # Handle other errors (e.g., HTTP 502)
                 else:
-                    print(f"Unhandled error occurred: {e}. Retrying after 3 seconds...")
+                    print(f"Unexpected error occurred: {e}.\nRetrying after 3 seconds...")
                     time.sleep(3)  # Wait before retrying
                     retries += 1  # Increment retries counter
 
         # If retries exceeded max_retries, append None for this batch
         if retries>=max_retries:
-            print(f"Switching to single API calls for batch {i+1}")
-            distances = get_single_distances(client, api_keys, current_key, batch, p_lat, p_lon, a_lat, a_lon)
-            all_distances.extend(distances)
+            print(f"Maximum retries reached for batch {(i/batch_size)+1}, skipping to next batch...\n")
+            all_distances.extend([None] * len(batch))
 
         # Respect the rate limit by adding a delay between batches
         time.sleep(2)  
     
     return all_distances
+
 
 
 def get_dist_to_city(property_df, cities_df, api_keys):
