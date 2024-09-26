@@ -7,43 +7,50 @@ import json
 
 
 def preprocess_olist(spark):
-    read_dir = '../data/landing/oldlisting/oldlisting.parquet'
+    read_dir = '../data/raw/oldlisting/'
     out_dir = '../data/raw/oldlisting/'
-    
     if not os.path.exists(out_dir):
-        os.makedirs(out_dir)
+            os.makedirs(out_dir)
+            
+    DATASETS = ['gm_c+a_oldlisting.csv', 'rv_c+a_oldlisting.csv']
     
-    # Read in dataframe
-    listings_df = spark.read.parquet(read_dir)
-    
-    # Drop Duplicates
-    listings_df = listings_df.dropDuplicates()    
-    # Preprocess dataframe 
+    for region in DATASETS: 
+        
+        
+        # Read in dataframe
+        listings_df = spark.read.options(header='True', inferSchema='True', delimiter=',').csv(f"{read_dir}{region}")
+        listings_df = listings_df.drop("_c0")
+        
+        # Drop Duplicates
+        listings_df = listings_df.dropDuplicates()    
+        # Preprocess dataframe 
 
-
-    listings_df = lowercase_string_attributes(listings_df)
-    
-    # Format suburb name for readability
-    listings_df = listings_df.withColumn("suburb", regexp_replace("suburb", "\+", " "))
-    
-    # Convert dates to mm-yy
-    listings_df = listings_df.withColumn("dates", preprocess_dates(listings_df["dates"]))
-    
-    # Replace NULL values of No. Beds, Baths and parking spaces to 0.0. Remove listings with no beds
-    listings_df = preprocess_bbp(listings_df)
-    
-    # Preprocess address
-    listings_df = preprocess_address(listings_df)
-    
-    # Preprocess house types column
-    listings_df = preprocess_house_type(listings_df)
-    
-    # Convert to weekly cost
-    listings_df = get_weekly_price(listings_df)
-    
-    listings_df.show()
-    
-    listings_df.write.mode("overwrite").parquet(f"{out_dir}oldlisting.parquet")
+        listings_df = lowercase_string_attributes(listings_df)
+        
+        # Format suburb name for readability
+        listings_df = listings_df.withColumn("suburb", regexp_replace("suburb", "\+", " "))
+        
+        # Convert dates to mm-yy
+        listings_df = listings_df.withColumn("dates", preprocess_dates(listings_df["dates"]))
+        
+        # Replace NULL values of No. Beds, Baths and parking spaces to 0.0. Remove listings with no beds
+        listings_df = preprocess_bbp(listings_df)
+        
+        # Preprocess address
+        listings_df = preprocess_address(listings_df)
+        
+        # Preprocess house types column
+        listings_df = preprocess_house_type(listings_df)
+        
+        # Convert to weekly cost
+        listings_df = get_weekly_price(listings_df)
+        
+        listings_df.show()
+        listings_df.printSchema()
+        if region == 'gm_c+a_oldlisting.csv':
+            listings_df.write.option("header",True).mode("overwrite").csv(f"../data/raw/oldlisting/gm_oldlisting_final.csv")
+        else:
+            listings_df.write.option("header",True).mode("overwrite").csv(f"{out_dir}rv_oldlisting_final.csv")
     return
 
 def lowercase_string_attributes(df):
@@ -218,6 +225,7 @@ def split_by_gcc(spark):
     sdf = spark.read.parquet(read_dir)
 
     sdf = sdf.dropDuplicates() 
+    sdf = sdf.dropna(subset=['longitude', 'latitude'])
     
     pandas = sdf.toPandas()
 
@@ -243,6 +251,7 @@ def split_domain_by_gcc(spark):
     sdf = spark.read.parquet(read_dir)
 
     sdf = sdf.dropDuplicates() 
+    sdf = sdf.dropna(subset=['longitude', 'latitude'])
     
     pandas = sdf.toPandas()
 
