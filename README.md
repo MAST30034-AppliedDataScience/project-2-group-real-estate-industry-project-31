@@ -11,7 +11,6 @@
     - Charlie Amad   (1356239)
     - Uma Barnes     (1277919)
 
-
 **Research Goal:** This project aims to ...
 
 
