@@ -130,7 +130,7 @@ dmypy.json
 
 # data
 data/curated/
-data/raw/
+#data/raw/
 data/landing/
 data/SA2/
 data/SA1/
