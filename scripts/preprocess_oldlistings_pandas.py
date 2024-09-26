@@ -1,7 +1,8 @@
+## Python script with functions to aid in preprocessing the oldlisting datasets in csv format ##
+
 from datetime import datetime
 import os
-from pyspark.sql.functions import lower, udf, col, when, explode, from_json, col, regexp_replace, regexp_extract, expr, trim, split, concat, lit, arrays_zip, ltrim
-from pyspark.sql.types import StringType, ArrayType, IntegerType, StructType, StructField, DoubleType
+from pyspark.sql.types import IntegerType
 from scripts.preproccessing import combine_SA2
 import json
 import pandas as pd
@@ -10,57 +11,72 @@ from datetime import datetime
 
 
 
-def preprocess_olist():
-    read_dir = '../data/raw/oldlisting/'
-    out_dir = '../data/raw/oldlisting/'
-    if not os.path.exists(out_dir):
-            os.makedirs(out_dir)
-            
-    DATASETS = ['gm_c+a_oldlisting.csv', 'rv_c+a_oldlisting.csv']
+def preprocess_olist(read_dir, out_dir, datasets):
     
-    for region in DATASETS: 
-        
-        # Read in dataframe
-        listings_df = pd.read_csv(f"{read_dir}{region}")
-        
-        # Drop Duplicates
-        listings_df = listings_df.drop_duplicates()    
-        # Preprocess dataframe 
+    # Applies preprocessing steps to all datasets
+    for i, region in enumerate(datasets):
 
-        listings_df = lowercase_string_attributes(listings_df)
+        print(f"\n{i+1}. Preprocessing {region}...\n")
+            
+        # Step 1: Read in dataframe
+        listings_df = pd.read_csv(f"{read_dir}{region}")
+
+
+        # Step 2: Drops any index columns that were added on when opening and saving dataset previously
+        cols_to_remove = [col for col in listings_df.columns if "Unnamed:" in col]
+        listings_df = listings_df.drop(cols_to_remove, axis=1)
+
+
+        # Step 3: Dropping duplicates rows
+        listings_df = listings_df.drop_duplicates()  # nothing gets dropped but will keep this anyways
         
-        # Format suburb name for readability
+
+        # Step 4: Lowercasing all the values that are strings
+        listings_df = lowercase_string_attributes(listings_df) # only lowercases 3 cols. There are more string cols
+
+
+        # Step 5: Formatting suburb names for readability
         listings_df["suburb"] = listings_df["suburb"].str.replace("+", " ")
-        
-        # Convert dates to yyyy
+
+
+        # Step 6: Converting dates from [yyyy, MM] to [yyyy]
         listings_df['dates'] = listings_df['dates'].apply(preprocess_dates)
-        
-        # Replace NULL values of No. Beds, Baths and parking spaces to 0.0. Remove listings with no beds
+
+
+        # Step 7: Handling incorrect or missing values for no. of beds, baths and parking spaces
         listings_df = preprocess_bbp(listings_df)
-        
-        # Preprocess address
-        listings_df = preprocess_address(listings_df)
-        
-        # Preprocess house types column
+
+
+        # Step 8: Formatting address into "House No., Street Name"
+        listings_df = preprocess_address(listings_df) # need to add 1 more line to remove comma from end of street names
+
+
+        # Step 9: Filtering the house types
         listings_df = preprocess_house_type(listings_df)
-        
-        # Convert to weekly cost
+
+
+        # Step 10: Converting price to weekly cost
         listings_df = get_weekly_price(listings_df)
-        
-        listings_df.show()
-        listings_df.printSchema()
-        
+
+        # These only for spark dataframes??
+        #listings_df.show()
+        #listings_df.printSchema()
+
+        # Saving the finalised dataframes into their respective directories
         if region == 'gm_c+a_oldlisting.csv':
-            listings_df.pd.to_csv(f"{out_dir}gm_oldlisting_final.csv")
+            listings_df.to_csv(f"{out_dir}gm_oldlisting_final.csv", index=False)
         else:
-            listings_df.pd.to_csv(f"{out_dir}rv_oldlisting_final.csv")
+            listings_df.to_csv(f"{out_dir}rv_oldlisting_final.csv", index=False)
+    
     return
+
 
 def lowercase_string_attributes(df):
     df['address'] = df['address'].str.lower()
     df['house_type'] = df['house_type'].str.lower()
     df['suburb'] = df['suburb'].str.lower()
     return df
+
 
 def preprocess_bbp(df):
     df = df.fillna({'baths': 0, 'beds': 0, 'cars': 0})
@@ -69,6 +85,7 @@ def preprocess_bbp(df):
     df[['baths', 'beds', 'cars']] = df[['baths', 'beds', 'cars']].fillna(0)
     df = df.rename(columns={'cars': 'parking'})
     return df[df['beds'] != 0]
+
 
 def preprocess_house_type(df):
     # Remove non-residential listings
@@ -114,6 +131,7 @@ def preprocess_house_type(df):
 
     return df
 
+
 def preprocess_address(listings_df):
     # Use the suburb to create a regex pattern and remove it from the address
     listings_df['address'] = listings_df.apply(lambda row: row['address'].replace(row['suburb'], ''), axis=1)
@@ -122,6 +140,7 @@ def preprocess_address(listings_df):
     listings_df['unit'] = listings_df['address'].apply(lambda x: '/' in x)
 
     return listings_df
+
 
 def get_weekly_price(listings_df):
     # Step 1: Normalize JSON-like strings in 'price_str' and parse them into Python lists
@@ -141,7 +160,7 @@ def get_weekly_price(listings_df):
     # Step 3: Extract price information
     df_flattened['range'] = df_flattened['ind_price_str'].str.extract(range_pattern)[0]
     df_flattened['single_price'] = df_flattened['ind_price_str'].str.extract(price_pattern)[0]
-    df_flattened['suffix'] = df_flattened['ind_price_str'].str.extract(suffix_pattern)[1]
+    df_flattened['suffix'] = df_flattened['ind_price_str'].str.extract(suffix_pattern)[0]
 
     # Step 4: Calculate average price if a range is given, otherwise take the single price
     df_flattened['avg_price'] = np.where(df_flattened['range'].notna(),
@@ -174,6 +193,7 @@ def get_weekly_price(listings_df):
 
     return df_flattened
 
+
 def create_forecast_template(spark):
     read_dir = '../data/raw/oldlisting/oldlisting.parquet'
     out_dir =  '../data/curated/properties.parquet'
@@ -191,6 +211,7 @@ def create_forecast_template(spark):
     template = unique_properties.crossJoin(years_df)
     template.write.mode("overwrite").parquet(out_dir)
     
+
 def split_by_gcc(spark):
     read_dir = "../data/landing/oldlisting/oldlisting.parquet"
     write_dir = '../data/raw/oldlisting/'
@@ -212,6 +233,7 @@ def split_by_gcc(spark):
     rest_of_vic_pd.to_csv(f"{write_dir}rv_oldlisting.csv")
     
     return
+
 
 def split_domain_by_gcc(spark):
     read_dir = "../data/raw/all_domain_properties.parquet"
@@ -238,6 +260,7 @@ def split_domain_by_gcc(spark):
     rest_of_vic_pd.to_csv(f"{out_dir}rv_domain.csv", index=False)
     
     return
+
 
 def preprocess_dates(date_str):
     if not isinstance(date_str, str):
