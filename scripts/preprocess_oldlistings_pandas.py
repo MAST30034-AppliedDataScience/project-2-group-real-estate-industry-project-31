@@ -40,7 +40,7 @@ def preprocess_olist(read_dir, out_dir, datasets):
 
 
         # Step 6: Converting dates from [yyyy, MM] to [yyyy]
-        listings_df['dates'] = listings_df['dates'].apply(preprocess_dates)
+        listings_df["year"] = listings_df['dates'].apply(preprocess_dates)
 
 
         # Step 7: Handling incorrect or missing values for no. of beds, baths and parking spaces
@@ -136,6 +136,9 @@ def preprocess_address(listings_df):
     # Use the suburb to create a regex pattern and remove it from the address
     listings_df['address'] = listings_df.apply(lambda row: row['address'].replace(row['suburb'], ''), axis=1)
     
+    # Remove remaining comma that separates suburb and address
+    listings_df['address'] = listings_df['address'].str.replace(',', '', regex=True)
+    
     # Adding a flag column 'is_unit' to indicate addresses that are units (contains '/')
     listings_df['unit'] = listings_df['address'].apply(lambda x: '/' in x)
 
@@ -147,10 +150,22 @@ def get_weekly_price(listings_df):
     listings_df['price_str'] = listings_df['price_str'].apply(lambda x: json.loads(x.replace("'", '"')))
 
     # Step 2: Explode 'dates' and 'price_str' into row-wise combinations
-    temp = listings_df.apply(lambda row: pd.Series(zip(row['dates'], row['price_str'])), axis=1).stack().reset_index(level=1, drop=True)
-    temp_df = temp.apply(pd.Series)
-    df_flattened = listings_df.join(temp_df)
-    df_flattened.rename(columns={0: 'date', 1: 'ind_price_str'}, inplace=True)
+    df_flattened = listings_df.explode(['dates', 'price_str']).reset_index(drop=True)
+    
+    # Rename exploded columns for clarity
+    df_flattened.rename(columns={'dates': 'date_available', 'price_str': 'ind_price_str'}, inplace=True)
+    
+    # # Step 1: Normalize JSON-like strings in 'price_str' and parse them into Python lists
+    # listings_df['price_str'] = listings_df['price_str'].apply(lambda x: json.loads(x.replace("'", '"')))
+    # listings_df['year'] = listings_df['year'].apply(lambda x: json.loads(x.replace("'", '"'))) 
+    # listings_df['dates'] = listings_df['dates'].apply(lambda x: json.loads(x.replace("'", '"'))) 
+
+    # # Step 2: Explode 'year', 'yyyy-mm', and 'price_str' into row-wise combinations
+    # # Make sure all three columns are lists of the same length for each row before exploding
+    # df_flattened = listings_df.apply(lambda row: row.explode(['year', 'dates', 'price_str'])).reset_index(drop=True)
+
+    # # Rename exploded columns for clarity
+    # df_flattened.rename(columns={'dates': 'date_available', 'price_str': 'ind_price_str'}, inplace=True)
 
     # Define regex patterns
     range_pattern = r'(\$\d{1,3}(?:,\d{3})*|\d+)\s*-\s*(\$\d{1,3}(?:,\d{3})*|\d+)'
@@ -181,16 +196,18 @@ def get_weekly_price(listings_df):
 
     # Step 6: Convert all prices to weekly prices based on the classification
     conversion_factors = {'week': 1, 'month': 4.333, 'year': 52, 'season': 13}
-    df_flattened['weekly_price'] = df_flattened.apply(
+    df_flattened['weekly_cost'] = df_flattened.apply(
         lambda row: row['avg_price'] / conversion_factors.get(row['classification'], np.nan) if row['classification'] in conversion_factors else np.nan,
         axis=1
     )
-
-    # Step 7: Drop intermediate columns and filter out unwanted classifications
-    columns_to_drop = ['range', 'single_price', 'suffix', 'ind_price_str', 'avg_price', 'classification', 'date', 'price_str']
+    
+    # Step 7: If there are properties with multiple listings within a year, take the most recent price 
+    #df_flattened = df_flattened.loc[df_flattened.groupby(['address', 'date_available'])['month'].idxmax()]
+    
+    # Step 8: Drop intermediate columns and filter out unwanted classifications
+    columns_to_drop = ['range', 'single_price', 'suffix', 'ind_price_str', 'avg_price', 'classification']
     df_flattened = df_flattened.drop(columns=columns_to_drop)
-    df_flattened = df_flattened.dropna(subset=['weekly_price'])  # Filter out rows where weekly price could not be calculated
-
+    df_flattened = df_flattened.dropna(subset=['weekly_cost'])  # Filter out rows where weekly price could not be calculated
     return df_flattened
 
 
