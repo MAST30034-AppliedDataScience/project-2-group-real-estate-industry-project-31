@@ -164,7 +164,7 @@ def combine_SA2(df):
     df['point'] = df.apply(lambda row: Point(row['longitude'], row['latitude']), axis=1)
 
     gdf_points = gpd.GeoDataFrame(df, geometry='point', crs='EPSG:4326')
-    gdf_joined = gpd.sjoin(gdf_points, sf, how='left', op='within') # join our SA2 points with all listings
+    gdf_joined = gpd.sjoin(gdf_points, sf, how='left', predicate='within') # join our SA2 points with all listings
     
     # drop all irrelevant columns
     gdf_joined = gdf_joined.drop(['index_right', 'CHG_FLAG21', 'CHG_LBL21',	'SA3_CODE21', 'LOCI_URI21', 'AUS_NAME21', 'AUS_CODE21', 'STE_NAME21', 'STE_CODE21', 'SA3_NAME21', 'SA4_CODE21', 'SA4_NAME21', 'GCC_CODE21'], axis=1)
@@ -488,7 +488,7 @@ def add_data(df):
     values depending on each house's year and SA2 region.
     Accepts 'df' as input, a dataframe of house info. and returns the same dataframe with the 
     external data appended.
-    Relies on 'df' having a 'Year' column with type string.
+    Relies on 'df' having a 'year' column with type string.
     """
     extended_homelessness_df = pd.read_csv('../data/curated/extrapolated_homelessness_data.csv').set_index('SA2_name_2021')
     extended_ave_household_size_df = pd.read_csv('../data/curated/extrapolated_ave_household_size.csv').set_index('SA2_name_2021')
@@ -505,45 +505,47 @@ def add_data(df):
 
 
     extended_dfs = [
-        (extended_homelessness_df, 'Number of Homeless Persons'),
-        (extended_ave_household_size_df, 'Average Household Size'),
-        (extended_business_df, 'Number of Businessess'),
-        (extended_income_df, 'Median Icome'),
-        (extended_median_age_df, 'Median Age'),
-        (extended_median_rent_df, 'Median Weekly Rent'),
-        (extended_percentage_aboriginal_torres_straight_df, 'Percentage Aboriginal or Torres Strait Islander'),
-        (extended_percentage_australian_citizen_df, 'Percentage Australian Citizen'),
-        (extended_percentage_overseas_born_df, 'Percentage Overseas Born'),
-        (extended_percentage_rentals_df, 'Percentage of Rental Properties')
+        (extended_homelessness_df, 'num_homeless_persons'),
+        (extended_ave_household_size_df, 'avg_household_size'),
+        (extended_business_df, 'num_businesses'),
+        (extended_income_df, 'median_income'),
+        (extended_median_age_df, 'median_age'),
+        (extended_median_rent_df, 'median_weekly_rent'),
+        (extended_percentage_aboriginal_torres_straight_df, 'percent_aboriginal_torres_strait_islander'),
+        (extended_percentage_australian_citizen_df, 'percent_au_citizen'),
+        (extended_percentage_overseas_born_df, 'percent_overseas_born'),
+        (extended_percentage_rentals_df, 'percent_rental_properties')
     ]
 
     # Loop through each extended dataframe and merge it with df
     for extended_df, col_name in extended_dfs:
-        # Function to get value or impute mean value for the year if KeyError occurs
-        def get_value_or_mean(sa2_name, year):
-            try:
-                # Attempt to retrieve the value from the extended DataFrame
-                value = extended_df.loc[sa2_name, year]
-                return value
-            except KeyError:
-                # If SA2 region or year is not found, return the mean value for that year
-                mean_value = extended_df[year].mean()
-                return mean_value
-
         # Add the new column to the original DataFrame
-        df[col_name] = df.apply(lambda row: get_value_or_mean(row['SA2_NAME21'], row['Year']), axis=1)
+        df[col_name] = df.apply(lambda row: get_value_or_mean(row['SA2_NAME21'], row['year'], extended_df), axis=1)
 
     # now lets do the same for inflation
     extended_housing_index_df = extended_housing_index_df.stack().reset_index()
-    extended_housing_index_df.columns = ['Metric', "Year", 'Housing Index']
+    extended_housing_index_df.columns = ['Metric', "year", 'housing_index']
     extended_housing_index_df = extended_housing_index_df.drop('Metric', axis=1)
 
-    df = df.merge(extended_housing_index_df, on='Year', how='left')
+    df = df.merge(extended_housing_index_df, on='year', how='left', suffixes=('', '_dup'))
 
     extended_cpi_without_housing_df = extended_cpi_without_housing_df.stack().reset_index()
-    extended_cpi_without_housing_df.columns = ['Metric', "Year", 'CPI Without Housing']
+    extended_cpi_without_housing_df.columns = ['Metric', "year", 'cpi_without_housing']
     extended_cpi_without_housing_df = extended_cpi_without_housing_df.drop('Metric', axis=1)
 
-    df = df.merge(extended_cpi_without_housing_df, on='Year', how='left')
+    df = df.merge(extended_cpi_without_housing_df, on='year', how='left', suffixes=('', '_dup'))
+    # Drop the duplicated columns immediately after each merge
+    df.drop([col for col in df.columns if 'dup' in col], axis=1, inplace=True)
 
     return df
+
+# Function to get value or impute mean value for the year if KeyError occurs
+def get_value_or_mean(sa2_name, year, extended_df):
+    try:
+        # Attempt to retrieve the value from the extended DataFrame
+        value = extended_df.loc[str(sa2_name), str(year)]
+        return value
+    except KeyError:
+        # If SA2 region or year is not found, return the mean value for that year
+        mean_value = extended_df[str(year)].mean()
+        return mean_value
