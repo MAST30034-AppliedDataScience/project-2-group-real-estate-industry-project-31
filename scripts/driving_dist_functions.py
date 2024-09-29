@@ -1,3 +1,6 @@
+## Python script with functions to aid in fetching coordinates of different locations and calulating 
+## their respective driving distaces to each property
+
 import pandas as pd
 from scipy.spatial import distance_matrix
 import time
