@@ -505,7 +505,7 @@ def add_data(df):
     values depending on each house's year and SA2 region.
     Accepts 'df' as input, a dataframe of house info. and returns the same dataframe with the 
     external data appended.
-    Relies on 'df' having a 'year' column with type string.
+    Relies on 'df' having a 'year' column with type string and a 'SA2_NAME21' column.
     """
     extended_homelessness_df = pd.read_csv('../data/curated/extrapolated_homelessness_data.csv').set_index('SA2_name_2021')
     extended_ave_household_size_df = pd.read_csv('../data/curated/extrapolated_ave_household_size.csv').set_index('SA2_name_2021')
