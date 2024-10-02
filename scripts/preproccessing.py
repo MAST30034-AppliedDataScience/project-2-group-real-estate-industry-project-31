@@ -151,6 +151,21 @@ def clean_property_type(df):
 
     return df
 
+def extract_suburb(address):
+    # Split the address by comma
+    parts = address.split(',')
+
+    # If the first part is empty or a number (address), take the second part
+    #if parts[0].strip().isdigit() or not parts[0].strip():
+    if len(parts) > 1:
+        return parts[1].strip()  # Return the second part, stripped of any leading/trailing whitespace
+    elif len(parts) == 1 and parts[0].strip():  # Check if the single part is not just whitespace
+        # Return the part as it is likely the suburb name without additional details
+        return parts[0].strip()
+    else:
+        # If the first part is not empty or purely numerical, return it as the suburb
+        return parts[0].strip()
+
 def combine_SA2(df):
     """
     Accepts a dataframe and column as input. The 'column' input is a string which corresponds to the column name within the dataframe that specifies the coordinates of each listing.
