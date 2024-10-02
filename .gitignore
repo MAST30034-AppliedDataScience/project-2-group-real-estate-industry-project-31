@@ -147,7 +147,7 @@ data/unemployment/
 data/community/
 
 # models
-models
+models/
 
 
 requirements.txt
