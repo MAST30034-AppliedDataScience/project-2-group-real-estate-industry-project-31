@@ -155,18 +155,6 @@ def get_weekly_price(listings_df):
     # Rename exploded columns for clarity
     df_flattened.rename(columns={'dates': 'date_available', 'price_str': 'ind_price_str'}, inplace=True)
     
-    # # Step 1: Normalize JSON-like strings in 'price_str' and parse them into Python lists
-    # listings_df['price_str'] = listings_df['price_str'].apply(lambda x: json.loads(x.replace("'", '"')))
-    # listings_df['year'] = listings_df['year'].apply(lambda x: json.loads(x.replace("'", '"'))) 
-    # listings_df['dates'] = listings_df['dates'].apply(lambda x: json.loads(x.replace("'", '"'))) 
-
-    # # Step 2: Explode 'year', 'yyyy-mm', and 'price_str' into row-wise combinations
-    # # Make sure all three columns are lists of the same length for each row before exploding
-    # df_flattened = listings_df.apply(lambda row: row.explode(['year', 'dates', 'price_str'])).reset_index(drop=True)
-
-    # # Rename exploded columns for clarity
-    # df_flattened.rename(columns={'dates': 'date_available', 'price_str': 'ind_price_str'}, inplace=True)
-
     # Define regex patterns
     range_pattern = r'(\$\d{1,3}(?:,\d{3})*|\d+)\s*-\s*(\$\d{1,3}(?:,\d{3})*|\d+)'
     price_pattern = r'\$?(\d+(?:,\d{3})*|\d+)'
@@ -209,69 +197,59 @@ def get_weekly_price(listings_df):
     df_flattened = df_flattened.drop(columns=columns_to_drop)
     df_flattened = df_flattened.dropna(subset=['weekly_cost'])  # Filter out rows where weekly price could not be calculated
     return df_flattened
-
-
-def create_forecast_template(spark):
-    read_dir = '../data/raw/oldlisting/oldlisting.parquet'
-    out_dir =  '../data/curated/properties.parquet'
-
-    listings_df = spark.read.parquet(read_dir)
-    listings_df = listings_df.drop("date", "weekly_price")
-    print(listings_df.count())
-    unique_properties=  listings_df.dropDuplicates(["address"])
-    print(unique_properties.count())
-    # Create DataFrame of years, to cross join with properties to create template for forecasting 
-    # data 
-    years = [2025, 2026, 2027, 2028, 2029]
-    years_df = spark.createDataFrame(years, IntegerType()).toDF("year")
     
-    template = unique_properties.crossJoin(years_df)
-    template.write.mode("overwrite").parquet(out_dir)
-    
-
-def split_by_gcc(spark):
+def split_by_gcc():
     read_dir = "../data/landing/oldlisting/oldlisting.parquet"
-    write_dir = '../data/raw/oldlisting/'
-    sdf = spark.read.parquet(read_dir)
+    out_dir = '../data/raw/oldlisting/'
+    
+    if not os.path.exists(out_dir):
+        os.makedirs(out_dir)
+        
+    # Read the Parquet file directly into a pandas DataFrame
+    listings_df = pd.read_parquet(read_dir)
 
-    sdf = sdf.dropDuplicates() 
-    sdf = sdf.dropna(subset=['longitude', 'latitude'])
-    
-    pandas = sdf.toPandas()
+    # Drop duplicates
+    listings_df = listings_df.drop_duplicates()
 
-    combined = combine_SA2(pandas)
-    combined = combined.drop(['point', 'SA2_NAME21', 'AREASQKM21'], axis=1)
+    # Drop rows where longitude and latitude are NaN, as this is required later
+    listings_df = listings_df.dropna(subset=['longitude', 'latitude'])
+
+    # Determine whether property is located in Greater Melbourne or Rest of Victoria
+    combined_df = combine_SA2(listings_df)
+    combined_df = combined_df.drop(['point', 'AREASQKM21'], axis=1)
     
-    greater_melb_pd = combined[combined['GCC_NAME21'] == "Greater Melbourne"]
-    rest_of_vic_pd = combined[combined['GCC_NAME21'] == "Rest of Vic."]
+    greater_melb_pd = combined_df[combined_df['GCC_NAME21'] == "Greater Melbourne"]
+    rest_of_vic_pd = combined_df[combined_df['GCC_NAME21'] == "Rest of Vic."]
     
-    
-    greater_melb_pd.to_csv(f"{write_dir}gm_oldlisting.csv")
-    rest_of_vic_pd.to_csv(f"{write_dir}rv_oldlisting.csv")
+    # Save to CSV
+    greater_melb_pd.to_csv(f"{out_dir}gm_oldlisting.csv")
+    rest_of_vic_pd.to_csv(f"{out_dir}rv_oldlisting.csv")
     
     return
 
 
-def split_domain_by_gcc(spark):
+def split_domain_by_gcc():
     read_dir = "../data/raw/all_domain_properties.parquet"
     out_dir = '../data/raw/domain/'
     
     if not os.path.exists(out_dir):
         os.makedirs(out_dir)
-        
-    sdf = spark.read.parquet(read_dir)
+    
+    # Read the Parquet file directly into a pandas DataFrame
+    listings_df = pd.read_parquet(read_dir)
 
-    sdf = sdf.dropDuplicates() 
-    sdf = sdf.dropna(subset=['longitude', 'latitude'])
-    
-    pandas = sdf.toPandas()
+    # Drop duplicates
+    listings_df = listings_df.drop_duplicates()
 
-    combined = combine_SA2(pandas)
-    combined = combined.drop(['point', 'SA2_NAME21', 'AREASQKM21'], axis=1)
+    # Drop rows where longitude and latitude are NaN
+    listings_df = listings_df.dropna(subset=['longitude', 'latitude'])
+
+    # Determine whether property is located in Greater Melbourne or Rest of Victoria
+    combined_df = combine_SA2(listings_df)
+    combined_df = combined_df.drop(['point', 'AREASQKM21'], axis=1)
     
-    greater_melb_pd = combined[combined['GCC_NAME21'] == "Greater Melbourne"]
-    rest_of_vic_pd = combined[combined['GCC_NAME21'] == "Rest of Vic."]
-    
+    greater_melb_pd = combined_df[combined_df['GCC_NAME21'] == "Greater Melbourne"]
+    rest_of_vic_pd = combined_df[combined_df['GCC_NAME21'] == "Rest of Vic."]
     
     greater_melb_pd.to_csv(f"{out_dir}gm_domain.csv", index=False)
     rest_of_vic_pd.to_csv(f"{out_dir}rv_domain.csv", index=False)
