@@ -11,7 +11,7 @@ def get_sa2_names():
     """
 
     # Load shapefile
-    shapefile_path = "../data/SA2/extracted_SA2/SA2_2021_AUST_GDA2020.shp"
+    shapefile_path = "../data/SA2/SA2_extracted/SA2_2021_AUST_GDA2020.shp"
     
     gdf = gpd.read_file(shapefile_path)
     
