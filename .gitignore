@@ -130,7 +130,7 @@ dmypy.json
 
 # data
 data/curated/
-#data/raw/
+data/raw/
 data/landing/*
 data/SA1/
 data/socioeconomic/
@@ -145,6 +145,11 @@ data/SA2/
 data/income/
 data/unemployment/
 data/community/
+
+# models
+models/
+
+
 requirements.txt
 # OSX .DS_Store file
 .DS_Store

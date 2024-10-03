@@ -1,4 +1,7 @@
 import re
+import os
+import json
+from datetime import datetime
 import pandas as pd
 from shapely.geometry import Point
 import geopandas as gpd
@@ -7,6 +10,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.interpolate import interp1d
 import statsmodels.api as sm
+
 
 # Function to extract weekly cost
 def extract_weekly_cost(cost_text):
@@ -77,8 +81,6 @@ def extract_house_details(df):
     df['baths'] = df['baths'].fillna(0).astype(int)
 
     # Extract parking spots (assuming 'parking' is in the format "1 Parking")
-    #df['parking'] = df['parking'].apply(lambda x: int(x.split()[0]) if isinstance(x, str) and x else 0)
-    #df['parking_1'] = df['parking'].apply(lambda x: int(x[0].split()[0]) if isinstance(x, list) and len(x) > 0 else 0)
     df['parking'] = df['parking'].apply(extract_parking)
 
 
@@ -148,6 +150,21 @@ def clean_property_type(df):
     df = df.dropna(subset=['property_type'])
 
     return df
+
+def extract_suburb(address):
+    # Split the address by comma
+    parts = address.split(',')
+
+    # If the first part is empty or a number (address), take the second part
+    #if parts[0].strip().isdigit() or not parts[0].strip():
+    if len(parts) > 1:
+        return parts[1].strip()  # Return the second part, stripped of any leading/trailing whitespace
+    elif len(parts) == 1 and parts[0].strip():  # Check if the single part is not just whitespace
+        # Return the part as it is likely the suburb name without additional details
+        return parts[0].strip()
+    else:
+        # If the first part is not empty or purely numerical, return it as the suburb
+        return parts[0].strip()
 
 def combine_SA2(df):
     """
@@ -488,7 +505,7 @@ def add_data(df):
     values depending on each house's year and SA2 region.
     Accepts 'df' as input, a dataframe of house info. and returns the same dataframe with the 
     external data appended.
-    Relies on 'df' having a 'year' column with type string.
+    Relies on 'df' having a 'year' column with type string and a 'SA2_NAME21' column.
     """
     extended_homelessness_df = pd.read_csv('../data/curated/extrapolated_homelessness_data.csv').set_index('SA2_name_2021')
     extended_ave_household_size_df = pd.read_csv('../data/curated/extrapolated_ave_household_size.csv').set_index('SA2_name_2021')
@@ -502,6 +519,8 @@ def add_data(df):
     extended_percentage_australian_citizen_df = pd.read_csv('../data/curated/extrapolated_percentage_australian_citizen.csv').set_index('SA2_name_2021')
     extended_percentage_overseas_born_df = pd.read_csv('../data/curated/extrapolated_percentage_overseas_born.csv').set_index('SA2_name_2021')
     extended_percentage_rentals_df = pd.read_csv('../data/curated/extrapolated_percentage_rentals.csv').set_index('SA2_name_2021')
+    extended_population_df = pd.read_csv('../data/curated/extrapolated_population.csv')
+    extended_unemployment_df = pd.read_csv('../data/curated/extrapolated_unemployment.csv').set_index('SA2_name_2021')
 
 
     extended_dfs = [
@@ -514,7 +533,9 @@ def add_data(df):
         (extended_percentage_aboriginal_torres_straight_df, 'percent_aboriginal_torres_strait_islander'),
         (extended_percentage_australian_citizen_df, 'percent_au_citizen'),
         (extended_percentage_overseas_born_df, 'percent_overseas_born'),
-        (extended_percentage_rentals_df, 'percent_rental_properties')
+        (extended_percentage_rentals_df, 'percent_rental_properties'),
+        (extended_population_df, 'population'),
+        (extended_unemployment_df, 'percent_unemployed')
     ]
 
     # Loop through each extended dataframe and merge it with df
@@ -549,3 +570,205 @@ def get_value_or_mean(sa2_name, year, extended_df):
         # If SA2 region or year is not found, return the mean value for that year
         mean_value = extended_df[str(year)].mean()
         return mean_value
+    
+
+def split_by_gcc():
+    read_dir = "../data/landing/oldlisting/oldlisting.csv"
+    out_dir = '../data/raw/oldlisting/'
+    
+    if not os.path.exists(out_dir):
+        os.makedirs(out_dir)
+        
+    # Read the Parquet file directly into a pandas DataFrame
+    listings_df = pd.read_csv(read_dir)
+
+    # Drop duplicates
+    listings_df = listings_df.drop_duplicates()
+
+    # Drop rows where longitude and latitude are NaN, as this is required later
+    listings_df = listings_df.dropna(subset=['longitude', 'latitude'])
+
+    # Determine whether property is located in Greater Melbourne or Rest of Victoria
+    combined_df = combine_SA2(listings_df)
+    combined_df = combined_df.drop(['point', 'AREASQKM21'], axis=1)
+    
+    greater_melb_pd = combined_df[combined_df['GCC_NAME21'] == "Greater Melbourne"]
+    rest_of_vic_pd = combined_df[combined_df['GCC_NAME21'] == "Rest of Vic."]
+    
+    # Save to CSV
+    greater_melb_pd.to_csv(f"{out_dir}gm_oldlisting.csv")
+    rest_of_vic_pd.to_csv(f"{out_dir}rv_oldlisting.csv")
+    
+    return
+
+
+def split_domain_by_gcc():
+    read_dir = "../data/raw/all_domain_properties.parquet"
+    out_dir = '../data/raw/domain/'
+    
+    if not os.path.exists(out_dir):
+        os.makedirs(out_dir)
+    
+    # Read the Parquet file directly into a pandas DataFrame
+    listings_df = pd.read_parquet(read_dir)
+
+    # Drop duplicates
+    listings_df = listings_df.drop_duplicates()
+
+    # Drop rows where longitude and latitude are NaN
+    listings_df = listings_df.dropna(subset=['longitude', 'latitude'])
+
+    # Determine whether property is located in Greater Melbourne or Rest of Victoria
+    combined_df = combine_SA2(listings_df)
+    combined_df = combined_df.drop(['point', 'AREASQKM21'], axis=1)
+    
+    greater_melb_pd = combined_df[combined_df['GCC_NAME21'] == "Greater Melbourne"]
+    rest_of_vic_pd = combined_df[combined_df['GCC_NAME21'] == "Rest of Vic."]
+    
+    greater_melb_pd.to_csv(f"{out_dir}gm_domain.csv", index=False)
+    rest_of_vic_pd.to_csv(f"{out_dir}rv_domain.csv", index=False)
+    
+    return
+
+def lowercase_string_attributes(df):
+    df['address'] = df['address'].str.lower()
+    df['house_type'] = df['house_type'].str.lower()
+    df['suburb'] = df['suburb'].str.lower()
+    return df
+
+
+def preprocess_bbp(df):
+    df = df.fillna({'baths': 0, 'beds': 0, 'cars': 0})
+    
+    # Remove listings with 0 beds, 0 baths
+    df[['baths', 'beds', 'cars']] = df[['baths', 'beds', 'cars']].fillna(0)
+    df = df.rename(columns={'cars': 'parking'})
+    return df[df['beds'] != 0]
+
+
+def preprocess_house_type(df):
+    # Remove non-residential listings
+    NON_RESIDENTIAL_HOUSE_TYPES = ["commercial farming", "commercial", "industrial/warehouse",
+                                   "shop(s)", "industrial/warehouse", "lifestyle", 
+                                   "building - warehouse", "hotel/leisure", "retail", "offices", 
+                                   "tourism", "warehouse", "medical/consulting", 
+                                   "medical consulting","cropping", "other-", "holiday",
+                                   "factory, warehouse", "development", "mixed use", 
+                                   "land, warehouse", "land/development", "building",
+                                   "block of flats", "vacant land", "industrial (com)",
+                                   "restaurant/cafe", "industrial", "vacantland", "land"
+                                   ]
+    df = df[~df['house_type'].isin(NON_RESIDENTIAL_HOUSE_TYPES)]
+
+    # Remove acreage, farm related properties as they are not relevant to analysis
+    df = df[~df['house_type'].str.contains('acreage|farm', case=False, na=False)]
+
+    # Apply conditions to modify the 'house_type' column
+    conditions = [
+        df['house_type'].str.contains('semi', case=False, na=False),
+        df['house_type'].str.contains('unit|flat|apartment', case=False, na=False),
+        df['house_type'].str.contains('house', case=False, na=False) & ~df['house_type'].str.contains('townhouse', case=False, na=False),
+        df['house_type'].str.contains('cottage|home', case=False, na=False),
+        df['house_type'].str.contains('residential|rural|alpine|rental|available', case=False, na=False),
+    ]
+    choices = ['duplex', 'unit', 'house', 'house', 'other']
+    df['house_type'] = np.select(conditions, choices, default=df['house_type'])
+
+    # Check if some units were incorrectly classified as other
+    condition = (
+        (df['house_type'] == 'other') &
+        (df['beds'] >= 1) &
+        (df['baths'] >= 1) &
+        pd.notna(df['unit'])
+    )
+    df.loc[condition, 'house_type'] = 'unit'
+
+    # Rename the 'house_type' column to 'property_type' and drop the 'unit' column if exists
+    df = df.rename(columns={'house_type': 'property_type'})
+    if 'unit' in df.columns:
+        df = df.drop(columns='unit')
+
+    return df
+
+
+def preprocess_address(listings_df):
+    # Use the suburb to create a regex pattern and remove it from the address
+    listings_df['address'] = listings_df.apply(lambda row: row['address'].replace(row['suburb'], ''), axis=1)
+    
+    # Remove remaining comma that separates suburb and address
+    listings_df['address'] = listings_df['address'].str.replace(',', '', regex=True)
+    
+    # Adding a flag column 'is_unit' to indicate addresses that are units (contains '/')
+    listings_df['unit'] = listings_df['address'].apply(lambda x: '/' in x)
+
+    return listings_df
+
+
+def get_weekly_price(listings_df):
+    # Step 1: Normalize JSON-like strings in 'price_str' and parse them into Python lists
+    listings_df['price_str'] = listings_df['price_str'].apply(lambda x: json.loads(x.replace("'", '"')))
+
+    # Step 2: Explode 'dates' and 'price_str' into row-wise combinations
+    df_flattened = listings_df.explode(['dates', 'price_str']).reset_index(drop=True)
+    
+    # Rename exploded columns for clarity
+    df_flattened.rename(columns={'dates': 'date_available', 'price_str': 'ind_price_str'}, inplace=True)
+    
+    # Define regex patterns
+    range_pattern = r'(\$\d{1,3}(?:,\d{3})*|\d+)\s*-\s*(\$\d{1,3}(?:,\d{3})*|\d+)'
+    price_pattern = r'\$?(\d+(?:,\d{3})*|\d+)'
+    suffix_pattern = r'\s+([a-zA-Z\s]+)$'
+
+    # Step 3: Extract price information
+    df_flattened['range'] = df_flattened['ind_price_str'].str.extract(range_pattern)[0]
+    df_flattened['single_price'] = df_flattened['ind_price_str'].str.extract(price_pattern)[0]
+    df_flattened['suffix'] = df_flattened['ind_price_str'].str.extract(suffix_pattern)[0]
+
+    # Step 4: Calculate average price if a range is given, otherwise take the single price
+    df_flattened['avg_price'] = np.where(df_flattened['range'].notna(),
+                                         (df_flattened['range'].str.split('-').str[0].replace('[\$,]', '', regex=True).astype(float) +
+                                          df_flattened['range'].str.split('-').str[1].replace('[\$,]', '', regex=True).astype(float)) / 2,
+                                         df_flattened['single_price'].replace('[\$,]', '', regex=True).astype(float))
+
+    # Step 5: Classify price frequency based on the suffix
+    conditions = [
+        df_flattened['suffix'].str.contains('week|pw|wk', case=False, na=False),
+        df_flattened['suffix'].str.contains('month|pcm', case=False, na=False),
+        df_flattened['suffix'].str.contains('annum|pa|annual', case=False, na=False),
+        df_flattened['suffix'].str.contains('season|seasonally', case=False, na=False),
+        (df_flattened['suffix'].isna() | df_flattened['suffix'].str.strip() == '') & (df_flattened['avg_price'] >= 50000)
+    ]
+    choices = ['week', 'month', 'year', 'season', 'sale']
+    df_flattened['classification'] = np.select(conditions, choices, default='other')
+
+    # Step 6: Convert all prices to weekly prices based on the classification
+    conversion_factors = {'week': 1, 'month': 4.333, 'year': 52, 'season': 13}
+    df_flattened['weekly_cost'] = df_flattened.apply(
+        lambda row: row['avg_price'] / conversion_factors.get(row['classification'], np.nan) if row['classification'] in conversion_factors else np.nan,
+        axis=1
+    )
+    
+    # Step 7: If there are properties with multiple listings within a year, take the most recent price 
+    #df_flattened = df_flattened.loc[df_flattened.groupby(['address', 'date_available'])['month'].idxmax()]
+    
+    # Step 8: Drop intermediate columns and filter out unwanted classifications
+    columns_to_drop = ['range', 'single_price', 'suffix', 'ind_price_str', 'avg_price', 'classification']
+    df_flattened = df_flattened.drop(columns=columns_to_drop)
+    df_flattened = df_flattened.dropna(subset=['weekly_cost'])  # Filter out rows where weekly price could not be calculated
+    return df_flattened
+
+def preprocess_dates(date_str):
+    if not isinstance(date_str, str):
+        return ["0000"]
+    try:
+        # Replace single quotes with double quotes to make it valid JSON
+        json_string = date_str.replace("'", '"')
+        # Parse the JSON string to a Python list
+        dates = json.loads(json_string)
+        # Convert each date string to "yyyy" format
+        return [datetime.strptime(date, "%B %Y").strftime("%Y") for date in dates]
+    except json.JSONDecodeError:
+        return ["0000"]
+    except ValueError:
+        return ["0000"]
+
