@@ -11,11 +11,12 @@
     - Charlie Amad   (1356239)
     - Uma Barnes     (1277919)
 
-**Research Goal:** This project aims to ...
+**Research Goal:** Predict rental prices in Victoria using internal and external factors
 
 
 To run this pipeline, please visit the `notebooks` directory and run the files in order:
-1. `datascrape.ipynb`: This ...
+1. `datascrape.ipynb`: This notebook scrapes from domain.com and oldlistings.com.au and scrapes all of our selected external datasets
+2. 
 
 
 
