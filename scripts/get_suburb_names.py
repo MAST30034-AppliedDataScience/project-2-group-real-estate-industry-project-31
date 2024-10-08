@@ -1,3 +1,5 @@
+## Python script
+
 import geopandas as gpd
 import zipfile
 import os
@@ -21,13 +23,11 @@ def extract_zip(zip_path, extract_to):
         zip_ref.extractall(extract_to)
 
 def get_suburb_names():
-    """
+    '''
     This function downloads a shapefile from a URL, extracts it, filters it for Victoria,
     and returns a list of unique suburb names.
-    
-    Returns:
-    list: A list of unique suburb names.
-    """
+    '''
+
     url = 'https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026/access-and-downloads/digital-boundary-files/SAL_2021_AUST_GDA2020_SHP.zip'
     zip_path = '../data/SA1/SA1.zip'
     extract_to = '../data/SA1/extracted_SA1'
@@ -59,6 +59,4 @@ def get_suburb_names():
     
     return suburb_names
 
-# Call the function
-suburb_names = get_suburb_names()
-suburb_names
+
