@@ -1,3 +1,6 @@
+## Python script with functions to help scrape property data from oldlistings.com ##
+
+
 import geopandas as gpd
 import requests
 from bs4 import BeautifulSoup
@@ -7,8 +10,13 @@ import re
 import numpy as np
 import time
 
-def scrape_postcodes():
-    url = "https://www.onlymelbourne.com.au/melbourne-postcodes"
+
+
+def scrape_postcodes(url):
+    '''
+    Retrieves all the postcodes from the given url and saves them as a csv to the 
+    given directory
+    '''
 
     try:
         # Send a request to the URL
@@ -75,6 +83,8 @@ def scrape_postcodes():
             os.makedirs(out_dir)
         df.to_csv(f"{out_dir}postcodes.csv", index=False)
     return 
+
+
 
 def get_oldlisting_data():
     headers = {'User-Agent': (f"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -226,6 +236,8 @@ def get_oldlisting_data():
     oldlisting_df.to_csv(f"{out_dir}oldlisting.csv", index=False)
     return
 
+
+
 def get_remaining_suburbs():
     
     read_dir = "../data/landing/postcodes/postcodes.csv"
@@ -244,7 +256,9 @@ def get_remaining_suburbs():
         os.makedirs(out_dir)
     
     remaining_suburbs_df.to_csv(f"{out_dir}remaining_suburbs.csv", index=False)
-    
+
+
+
 def get_remaining_oldlisting_data():
     headers = {'User-Agent': (f"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                 f"(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0"),
@@ -403,13 +417,18 @@ def get_remaining_oldlisting_data():
         os.makedirs(out_dir)
     combined_data_df.to_csv(f"{out_dir}oldlisting.csv", index=False)
     return
-        
+
+
+
 def prep_suburb_names(suburb_df):
     suburb_df['suburb'] = suburb_df['suburb'].str.replace(' ', '+', regex=False)
     return suburb_df
+
+
 
 def convert_csv_to_parquet():
     oldlisting_dir = '../data/landing/oldlisting/'
     df = pd.read_csv(f"{oldlisting_dir}oldlisting.csv")
     df.to_parquet(f"{oldlisting_dir}oldlisting.parquet")
-    return        
+    return
+

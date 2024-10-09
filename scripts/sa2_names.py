@@ -5,9 +5,6 @@ def get_sa2_names():
     """
     This function loads a shapefile from a predefined path, filters it for Victoria,
     , and returns a list of unique SA2 names.
-    
-    Returns:
-    list: A list of unique SA2 names.
     """
 
     # Load shapefile
