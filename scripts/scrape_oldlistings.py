@@ -87,6 +87,12 @@ def scrape_postcodes(url):
 
 
 def get_oldlisting_data():
+    """
+    DEPRECATED AS OLDLISTINGS HAS CHANGED ITS FORMAT:
+    Scrapes historical property data from oldlistings.com, and saves as a .csv for each property 
+    with the following features: 'suburb', 'postcode', 'address' 'latitude', 'longitude', 'beds', 
+    'baths', 'cars', 'house_type', 'dates', 'price_str'. 
+    """
     headers = {'User-Agent': (f"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                 f"(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0"),
                'referer': "https://www.oldlistings.com.au/"}
@@ -227,39 +233,21 @@ def get_oldlisting_data():
                 print(f"HTTP error occurred: {e}")  # Handle other types of HTTP errors
         except requests.exceptions.RequestException as e:
             print(f"Network-related error occurred: {e}")
-         
-    # DO THIS AFTER THE LOOP WHEN RUNNING FULLSCALE    
+          
     oldlisting_df = pd.DataFrame(properties_list)
     out_dir = "../data/landing/oldlisting/"
     if not os.path.exists(out_dir):
         os.makedirs(out_dir)
     oldlisting_df.to_csv(f"{out_dir}oldlisting.csv", index=False)
     return
-
-
-
-def get_remaining_suburbs():
     
-    read_dir = "../data/landing/postcodes/postcodes.csv"
-    suburbs_df = pd.read_csv(read_dir)
-    suburbs_df = prep_suburb_names(suburbs_df)
-    
-    # Suburb from which to start saving to CSV
-    start_suburb = 'Clayton+South'
-
-    # Filter the DataFrame to include only the specified suburb and all that follow
-    remaining_suburbs_df = suburbs_df[suburbs_df['suburb'] >= start_suburb]
-
-    # Save the filtered DataFrame to a new CSV file
-    out_dir = "../data/landing/oldlisting/"
-    if not os.path.exists(out_dir):
-        os.makedirs(out_dir)
-    
-    remaining_suburbs_df.to_csv(f"{out_dir}remaining_suburbs.csv", index=False)
-
-
-
 def get_remaining_oldlisting_data():
+    """
+    DEPRECATED AS OLDLISTINGS HAS CHANGED ITS FORMAT:
+    Scrapes the remaining suburbs from oldlisting, will save the newly written listing data into a 
+    .csv and automatically update which suburbs are unscraped - function can be rerun multiple times
+    to scrape all data
+    """
     headers = {'User-Agent': (f"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                 f"(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0"),
                'referer': "https://www.oldlistings.com.au/"}
