@@ -11,7 +11,6 @@ sys.path.append("../")
 import overpy
 from shapely.geometry import Point
 
-
 def fetch_amenities(api, node_query, way_query):
     '''
     Calls an api to the Overpass service to retrieve both the nodes and ways for the 
@@ -99,3 +98,9 @@ def merge_ammentity(base_df, ammenity_df, ammenity_name):
     base_df[ammenity_name] = base_df[ammenity_name].fillna(0)
     base_df = base_df.drop('SA2_NAME21', axis=1)
     return base_df
+
+def transform_median_rent(row):
+    if row['median_rent'] and row['median_rent'] != 0:  # Ensure median_rent is not zero or missing
+        return (773 / (row['median_rent'] / 0.30)) * 100
+    # If median_rent is zero or missing, return NaN or a default value
+    return None
