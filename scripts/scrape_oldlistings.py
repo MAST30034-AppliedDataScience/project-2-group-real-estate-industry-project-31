@@ -5,72 +5,76 @@ import pandas as pd
 import os
 import re
 import numpy as np
+import time
 
 def scrape_postcodes():
     url = "https://www.onlymelbourne.com.au/melbourne-postcodes"
 
-    # Send a request to the URL
-    response = requests.get(url)
-    response.raise_for_status()  # Raise an exception for HTTP errors
-    
-    # Parse the content using BeautifulSoup
-    soup = BeautifulSoup(response.text, 'html.parser')
-    
-    # Extract all text and filter those matching the postcode pattern
-    texts = soup.find_all(text=True)
-    postcodes = []
-    suburbs = []
-    
-    for text in texts:
-        stripped_text = text.strip()
-        if stripped_text and stripped_text[:4].isdigit() and " " in stripped_text:  # Check if the text starts with digits and contains a space
-            potential_postcode, potential_suburb = stripped_text.split(" ", 1)  # Split at the first space
-            if potential_postcode.isdigit() and potential_suburb.isalpha():  # Further validation for format
-                postcodes.append(potential_postcode)
-                suburbs.append(potential_suburb)
-
-    # Create a DataFrame from the collected data
-    df = pd.DataFrame({'suburb_name': suburbs, 'postcode': postcodes})
-    out_dir = "../data/landing/postcodes/"
-    if not os.path.exists(out_dir):
-        os.makedirs(out_dir)
-    df.to_csv(f"{out_dir}postcodes.csv")
-    return 
-
-def scrape_postcodes_from_file():
-    file_path = "../data/landing/postcode_html.txt"
-
-    # Open and read the file
-    with open(file_path, 'r', encoding='utf-8') as file:
-        html_content = file.read()
-    
-    # Parse the content using BeautifulSoup
-    soup = BeautifulSoup(html_content, 'html.parser')
-    
-    # Extract all text and filter those matching the postcode pattern
-    texts = soup.find_all(text=True)
-    postcodes = []
-    suburbs = []
-    
-    for text in texts:
-        stripped_text = text.strip()
-        if stripped_text and stripped_text[:4].isdigit() and " " in stripped_text:
-            potential_postcode, potential_suburb = stripped_text.split(" ", 1)
-            if potential_postcode.isdigit():
-                potential_suburb = potential_suburb.strip().replace('.', '').replace(',', '')
-                if all(c.isalpha() or c.isspace() or c.isdigit() or c in ["-", "'", "&"] for c in potential_suburb):
+    try:
+        # Send a request to the URL
+        response = requests.get(url)
+        response.raise_for_status()  # Raise an exception for HTTP errors
+        
+        # Parse the content using BeautifulSoup
+        soup = BeautifulSoup(response.text, 'html.parser')
+        
+        # Extract all text and filter those matching the postcode pattern
+        texts = soup.find_all(text=True)
+        postcodes = []
+        suburbs = []
+        
+        for text in texts:
+            stripped_text = text.strip()
+            # Check if the text starts with digits and contains a space
+            if stripped_text and stripped_text[:4].isdigit() and " " in stripped_text:  
+                # Split at the first space
+                potential_postcode, potential_suburb = stripped_text.split(" ", 1)  
+                # Further validation for format
+                if potential_postcode.isdigit() and potential_suburb.isalpha():  
                     postcodes.append(potential_postcode)
                     suburbs.append(potential_suburb)
 
-    # Create a DataFrame from the collected data
-    df = pd.DataFrame({'suburb': suburbs, 'postcode': postcodes})
-    df = df.drop_duplicates()
+        # Create a DataFrame from the collected data
+        df = pd.DataFrame({'suburb_name': suburbs, 'postcode': postcodes})
+        out_dir = "../data/landing/postcodes/"
+        if not os.path.exists(out_dir):
+            os.makedirs(out_dir)
+        df.to_csv(f"{out_dir}postcodes.csv")
     
-    out_dir = "../data/landing/postcodes/"
-    if not os.path.exists(out_dir):
-        os.makedirs(out_dir)
-    df.to_csv(f"{out_dir}postcodes.csv", index=False)
-    return df
+    except:
+        file_path = "../data/landing/postcode_html.txt"
+
+        # Open and read the file
+        with open(file_path, 'r', encoding='utf-8') as file:
+            html_content = file.read()
+        
+        # Parse the content using BeautifulSoup
+        soup = BeautifulSoup(html_content, 'html.parser')
+        
+        # Extract all text and filter those matching the postcode pattern
+        texts = soup.find_all(text=True)
+        postcodes = []
+        suburbs = []
+        
+        for text in texts:
+            stripped_text = text.strip()
+            if stripped_text and stripped_text[:4].isdigit() and " " in stripped_text:
+                potential_postcode, potential_suburb = stripped_text.split(" ", 1)
+                if potential_postcode.isdigit():
+                    potential_suburb = potential_suburb.strip().replace('.', '').replace(',', '')
+                    if all(c.isalpha() or c.isspace() or c.isdigit() or c in ["-", "'", "&"] for c in potential_suburb):
+                        postcodes.append(potential_postcode)
+                        suburbs.append(potential_suburb)
+
+        # Create a DataFrame from the collected data
+        df = pd.DataFrame({'suburb': suburbs, 'postcode': postcodes})
+        df = df.drop_duplicates()
+        
+        out_dir = "../data/landing/postcodes/"
+        if not os.path.exists(out_dir):
+            os.makedirs(out_dir)
+        df.to_csv(f"{out_dir}postcodes.csv", index=False)
+    return 
 
 def get_oldlisting_data():
     headers = {'User-Agent': (f"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -85,7 +89,6 @@ def get_oldlisting_data():
     # List to hold all property data
     properties_list = []
     for index, suburb in suburbs_df.iterrows():
-        
         suburb_name = suburb['suburb']
         postcode = suburb['postcode']
         print(f"Getting data for {suburb_name}, {postcode}. Suburb {index} of {len(suburbs_df)}")
@@ -115,16 +118,15 @@ def get_oldlisting_data():
             else:
                 print("No listings found. Continuing with other URLS.")
                 return
-            
-            # INSERT LOOP THROUGH PAGES HERE
-            # FOR NOW JUST SCRAPE 1st PAGE
-            
-            for page_num in range(1,num_pages+1):
+
+            # Only iterate through the first 50 pages per suburb maximum
+            for page_num in range(1, min([num_pages + 1, 50])):
+                time.sleep(2)
                 url = \
                     f"https://www.oldlistings.com.au/real-estate/VIC/{suburb_name}/{postcode}/rent/{page_num}"
                 try:
                     # Fetch the webpage
-                    response = requests.get(url_template, headers=headers)
+                    response = requests.get(url, headers=headers)
                     response.raise_for_status()  # Ensure the request was successful
 
                     # Parse the HTML content
@@ -289,15 +291,14 @@ def get_remaining_oldlisting_data():
                 print("No listings found. Continuing with other URLS.")
                 return
             
-            # INSERT LOOP THROUGH PAGES HERE
-            # FOR NOW JUST SCRAPE 1st PAGE
-            
-            for page_num in range(1,num_pages+1):
+
+            for page_num in range(1 , min([num_pages+1, 51])):
+                time.sleep(2)
                 url = \
                     f"https://www.oldlistings.com.au/real-estate/VIC/{suburb_name}/{postcode}/rent/{page_num}"
                 try:
                     # Fetch the webpage
-                    response = requests.get(url_template, headers=headers)
+                    response = requests.get(url, headers=headers)
                     response.raise_for_status()  # Ensure the request was successful
 
                     # Parse the HTML content
