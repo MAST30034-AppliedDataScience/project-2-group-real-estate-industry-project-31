@@ -1,9 +1,6 @@
 ## Python script with functions to aid in preprocessing the oldlisting datasets in csv format ##
 
 from datetime import datetime
-import os
-from pyspark.sql.types import IntegerType
-from scripts.preproccessing import combine_SA2
 import json
 import pandas as pd
 import numpy as np
@@ -197,63 +194,6 @@ def get_weekly_price(listings_df):
     df_flattened = df_flattened.drop(columns=columns_to_drop)
     df_flattened = df_flattened.dropna(subset=['weekly_cost'])  # Filter out rows where weekly price could not be calculated
     return df_flattened
-    
-def split_by_gcc(read_dir, website_name):
-    out_dir = '../data/raw/oldlisting/'
-    
-    if not os.path.exists(out_dir):
-        os.makedirs(out_dir)
-        
-    # Read the Parquet file directly into a pandas DataFrame
-    listings_df = pd.read_csv(read_dir)
-
-    # Drop duplicates
-    listings_df = listings_df.drop_duplicates()
-
-    # Drop rows where longitude and latitude are NaN, as this is required later
-    listings_df = listings_df.dropna(subset=['longitude', 'latitude'])
-
-    # Determine whether property is located in Greater Melbourne or Rest of Victoria
-    combined_df = combine_SA2(listings_df)
-    combined_df = combined_df.drop(['point', 'AREASQKM21'], axis=1)
-    
-    greater_melb_pd = combined_df[combined_df['GCC_NAME21'] == "Greater Melbourne"]
-    rest_of_vic_pd = combined_df[combined_df['GCC_NAME21'] == "Rest of Vic."]
-    
-    # Save to CSV
-    greater_melb_pd.to_csv(f"{out_dir}gm_{website_name}.csv")
-    rest_of_vic_pd.to_csv(f"{out_dir}rv_{website_name}.csv")
-    
-    return
-
-
-def split_domain_by_gcc():
-    read_dir = "../data/raw/all_domain_properties."
-    out_dir = '../data/raw/domain/'
-    
-    if not os.path.exists(out_dir):
-        os.makedirs(out_dir)
-    
-    # Read the Parquet file directly into a pandas DataFrame
-    listings_df = pd.read_parquet(read_dir)
-
-    # Drop duplicates
-    listings_df = listings_df.drop_duplicates()
-
-    # Drop rows where longitude and latitude are NaN
-    listings_df = listings_df.dropna(subset=['longitude', 'latitude'])
-
-    # Determine whether property is located in Greater Melbourne or Rest of Victoria
-    combined_df = combine_SA2(listings_df)
-    combined_df = combined_df.drop(['point', 'AREASQKM21'], axis=1)
-    
-    greater_melb_pd = combined_df[combined_df['GCC_NAME21'] == "Greater Melbourne"]
-    rest_of_vic_pd = combined_df[combined_df['GCC_NAME21'] == "Rest of Vic."]
-    
-    greater_melb_pd.to_csv(f"{out_dir}gm_domain.csv", index=False)
-    rest_of_vic_pd.to_csv(f"{out_dir}rv_domain.csv", index=False)
-    
-    return
 
 
 def preprocess_dates(date_str):
