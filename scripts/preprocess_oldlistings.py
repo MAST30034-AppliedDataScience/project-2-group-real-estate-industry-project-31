@@ -4,7 +4,6 @@ from datetime import datetime
 import json
 import pandas as pd
 import numpy as np
-from datetime import datetime
 
 
 
@@ -237,7 +236,7 @@ def preprocess_dates(date_str):
     Handles the date column of the given dataframe and returns just the dataframe
     with only the year as the value
     '''
-    
+
     if not isinstance(date_str, str):
         return ["0000"]
     try:
