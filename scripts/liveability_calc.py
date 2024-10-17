@@ -1,4 +1,4 @@
-## Python script with functions to help with the livibility calcultions ##
+## Python script with functions to help with the livibility calculations ##
 
 import pandas as pd
 import geopandas as gpd
@@ -26,17 +26,24 @@ def map_amenities_to_sa2(df_amenities, sa2_gdf):
 
 
 def merge_ammentity(base_df, ammenity_df, ammenity_name):
+    '''
+    Adds the given amenities dataframe to the given base dataframe, while renaming the 
+    new column accordingly using the given amenity name
+    '''
 
     base_df = pd.merge(base_df, ammenity_df, left_on='SA2_name_2021', right_on='SA2_NAME21', how='left')
     base_df.rename(columns={'count': ammenity_name}, inplace=True)
     base_df[ammenity_name] = base_df[ammenity_name].fillna(0)
     base_df = base_df.drop('SA2_NAME21', axis=1)
-    
+
     return base_df
 
 
 
 def transform_median_rent(row):
+    '''
+    Calculates the affordibility index using the given row's median rent value if available
+    '''
 
     if row['median_rent'] and row['median_rent'] != 0:  # Ensure median_rent is not zero or missing
         return (773 / (row['median_rent'] / 0.30)) * 100
