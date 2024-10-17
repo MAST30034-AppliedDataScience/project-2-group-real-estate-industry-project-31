@@ -149,6 +149,5 @@ data/community/
 models/
 
 
-requirements.txt
 # OSX .DS_Store file
 .DS_Store
