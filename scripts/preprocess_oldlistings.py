@@ -1,63 +1,88 @@
+## Python script with functions to aid in preprocessing the oldlisting datasets in csv format ##
+
 from datetime import datetime
-import os
-from pyspark.sql.functions import lower, udf, col, when, explode, from_json, col, regexp_replace, regexp_extract, expr, trim, split, concat, lit, arrays_zip, ltrim
-from pyspark.sql.types import StringType, ArrayType
 import json
+import pandas as pd
+import numpy as np
+from datetime import datetime
 
 
-def preprocess_olist(spark):
-    read_dir = '../data/landing/oldlisting/oldlisting.parquet'
-    out_dir = '../data/raw/oldlisting/'
-    
-    if not os.path.exists(out_dir):
-                    os.makedirs(out_dir)
-    
-    # Read in dataframe
-    listings_df = spark.read.parquet(read_dir)
-    
-    # Drop Duplicates
-    listings_df = listings_df.dropDuplicates()    
-    # Preprocess dataframe 
-    
-    listings_df = listings_df.dropDuplicates()
 
-    listings_df = lowercase_string_attributes(listings_df)
+def preprocess_olist(read_dir, out_dir, datasets):
     
-    # Format suburb name for readability
-    listings_df = listings_df.withColumn("suburb", regexp_replace("suburb", "\+", " "))
+    # Applies preprocessing steps to all datasets
+    for i, region in enumerate(datasets):
+
+        print(f"\n{i+1}. Preprocessing {region}...\n")
+            
+        # Step 1: Read in dataframe
+        listings_df = pd.read_csv(f"{read_dir}{region}")
+
+
+        # Step 2: Drops any index columns that were added on when opening and saving dataset previously
+        cols_to_remove = [col for col in listings_df.columns if "Unnamed:" in col]
+        listings_df = listings_df.drop(cols_to_remove, axis=1)
+
+
+        # Step 3: Dropping duplicates rows
+        listings_df = listings_df.drop_duplicates()  # nothing gets dropped but will keep this anyways
+        
+
+        # Step 4: Lowercasing all the values that are strings
+        listings_df = lowercase_string_attributes(listings_df) # only lowercases 3 cols. There are more string cols
+
+
+        # Step 5: Formatting suburb names for readability
+        listings_df["suburb"] = listings_df["suburb"].str.replace("+", " ")
+
+
+        # Step 6: Converting dates from [yyyy, MM] to [yyyy]
+        listings_df["year"] = listings_df['dates'].apply(preprocess_dates)
+
+
+        # Step 7: Handling incorrect or missing values for no. of beds, baths and parking spaces
+        listings_df = preprocess_bbp(listings_df)
+
+
+        # Step 8: Formatting address into "House No., Street Name"
+        listings_df = preprocess_address(listings_df) # need to add 1 more line to remove comma from end of street names
+
+
+        # Step 9: Filtering the house types
+        listings_df = preprocess_house_type(listings_df)
+
+
+        # Step 10: Converting price to weekly cost
+        listings_df = get_weekly_price(listings_df)
+
+        # These only for spark dataframes??
+        #listings_df.show()
+        #listings_df.printSchema()
+
+        # Saving the finalised dataframes into their respective directories
+        if region == 'gm_c+a_oldlisting.csv':
+            listings_df.to_csv(f"{out_dir}gm_oldlisting_final.csv", index=False)
+        else:
+            listings_df.to_csv(f"{out_dir}rv_oldlisting_final.csv", index=False)
     
-    # Convert dates to mm-yy
-    listings_df = listings_df.withColumn("dates", preprocess_dates(listings_df["dates"]))
-    
-    # Replace NULL values of No. Beds, Baths and parking spaces to 0.0. Remove listings with no beds
-    listings_df = preprocess_bbp(listings_df)
-    
-    # Preprocess address
-    listings_df = preprocess_address(listings_df)
-    
-    # Preprocess house types column
-    listings_df = preprocess_house_type(listings_df)
-    
-    # Convert to weekly cost
-    listings_df = get_weekly_price(listings_df)
-    
-    listings_df.show()
-    
-    listings_df.write.parquet(f"{out_dir}oldlisting.parquet")
     return
 
+
 def lowercase_string_attributes(df):
-    df = df.withColumn("address", lower(df["address"]))
-    df = df.withColumn("house_type", lower(df["house_type"]))
-    df = df.withColumn("suburb", lower(df["suburb"]))
+    df['address'] = df['address'].str.lower()
+    df['house_type'] = df['house_type'].str.lower()
+    df['suburb'] = df['suburb'].str.lower()
     return df
 
+
 def preprocess_bbp(df):
-    df = df.fillna({'baths': 0.0, 'beds': 0.0, 'cars': 0.0})
+    df = df.fillna({'baths': 0, 'beds': 0, 'cars': 0})
     
-    # Remove listings with 0 beds 
-    filtered_df = df.filter(col("beds") != 0.0)
-    return filtered_df
+    # Remove listings with 0 beds, 0 baths
+    df[['baths', 'beds', 'cars']] = df[['baths', 'beds', 'cars']].fillna(0)
+    df = df.rename(columns={'cars': 'parking'})
+    return df[df['beds'] != 0]
+
 
 def preprocess_house_type(df):
     # Remove non-residential listings
@@ -71,166 +96,118 @@ def preprocess_house_type(df):
                                    "block of flats", "vacant land", "industrial (com)",
                                    "restaurant/cafe", "industrial", "vacantland", "land"
                                    ]
-    df = df.filter(~col("house_type").isin(NON_RESIDENTIAL_HOUSE_TYPES))
+    df = df[~df['house_type'].isin(NON_RESIDENTIAL_HOUSE_TYPES)]
 
-    # Remove acreage, farm related properties as they are not relevant to anaysis
-    df = df.filter(
-        ~(col("house_type").contains("acreage") | 
-        col("house_type").contains("farm"))
-        )
-    
-    df = df.withColumn(
-            "house_type", 
-            when(col("house_type").contains("semi"), "duplex")
-            .otherwise(
-                when(
-                    col("house_type").contains("unit") | 
-                    col("house_type").contains("flat") |
-                    col("house_type").contains("apartment"), "unit")
-            .otherwise(
-                when(
-                    (col("house_type").contains("house")  & ~col("house_type").contains("townhouse")) |
-                    col("house_type").contains("cottage") |
-                    col("house_type").contains("home"), "house")
-            .otherwise(
-                when(
-                    col("house_type").contains("residential") |
-                    col("house_type").contains("rural") |
-                    col("house_type").contains("alpine") |  
-                    col("house_type").contains("rental") | 
-                    col("house_type").contains("available"), "other")
-            .otherwise(
-                col("house_type"))
-            ))))
-    
-    # Check if some units were incorrectly classified as other 
-    df = df.withColumn("house_type", 
-                   when(
-                       (col("house_type") == "other") &
-                       (col("beds") >= 1) & 
-                       (col("unit").isNotNull()) & 
-                       (col("baths") >= 1), 
-                       "unit")
-                   .otherwise(col("house_type")))
+    # Remove acreage, farm related properties as they are not relevant to analysis
+    df = df[~df['house_type'].str.contains('acreage|farm', case=False, na=False)]
+
+    # Apply conditions to modify the 'house_type' column
+    conditions = [
+        df['house_type'].str.contains('semi', case=False, na=False),
+        df['house_type'].str.contains('unit|flat|apartment', case=False, na=False),
+        df['house_type'].str.contains('house', case=False, na=False) & ~df['house_type'].str.contains('townhouse', case=False, na=False),
+        df['house_type'].str.contains('cottage|home', case=False, na=False),
+        df['house_type'].str.contains('residential|rural|alpine|rental|available', case=False, na=False),
+    ]
+    choices = ['duplex', 'unit', 'house', 'house', 'other']
+    df['house_type'] = np.select(conditions, choices, default=df['house_type'])
+
+    # Check if some units were incorrectly classified as other
+    condition = (
+        (df['house_type'] == 'other') &
+        (df['beds'] >= 1) &
+        (df['baths'] >= 1) &
+        pd.notna(df['unit'])
+    )
+    df.loc[condition, 'house_type'] = 'unit'
+
+    # Rename the 'house_type' column to 'property_type' and drop the 'unit' column if exists
+    df = df.rename(columns={'house_type': 'property_type'})
+    if 'unit' in df.columns:
+        df = df.drop(columns='unit')
 
     return df
 
+
 def preprocess_address(listings_df):
-    # Create a dynamic regex pattern column
-    listings_df = listings_df.withColumn("regex_pattern", concat(lit(r',?\s*\b'), col("suburb"), lit(r'\b')))
-
-    # Use this pattern to replace suburb in the address
-    listings_df = listings_df.withColumn("address", regexp_replace(col("address"), col("regex_pattern"), ""))
+    # Use the suburb to create a regex pattern and remove it from the address
+    listings_df['address'] = listings_df.apply(lambda row: row['address'].replace(row['suburb'], ''), axis=1)
     
-    listings_df = listings_df.drop("regex_pattern")
+    # Remove remaining comma that separates suburb and address
+    listings_df['address'] = listings_df['address'].str.replace(',', '', regex=True)
     
+    # Adding a flag column 'is_unit' to indicate addresses that are units (contains '/')
+    listings_df['unit'] = listings_df['address'].apply(lambda x: '/' in x)
 
-    # Split the address at '/' to separate unit and house number
-    listings_df = listings_df.withColumn("split_address", split(col("address"), "/"))
-
-    # Extract unit and house number, handling cases where no '/' is present
-    listings_df = listings_df.withColumn("unit", when(col("split_address").getItem(1).isNotNull(),
-                                                      col("split_address").getItem(0))
-                                        .otherwise(None))
-    listings_df = listings_df.withColumn("house_number",
-                                         when(col("split_address").getItem(1).isNotNull(),
-                                            split(col("split_address").getItem(1), " ")
-                                            .getItem(0)).otherwise(split(col("split_address")
-                                            .getItem(0), " ").getItem(0)))
-
-    # Optionally, clean up and remove the temporary column
-    listings_df = listings_df.drop("split_address")
-    
-    listings_df = listings_df.withColumn("street_parts", split(col("address"), " "))
-    listings_df = listings_df.withColumn("street_type", expr("street_parts[size(street_parts)-1]"))
-    listings_df = listings_df.withColumn("street_name", expr("concat_ws(' ', slice(street_parts, 1, size(street_parts)-1))"))
-    
-    # Remove numbers from street_name
-    listings_df = listings_df.withColumn("street_name", regexp_replace(col("street_name"), r'\d+', '').alias("clean_street_name"))
-    listings_df = listings_df.withColumn("street_name", regexp_replace(col("street_name"), r'\s+', ' ').alias("clean_street_name"))
-    listings_df = listings_df.withColumn("street_name", ltrim(regexp_replace(col("street_name"), "/", "")))
-
-
-    # Optionally, clean up and remove temporary columns
-    listings_df = listings_df.drop("street_parts", "address")
-    
     return listings_df
 
+
 def get_weekly_price(listings_df):
-    listings_df = listings_df.withColumn("price_str", regexp_replace("price_str", "'", '"'))
+    # Step 1: Normalize JSON-like strings in 'price_str' and parse them into Python lists
+    listings_df['price_str'] = listings_df['price_str'].apply(lambda x: json.loads(x.replace("'", '"')))
 
-    # Define the schema of the array inside the string
-    array_schema = ArrayType(StringType())
-
-    # Convert the string to an actual array using from_json
-    listings_df = listings_df.withColumn("price_str", from_json("price_str", array_schema))
-
-    # Explode the 'costs' array to flatten it
-    df_flattened = listings_df.withColumn("date_price", explode(arrays_zip("dates", "price_str")))
+    # Step 2: Explode 'dates' and 'price_str' into row-wise combinations
+    df_flattened = listings_df.explode(['dates', 'price_str']).reset_index(drop=True)
     
-    # Extract the date and price into separate columns
-    df_flattened = df_flattened.withColumn("date", col("date_price.dates")) \
-                            .withColumn("ind_price_str", col("date_price.price_str"))
-
-    # Drop the struct column as it's no longer needed
-    df_flattened = df_flattened.drop("date_price")
+    # Rename exploded columns for clarity
+    df_flattened.rename(columns={'dates': 'date_available', 'price_str': 'ind_price_str'}, inplace=True)
     
-    # Define patterns
-    range_pattern = r'(\$\d{1,3}(?:,\d{3})*|\d+)\s*-\s*(\$\d{1,3}(?:,\d{3})*|\d+)'  # To correctly capture ranges with or without commas and currency symbols
-    # price_pattern = r'\$?(\d{1,3}(?:,\d{3})*|\d+)'  # To capture single prices
+    # Define regex patterns
+    range_pattern = r'(\$\d{1,3}(?:,\d{3})*|\d+)\s*-\s*(\$\d{1,3}(?:,\d{3})*|\d+)'
     price_pattern = r'\$?(\d+(?:,\d{3})*|\d+)'
-    suffix_pattern = r'\s+([a-zA-Z\s]+)$'  # Capture suffixes that are words at the end of the string
+    suffix_pattern = r'\s+([a-zA-Z\s]+)$'
 
-    df_processed = df_flattened.withColumn("range", regexp_extract("ind_price_str", range_pattern, 0)) \
-                    .withColumn("single_price", regexp_extract("ind_price_str", price_pattern, 0)) \
-                    .withColumn("avg_price", when(col("range") != "",
-                                                (expr("cast(regexp_replace(split(range, '-')[0], '[\$,]', '') as double)") +
-                                                    expr("cast(regexp_replace(split(range, '-')[1], '[\$,]', '') as double)")) / 2)
-                                            .otherwise(expr("cast(regexp_replace(single_price, '[\$,]', '') as double)"))) \
-                    .withColumn("suffix", trim(regexp_extract("ind_price_str", suffix_pattern, 1)))
+    # Step 3: Extract price information
+    df_flattened['range'] = df_flattened['ind_price_str'].str.extract(range_pattern)[0]
+    df_flattened['single_price'] = df_flattened['ind_price_str'].str.extract(price_pattern)[0]
+    df_flattened['suffix'] = df_flattened['ind_price_str'].str.extract(suffix_pattern)[0]
 
-    # Define a classification of suffixes based on keywords
-    df_classified = df_processed.withColumn("classification", 
-                                when(col("suffix") == "", when(col("avg_price") >= 50000, "sale").otherwise("week"))
-                                .when(lower(col("suffix")).rlike("(?<!million)week|pw|wk"), "week")
-                                .when(lower(col("suffix")).rlike("month|pcm"), "month")
-                                .when(lower(col("suffix")).rlike("annum|pa|annual"), "year")
-                                .when(lower(col("suffix")).rlike("season|seasonally"), "season")
-                                .otherwise("other"))
+    # Step 4: Calculate average price if a range is given, otherwise take the single price
+    df_flattened['avg_price'] = np.where(df_flattened['range'].notna(),
+                                         (df_flattened['range'].str.split('-').str[0].replace('[\$,]', '', regex=True).astype(float) +
+                                          df_flattened['range'].str.split('-').str[1].replace('[\$,]', '', regex=True).astype(float)) / 2,
+                                         df_flattened['single_price'].replace('[\$,]', '', regex=True).astype(float))
 
-    df_adjusted = df_classified.withColumn("weekly_price",
-                                when(col("classification") == "week", col("avg_price"))
-                                .when(col("classification") == "month", col("avg_price") / 4.3)
-                                .when(col("classification") == "year", col("avg_price") / 52)
-                                .when(col("classification") == "season", col("avg_price") / 13)
-                                )
+    # Step 5: Classify price frequency based on the suffix
+    conditions = [
+        df_flattened['suffix'].str.contains('week|pw|wk', case=False, na=False),
+        df_flattened['suffix'].str.contains('month|pcm', case=False, na=False),
+        df_flattened['suffix'].str.contains('annum|pa|annual', case=False, na=False),
+        df_flattened['suffix'].str.contains('season|seasonally', case=False, na=False),
+        (df_flattened['suffix'].isna() | df_flattened['suffix'].str.strip() == '') & (df_flattened['avg_price'] >= 50000)
+    ]
+    choices = ['week', 'month', 'year', 'season', 'sale']
+    df_flattened['classification'] = np.select(conditions, choices, default='other')
 
-    # Show results
-    COLS_TO_DROP = ["price_str", "ind_price_str", "range", "single_price", "suffix", "dates", "classification"]
-    df_adjusted = df_adjusted.drop(*COLS_TO_DROP)
+    # Step 6: Convert all prices to weekly prices based on the classification
+    conversion_factors = {'week': 1, 'month': 4.333, 'year': 52, 'season': 13}
+    df_flattened['weekly_cost'] = df_flattened.apply(
+        lambda row: row['avg_price'] / conversion_factors.get(row['classification'], np.nan) if row['classification'] in conversion_factors else np.nan,
+        axis=1
+    )
     
-    df_filtered = df_adjusted.filter(~(col("classification").isin("sale", "other")))
+    # Step 7: If there are properties with multiple listings within a year, take the most recent price 
+    #df_flattened = df_flattened.loc[df_flattened.groupby(['address', 'date_available'])['month'].idxmax()]
     
-    return df_filtered
-    
-@udf(returnType=ArrayType(StringType()))
+    # Step 8: Drop intermediate columns and filter out unwanted classifications
+    columns_to_drop = ['range', 'single_price', 'suffix', 'ind_price_str', 'avg_price', 'classification']
+    df_flattened = df_flattened.drop(columns=columns_to_drop)
+    df_flattened = df_flattened.dropna(subset=['weekly_cost'])  # Filter out rows where weekly price could not be calculated
+    return df_flattened
+
+
 def preprocess_dates(date_str):
-    # print(f" date col: {date_str}")
-    # print(type(date_str))
+    if not isinstance(date_str, str):
+        return ["0000"]
     try:
         # Replace single quotes with double quotes to make it valid JSON
         json_string = date_str.replace("'", '"')
         # Parse the JSON string to a Python list
         dates = json.loads(json_string)
-        # Convert each date string to "mm-yy" format
-        processed_dates = [datetime.strptime(date, "%B %Y").strftime("%m-%y") for date in dates]
-        return processed_dates
+        # Convert each date string to "yyyy" format
+        return [datetime.strptime(date, "%B %Y").strftime("%Y") for date in dates]
     except json.JSONDecodeError:
-        # Return an empty list in case of JSON decode error
-        print("JSON DECODE ERROR")
-        return []
+        return ["0000"]
     except ValueError:
-        # Handle cases where the date format is incorrect
-        print("Format ERROR")
-        return []
+        return ["0000"]
 

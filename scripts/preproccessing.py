@@ -1,3 +1,5 @@
+## Python script with functions to aid in the preprocessing of the domain property data ##
+
 import re
 import os
 import json
@@ -10,6 +12,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.interpolate import interp1d
 import statsmodels.api as sm
+
 
 
 # Function to extract weekly cost
@@ -101,17 +104,20 @@ def extract_parking(parking_list):
             return 0
     return 0
 
+
 def extract_latitude(coordinate):
     if isinstance(coordinate, list) and len(coordinate) == 2:
         return coordinate[0]
     else:
         return None
 
+
 def extract_longitude(coordinate):
     if isinstance(coordinate, list) and len(coordinate) == 2:
         return coordinate[1]
     else:
         return None
+
 
 def clean_property_type(df):
     """
@@ -151,6 +157,7 @@ def clean_property_type(df):
 
     return df
 
+
 def extract_suburb(address):
     # Split the address by comma
     parts = address.split(',')
@@ -165,6 +172,7 @@ def extract_suburb(address):
     else:
         # If the first part is not empty or purely numerical, return it as the suburb
         return parts[0].strip()
+
 
 def combine_SA2(df):
     """
@@ -197,6 +205,7 @@ def check_empty_or_zero(coord_list):
         return len(coord_list) == 0 or '0' in coord_list
     return False
 
+
 def get_majority_non_na_columns(df):
     """
     Function to check if more than 30% of a column in a pandas dataframe is NaN
@@ -214,6 +223,7 @@ def get_majority_non_na_columns(df):
             columns.append(column)
     
     return columns
+
 
 def extend_data(df, data):
     """
@@ -295,6 +305,7 @@ def extend_data(df, data):
 
     return extended_df
 
+
 def extend_data2(df, data):
     """
     Function to extend range of data to our required years from 2006-2029
@@ -356,6 +367,7 @@ def extend_data2(df, data):
     plt.show()
 
     return extended_df
+
 
 def extend_inflation(df, data):
     """
@@ -432,6 +444,7 @@ def extend_inflation(df, data):
 
     return extended_df
 
+
 def extend_percentage(df, data):
     """
     Function to extend range of data to our required years from 2006-2029
@@ -499,6 +512,7 @@ def extend_percentage(df, data):
 
     return extended_df
 
+
 def add_data(df):
     """
     Function created to add external datasets to our houses dataframes, inputting the correct
@@ -560,6 +574,7 @@ def add_data(df):
 
     return df
 
+
 # Function to get value or impute mean value for the year if KeyError occurs
 def get_value_or_mean(sa2_name, year, extended_df):
     try:
@@ -572,15 +587,13 @@ def get_value_or_mean(sa2_name, year, extended_df):
         return mean_value
     
 
-def split_by_gcc():
-    read_dir = "../data/landing/oldlisting/oldlisting.csv"
-    out_dir = '../data/raw/oldlisting/'
-    
+def split_by_gcc(listings_df, output_dir, data_name):
+
+    out_dir = f"{output_dir}/{data_name}/"
+
+    # Creates the directory if it doesn't already exist    
     if not os.path.exists(out_dir):
         os.makedirs(out_dir)
-        
-    # Read the Parquet file directly into a pandas DataFrame
-    listings_df = pd.read_csv(read_dir)
 
     # Drop duplicates
     listings_df = listings_df.drop_duplicates()
@@ -596,39 +609,11 @@ def split_by_gcc():
     rest_of_vic_pd = combined_df[combined_df['GCC_NAME21'] == "Rest of Vic."]
     
     # Save to CSV
-    greater_melb_pd.to_csv(f"{out_dir}gm_oldlisting.csv")
-    rest_of_vic_pd.to_csv(f"{out_dir}rv_oldlisting.csv")
+    greater_melb_pd.to_csv(f"{out_dir}/gm_{data_name}.csv")
+    rest_of_vic_pd.to_csv(f"{out_dir}/rv_{data_name}.csv")
     
     return
 
-
-def split_domain_by_gcc():
-    read_dir = "../data/raw/all_domain_properties.parquet"
-    out_dir = '../data/raw/domain/'
-    
-    if not os.path.exists(out_dir):
-        os.makedirs(out_dir)
-    
-    # Read the Parquet file directly into a pandas DataFrame
-    listings_df = pd.read_parquet(read_dir)
-
-    # Drop duplicates
-    listings_df = listings_df.drop_duplicates()
-
-    # Drop rows where longitude and latitude are NaN
-    listings_df = listings_df.dropna(subset=['longitude', 'latitude'])
-
-    # Determine whether property is located in Greater Melbourne or Rest of Victoria
-    combined_df = combine_SA2(listings_df)
-    combined_df = combined_df.drop(['point', 'AREASQKM21'], axis=1)
-    
-    greater_melb_pd = combined_df[combined_df['GCC_NAME21'] == "Greater Melbourne"]
-    rest_of_vic_pd = combined_df[combined_df['GCC_NAME21'] == "Rest of Vic."]
-    
-    greater_melb_pd.to_csv(f"{out_dir}gm_domain.csv", index=False)
-    rest_of_vic_pd.to_csv(f"{out_dir}rv_domain.csv", index=False)
-    
-    return
 
 def lowercase_string_attributes(df):
     df['address'] = df['address'].str.lower()
@@ -756,6 +741,7 @@ def get_weekly_price(listings_df):
     df_flattened = df_flattened.drop(columns=columns_to_drop)
     df_flattened = df_flattened.dropna(subset=['weekly_cost'])  # Filter out rows where weekly price could not be calculated
     return df_flattened
+
 
 def preprocess_dates(date_str):
     if not isinstance(date_str, str):
