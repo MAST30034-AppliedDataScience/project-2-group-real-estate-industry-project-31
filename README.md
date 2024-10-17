@@ -23,10 +23,9 @@ To run this pipeline, please visit the `notebooks` directory and run the files i
 
 *(the remaining steps can be done in any order as they each serve a unique purpose)*
 
-5. `predictions.ipynb`: This notebook predicts future rental prices for properties across all regions in Victoria.
-6. `predicting_region_growth.ipynb`: This notebook models median rental price and predicts the growth rate of each SA2 region within Victoria.
-7. `liveability_calculations.ipynb`: 
-8. `affordability.ipynb`: 
+5. `predicting_region_growth.ipynb`: This notebook models median rental price and predicts the growth rate of each SA2 region within Victoria.
+6. `liveability_calculations.ipynb`: This notebook considers all the suburb specific metrics we found and uses them to find the liveability scores of each SA2 region in Victoria. (~1.5 hr runtime also due to the ORS API calls)
+7. `affordability.ipynb`: 
 
 
 
