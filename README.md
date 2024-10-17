@@ -16,15 +16,17 @@ Predict rental prices in Victoria using *internal* and *external* factors to pro
 
 
 To run this pipeline, please visit the `notebooks` directory and run the files in order:
-1. `datascrape.ipynb`: This notebook scrapes from domain.com and oldlistings.com.au and scrapes all of our selected external datasets 
-(~1.5 hr runtime)
-2. `preprocessing.ipynb`: This notebook preprocesses the domain and oldlisting datasets, conducting feature engineering and also splits both datasets by Greater Melbourne and Rest of Victoria. It also combines them into a single dataset (~2.5hrs runtime due to ORS API calls)
-3. `external_data_preprocessing.ipynb`: This notebook preprocesses the external datasets and produces forecasts for the desired years (~5 min runtime)
-4. `modelling_properties.ipynb`: This notebook produces the 4 main models for predicting rental prices across Victoria. Models include one random-forest and one linear regression for both Greater Melbourne and the rest of Vic (~30 min runtime)
+1. `datascrape.ipynb`: This notebook scrapes from domain.com and oldlistings.com.au and scrapes all of our selected external datasets. (~1.5 hr runtime)
+2. `preprocessing.ipynb`: This notebook preprocesses the domain and oldlisting datasets, conducting feature engineering and also splits both datasets by Greater Melbourne and Rest of Victoria. It also combines them into a single dataset. (~2.5hrs runtime due to ORS API calls. You will need to include your own API key from the ORS website)
+3. `external_data_preprocessing.ipynb`: This notebook preprocesses the external datasets and produces forecasts for the next five years. (~5 min runtime)
+4. `modelling_properties.ipynb`: This notebook produces the 4 main models for predicting rental prices across Victoria. Models include one random-forest and one linear regression for both Greater Melbourne and the rest of Vic. (~30 min runtime)
 
 *(the remaining steps can be done in any order as they each serve a unique purpose)*
 
-5. 
+5. `predictions.ipynb`: This notebook predicts future rental prices for properties across all regions in Victoria.
+6. `predicting_region_growth.ipynb`: This notebook models median rental price and predicts the growth rate of each SA2 region within Victoria.
+7. `liveability_calculations.ipynb`: 
+8. `affordability.ipynb`: 
 
 
 
