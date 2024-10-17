@@ -1,7 +1,5 @@
 ## Python script with functions to help scrape property data from oldlistings.com ##
 
-
-import geopandas as gpd
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
@@ -93,6 +91,8 @@ def get_oldlisting_data():
     with the following features: 'suburb', 'postcode', 'address' 'latitude', 'longitude', 'beds', 
     'baths', 'cars', 'house_type', 'dates', 'price_str'. 
     """
+
+    # Need this header to access the data
     headers = {'User-Agent': (f"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                 f"(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0"),
                'referer': "https://www.oldlistings.com.au/"}
@@ -241,6 +241,8 @@ def get_oldlisting_data():
     oldlisting_df.to_csv(f"{out_dir}oldlisting.csv", index=False)
     return
     
+
+
 def get_remaining_oldlisting_data():
     """
     DEPRECATED AS OLDLISTINGS HAS CHANGED ITS FORMAT:
@@ -248,6 +250,8 @@ def get_remaining_oldlisting_data():
     .csv and automatically update which suburbs are unscraped - function can be rerun multiple times
     to scrape all data
     """
+
+    # Need this header to access the data
     headers = {'User-Agent': (f"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                 f"(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0"),
                'referer': "https://www.oldlistings.com.au/"}
@@ -409,14 +413,11 @@ def get_remaining_oldlisting_data():
 
 
 def prep_suburb_names(suburb_df):
+    '''
+    Helper function that handles the formatting of the given
+    suburb value
+    '''
+
     suburb_df['suburb'] = suburb_df['suburb'].str.replace(' ', '+', regex=False)
     return suburb_df
-
-
-
-def convert_csv_to_parquet():
-    oldlisting_dir = '../data/landing/oldlisting/'
-    df = pd.read_csv(f"{oldlisting_dir}oldlisting.csv")
-    df.to_parquet(f"{oldlisting_dir}oldlisting.parquet")
-    return
 

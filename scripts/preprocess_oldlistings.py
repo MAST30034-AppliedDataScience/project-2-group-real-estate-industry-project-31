@@ -9,6 +9,10 @@ from datetime import datetime
 
 
 def preprocess_olist(read_dir, out_dir, datasets):
+    '''
+    This function applies all the necessary steps to preprocess the property
+    data from oldlistings.com
+    '''
     
     # Applies preprocessing steps to all datasets
     for i, region in enumerate(datasets):
@@ -68,14 +72,26 @@ def preprocess_olist(read_dir, out_dir, datasets):
     return
 
 
+
 def lowercase_string_attributes(df):
+    '''
+    Returns the given dataframe with the address, house_type and suburb
+    values all lowercased
+    '''
+
     df['address'] = df['address'].str.lower()
     df['house_type'] = df['house_type'].str.lower()
     df['suburb'] = df['suburb'].str.lower()
     return df
 
 
+
 def preprocess_bbp(df):
+    '''
+    Handles the missing values of the beds, baths and parking columns
+    of the given dataframe and returns the cleaned dataframe
+    '''
+
     df = df.fillna({'baths': 0, 'beds': 0, 'cars': 0})
     
     # Remove listings with 0 beds, 0 baths
@@ -84,7 +100,13 @@ def preprocess_bbp(df):
     return df[df['beds'] != 0]
 
 
+
 def preprocess_house_type(df):
+    '''
+    Handles the house type feature of the given dataframe and returns the cleaned
+    and prepared dataframe
+    '''
+
     # Remove non-residential listings
     NON_RESIDENTIAL_HOUSE_TYPES = ["commercial farming", "commercial", "industrial/warehouse",
                                    "shop(s)", "industrial/warehouse", "lifestyle", 
@@ -96,6 +118,7 @@ def preprocess_house_type(df):
                                    "block of flats", "vacant land", "industrial (com)",
                                    "restaurant/cafe", "industrial", "vacantland", "land"
                                    ]
+    
     df = df[~df['house_type'].isin(NON_RESIDENTIAL_HOUSE_TYPES)]
 
     # Remove acreage, farm related properties as they are not relevant to analysis
@@ -129,7 +152,13 @@ def preprocess_house_type(df):
     return df
 
 
+
 def preprocess_address(listings_df):
+    '''
+    Handles the address column of the given dataframe and returns the 
+    processed dataframe
+    '''
+
     # Use the suburb to create a regex pattern and remove it from the address
     listings_df['address'] = listings_df.apply(lambda row: row['address'].replace(row['suburb'], ''), axis=1)
     
@@ -142,7 +171,13 @@ def preprocess_address(listings_df):
     return listings_df
 
 
+
 def get_weekly_price(listings_df):
+    '''
+    Converts the price column into weekly price for the given dataframe
+    and then returns the processed dataframe
+    '''
+
     # Step 1: Normalize JSON-like strings in 'price_str' and parse them into Python lists
     listings_df['price_str'] = listings_df['price_str'].apply(lambda x: json.loads(x.replace("'", '"')))
 
@@ -196,7 +231,13 @@ def get_weekly_price(listings_df):
     return df_flattened
 
 
+
 def preprocess_dates(date_str):
+    '''
+    Handles the date column of the given dataframe and returns just the dataframe
+    with only the year as the value
+    '''
+    
     if not isinstance(date_str, str):
         return ["0000"]
     try:

@@ -1,4 +1,4 @@
-############################# IMPORT NECCESSARY LIBRARIES #############################
+## Python script with the functions necessary to scrape the rental property data from domain.com ##
 
 import re
 from tqdm import tqdm
@@ -11,12 +11,13 @@ import numpy as np
 from urllib.parse import urlparse, parse_qs
 
 
-############################# FINDING ALL THE RENTAL URLS #############################
+############################## FUNCTIONS TO FIND ALL THE RENTAL URLS ##############################
 
 def fetch_links_for_price_range(baseurl, price_range, page):
     '''
     Fetches the links from a given page for a specific price range.
     '''
+    
     url = f"{baseurl}/rent/?price={price_range}&excludedeposittaken=1&sort=price-asc&state=vic&page={page}"
     print(f"Fetching {url}")
     
@@ -41,11 +42,14 @@ def fetch_links_for_price_range(baseurl, price_range, page):
     
     return links
 
+
+
 def generate_url_list(baseurl):
     '''
-    Generating a list of VIC property urls that uses threading to fetch multiple pages 
+    Generates a list of VIC property urls that uses threading to fetch multiple pages 
     concurrently for each price range.
     '''
+
     print("\nGenerating the list of links...\n")
     url_links = []
     min_price = 150
@@ -116,14 +120,13 @@ def generate_url_list(baseurl):
     return url_links
 
 
-
-############################# FETCHING THE DATA FOR EACH RENTAL #############################
-
+######################### FUNCTIONS TO FETCH ALL THE DATA FOR EACH RENTAL #########################
 
 def fetch_rental_data(property_url, property_metadata):
     '''
-    Fetch the rental data of interest for a particular property
+    Fetches the rental data of interest for a particular property
     '''
+
     headers = {'User-Agent': "PostmanRuntime/7.6.0"} # Define headers to mimic a browser request
     try:
         # Send a GET request to the property URL
@@ -217,10 +220,12 @@ def fetch_rental_data(property_url, property_metadata):
         print(f"Issue with {property_url}: {e}")
 
 
+
 def fetch_all_rental_data(url_links):
     '''
-    Fetch all the data for rentals in VIC using parallelisation
+    Fetches all the data for rentals in VIC using parallelisation
     '''
+
     property_metadata = defaultdict(dict) # Initialise a dictionary
 
     # Use ThreadPoolExecutor to fetch property data concurrently
