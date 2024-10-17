@@ -12,7 +12,7 @@
     - Uma Barnes     (1277919)
 
 **Project Goal:** 
-Predict rental prices in Victoria using internal and external factors to provide a service for rental property investors by informing their decision for future rental property investments.
+Predict rental prices in Victoria using *internal* and *external* factors to provide a service for rental property investors by informing their decision for future rental property investments.
 
 
 To run this pipeline, please visit the `notebooks` directory and run the files in order:
