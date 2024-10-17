@@ -15,8 +15,10 @@
 
 
 To run this pipeline, please visit the `notebooks` directory and run the files in order:
-1. `datascrape.ipynb`: This notebook scrapes from domain.com and oldlistings.com.au and scrapes all of our selected external datasets
-2. 
+1. `datascrape.ipynb`: This notebook scrapes from domain.com and oldlistings.com.au and scrapes all of our selected external datasets 
+(~1.5 hr runtime)
+2. `preprocessing.ipynb`: This notebook preprocesses the domain and oldlisting datasets, conducting feature engineering and also splits both datasets by Greater Melbourne and Rest of Victoria. It also combines them into a single dataset (~2.5hrs runtime due to ORS API calls)
+3. `external_data_preprocessing.ipynb`: 
 
 
 
