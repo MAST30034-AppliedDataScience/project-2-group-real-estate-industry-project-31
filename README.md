@@ -14,6 +14,13 @@
 **Project Goal:** 
 Predict rental prices in Victoria using *internal* and *external* factors to provide a service for rental property investors by informing their decision for future rental property investments.
 
+## Overview & Summary
+
+To view a summary of the approach and findings from this project, ensure that you have the plots stored in the `plots` folder. The plots have been uploaded to this repository and can be accessed from the remote repo.
+
+If that is complete, then visit the `notebooks` directory and run the `summary_notebook.ipynb`.
+
+## Project Pipeline
 
 To run this pipeline, please ensure your environment satisfies the requirements in the `requirements.txt` file. If that is complete, then visit the `notebooks` directory and run the files in order:
 1. `datascrape.ipynb`: This notebook scrapes from domain.com and oldlistings.com.au and scrapes all of our selected external datasets. (~1.5 hr runtime)
@@ -26,4 +33,3 @@ To run this pipeline, please ensure your environment satisfies the requirements 
 5. `predicting_region_growth.ipynb`: This notebook models median rental price and predicts the growth rate of each SA2 region within Victoria.
 6. `liveability_calculations.ipynb`: This notebook considers all the suburb specific metrics we found and uses them to find the liveability scores of each SA2 region in Victoria.
 7. `affordability.ipynb`: This notebook calculates the affordability of each SA2 region within Victoria by both the region as a whole and by household type.
-
